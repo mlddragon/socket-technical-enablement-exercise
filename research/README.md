@@ -2,6 +2,7 @@
 
 - [sources.md](sources.md): indexed, dated authoritative and public sources.
 - [discord-enablement-themes-2026.md](discord-enablement-themes-2026.md): anonymized May–November Discord research themes and training opportunities.
+- [Detailed Discord report (private Google Drive)](https://drive.google.com/file/d/1Ok_zfzgDN3AzKA08m5kYsfdfkqW7z-Wd/view?usp=drivesdk): dated evidence and resolution notes; sign in with Mason's personal Google account.
 - [community-signals.md](community-signals.md): attributed public complaints and potential learner friction.
 - [assumptions-and-traceability.md](assumptions-and-traceability.md): premise → evidence → investigation → possible learning artifact.
 - Add source links and dates before making claims. Prefer links over copying copyrighted posts.
