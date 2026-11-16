@@ -1,8 +1,18 @@
 # Firsthand friction log
 
-**No hands-on observations logged yet.** Public complaints and hypotheses are in [research/community-signals.md](../research/community-signals.md), NOT here.
+Firsthand observations during the Socket Technical Enablement interview exercise. Public complaints and untested hypotheses belong in [research/community-signals.md](../research/community-signals.md). Entries below distinguish observed behavior from unverified explanations.
 
 | Date | Task / environment | Expected | Actual | Where docs helped or failed | Evidence (safe to publish) | Proposed documentation or onboarding improvement |
 |---|---|---|---|---|---|---|
+| 2026-11-16 | First-time Socket Enterprise access via GitHub SSO (web interface; browser/OS/version not captured) | Per the provided exercise instructions, Socket provisions an Enterprise organization and sends an invitation; candidate accepts it using the email associated with their GitHub account, without creating a separate Socket organization or entering payment details | Candidate found no invitation in Inbox, archived mail, Spam, or Trash. GitHub sign-in succeeded, but the resulting setup screen asked for profile and organization information. Candidate stopped before creating an organization. Recruiter reported access should already have been upgraded; candidate replied asking whether to complete setup or join an existing organization. **Resolution pending.** | Exercise instructions describe joining a provisioned Enterprise organization but do not address the first-login profile/organization prompt or how to distinguish an invitation-based flow from new-organization creation. Public Users and Permissions documentation describes organization invitations but did not settle this specific first-login screen. | Firsthand login observation and interview email correspondence, summarized without reproducing private messages. No screenshot captured; exact field labels and backend provisioning state unverified. | Add a first-login walkthrough with screenshots and an explicit decision point: invited user vs. new organization creator. Explain what fields are safe to complete, how to confirm organization membership/Enterprise entitlements, and what to do if the invitation email does not arrive. |
 
-For each new log: record product version, OS, CLI version, relevant error, first steps tried, and resolution. Do not paste tokens or confidential data.
+## Entry 001 — Enterprise invitation / first-login ambiguity
+
+- **Status:** Open; awaiting confirmation from recruiter/Socket, as of November 16, 2026.
+- **Impact:** Blocks confident start of the hands-on exercise; risk of creating the wrong organization or configuring the wrong environment.
+- **Sequence:** GitHub identity and demo repository were provided; recruiter said an invitation should be present and the account upgraded; mailbox searches found no invitation; GitHub authentication worked but led to a setup flow requesting profile and organization details; candidate asked recruiter to clarify and did not proceed with organization creation.
+- **Observed versus assumed:** The unexpected setup prompt and absent email are firsthand observations. Incorrect provisioning, a broken invitation, and whether profile setup is actually required are **hypotheses, not established defects**.
+- **Reproduction gaps:** Exact on-screen wording, browser/OS, organization name, entitlement state, and eventual outcome were not captured. Check these after access is resolved.
+- **Potential teaching use:** Build a new-user readiness checkpoint: confirm correct GitHub identity, organization membership, Enterprise plan, and repository integration before starting CLI/Firewall exercises. Link to training material only after the scenario is adopted.
+
+For technical issues, also record product version, OS, CLI version, relevant errors, first steps tried, and resolution when applicable. Do not paste tokens, private correspondence, or confidential data.
