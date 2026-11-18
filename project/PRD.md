@@ -163,7 +163,9 @@ After the successful local scan, plan the optional GitHub Actions scan from Part
 
 **Expected outcome:** A reproducible demonstration of how Socket policy affects scanning results.
 
-**Open dependency:** We must identify a safe, reliable way to produce a finding matching the selected alert type. A harmless dependency change is not guaranteed to trigger a block.
+**Test selection decision (2026-11-18):** First try to use a naturally occurring ActivityPulse dependency finding for Block → Warn. If the scan offers no suitable finding, fall back to a deliberately chosen safe test dependency or manifest entry that yields a reproducible alert without executing known-malicious code. Do not invent a successful test in advance.
+
+**Open dependency:** We must identify and verify a safe, reliable finding matching the selected alert type. A harmless dependency change is not guaranteed to trigger a block.
 
 ### Phase 4 — Optional third-language expansion
 
@@ -208,8 +210,8 @@ The following mapping follows the original *Technical Enablement Lead Peer Inter
 | Part I, 1.2: Interpret results | Examine analysis state and findings | Planned |
 | Part I, 1.3: Optional CI scan | GitHub Actions scan, compared to the local scan | Selected project plan; optional in assignment; not executed |
 | Part I, 2.1: GitHub App and dependency PR | YAML support with PyYAML | Planned |
-| Part I, 2.2–2.3: Integration comparison | Controlled concurrent GitHub App + Actions comparison, with CLI reference | Decision accepted; protocol documented; observations pending |
-| Part I, 3.1–3.3: Block/warn policy | Controlled policy test | Needs investigation |
+| Part I, 2.2–2.3: Integration comparison | Controlled concurrent GitHub App + Actions comparison, with CLI reference | Decision accepted; protocol documented; first-path teaching recommendation explicitly deferred until all three integrations are tested |
+| Part I, 3.1–3.3: Block/warn policy | Prefer a naturally occurring ActivityPulse dependency finding; if none suitable, use a deliberately selected safe test dependency or manifest entry | Primary/fallback decision confirmed; finding and behavior unverified |
 | Part I, 4: Conceptual questions | Separate technical notes and teaching explanations | Not yet planned |
 | Part I, 5: Interview preparation | Live demo and friction log | Ongoing |
 | Part II: Socket Firewall | Local registry-mode proxy and blocked install | Not yet designed |
@@ -260,7 +262,7 @@ The [comparison protocol](integration-comparison.md) defines the entry criteria,
 - What Socket reports on the PR.
 - Whether policy changes influence PR checks.
 - Actual differences between CI and the two required paths; tool versions and behavior must be recorded during execution.
-- Which integration path should be taught first to a new team member.
+- Which integration path should be taught first to a new team member. **Decision: defer the recommendation until the CLI, GitHub App and GitHub Actions experiences have been tested and compared.**
 
 **Reference:** Interview assignment, page 3, Part I §2.
 
@@ -357,6 +359,8 @@ Maintain a separate AI-use and verification log as requested by the interview as
 - No database or external integration in the baseline.
 - Incremental changes through pull requests.
 - Controlled concurrent GitHub App and Actions scanning for comparison, accepting duplicate PR comments and documenting negative impacts; see [decision and protocol](integration-comparison.md).
+- Select which integration path to teach a new SE first **only after** the three hands-on paths have been compared.
+- For policy Block → Warn, first use an organic dependency finding; if none is suitable, use a controlled safe manifest/test dependency as fallback.
 
 **Open design decisions**
 
