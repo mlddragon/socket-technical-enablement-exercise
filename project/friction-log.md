@@ -30,3 +30,13 @@ The private work-item record now records Mason's confirmation that organization 
 
 For technical issues, also record product version, OS, CLI version, relevant errors, first steps tried, and resolution when applicable. Do not paste tokens, private correspondence, or confidential data.
 
+## Entry 003 — API token rotation documentation typo (verified 2026-11-18)
+
+- **Status:** Verified in the public documentation; proposed correction not submitted to Socket.
+- **Official source:** [Socket API Tokens — Rotation](https://docs.socket.dev/docs/api-keys), section **Rotation**.
+- **Observed text:** “API Tokens can be shown to disabled and forcibly rotated in the case of incidents requiring action.”
+- **Issue:** “can be shown to disabled” is grammatically malformed and obscures the intended instruction. It may be a leftover from the preceding “Visibility” section. The exact intended product behavior of “disable” versus “revoke” should be confirmed before publishing technical replacement language.
+- **Suggested editorial rewrite (subject to behavior verification):** “API tokens can be disabled or forcibly rotated in response to a security incident.”
+- **Why it matters:** In an incident-response procedure, users need clear, unambiguous directions about revoking, disabling, and rotating credentials. The document already lists `api-tokens:revoke` and `api-tokens:rotate` as API scopes, so ensure the product's actual action labels match any revised prose.
+- **Provenance:** Firsthand documentation review during interview preparation; not a user-reported issue or a reproduced product defect.
+- **Presentation value:** A concrete low-effort improvement to official public documentation, to pair with a substantive onboarding or troubleshooting recommendation when discussing Part I §5.
