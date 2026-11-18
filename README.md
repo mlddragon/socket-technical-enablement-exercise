@@ -6,6 +6,9 @@ Public working repository for a Socket Technical Enablement Lead interview exerc
 
 - [research/](research/README.md): source index, attributed public user reports, assumptions and evidence trail. Public claims are **not** automatically verified facts.
 - [project/](project/README.md): lab notes, friction log, training design, talk track and readiness assessment.
+- [ActivityPulse PRD v0.4](project/PRD.md): future application plan and assignment traceability.
+- [Controlled integration comparison](project/integration-comparison.md): accepted concurrent GitHub App/Actions evaluation and duplicate-comment tradeoff.
+- [Activity log](project/activity-log.md) and [artifact inventory](project/artifact-inventory.md): confirmed work, duration gaps and saved files.
 
 Research and deliverables live in separate folders **within the same repository**. This keeps evidence and decisions traceable without mixing unfiltered notes into finished lessons.
 
@@ -19,4 +22,5 @@ Research and deliverables live in separate folders **within the same repository*
 
 A claim can inform a hypothetical training scenario without being adopted as truth. Never teach unverified claims as product behavior. Do not post credentials, enterprise tokens, personal account details, or real security-sensitive configuration in this public repository.
 
-**Status:** Research starter only. No Socket Enterprise environment has been tested and no interview lab is complete.
+**Status:** Research and planning only. Owner-confirmed organization access is recorded; no scan or completed lab is evidenced by these files. The plan includes a controlled concurrent GitHub App/Actions comparison despite documented duplicate PR comments. This documentation task authorizes no application implementation, `prod/` folder, manifests, workflow files, tooling installation or integration configuration.
+

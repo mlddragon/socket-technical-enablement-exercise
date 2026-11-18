@@ -15,4 +15,18 @@ Firsthand observations during the Socket Technical Enablement interview exercise
 - **Reproduction gaps:** Exact on-screen wording, browser/OS, organization name, entitlement state, and eventual outcome were not captured. Check these after access is resolved.
 - **Potential teaching use:** Build a new-user readiness checkpoint: confirm correct GitHub identity, organization membership, Enterprise plan, and repository integration before starting CLI/Firewall exercises. Link to training material only after the scenario is adopted.
 
+### Follow-up recorded 2026-11-18
+
+The private work-item record now records Mason's confirmation that organization access works, reported to Grok on November 18 about the night of November 16. This supersedes the entry's earlier access-pending status. It is an owner report, not a reproduced scan or verification of token scopes/Enterprise capabilities in this task. The original first-login observation above remains as dated evidence.
+
+## Entry 002 — Concurrent integration reporting (planning)
+
+- **Status:** Documented caveat; experiment not run.
+- **Source:** [Socket Scan from CI/CD](https://docs.socket.dev/docs/sca-ci), checked November 18, advises choosing either the GitHub App or a pipeline on a GitHub repository to avoid two sets of comments.
+- **Decision:** Mason explicitly accepts this risk for a controlled concurrent GitHub App/Actions comparison. The earlier suggestion to disable CI before App installation is superseded.
+- **Expected evidence:** Separate App and Actions outputs on the same PR/head commit, duplicate-comment examples if observed, notifications/review burden, timing, check behavior and closure of the overlap. Use the [comparison protocol](integration-comparison.md).
+- **Actual result:** No integration installed/configured and no scan or duplicate PR comment observed during this documentation work.
+- **Potential documentation improvement:** Add a comparison note explaining how to attribute App versus CI feedback and return to one normal PR-reporting path after an evaluation.
+
 For technical issues, also record product version, OS, CLI version, relevant errors, first steps tried, and resolution when applicable. Do not paste tokens, private correspondence, or confidential data.
+
