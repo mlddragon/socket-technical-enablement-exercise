@@ -33,6 +33,12 @@
 - **References:** [PRD](PRD.md), [Socket CLI docs](https://docs.socket.dev/docs/socket-cli)
 - **Friction / follow-up:** Pending
 
+### Baseline implementation observations (user-run, 2026-11-18)
+- Existing correct local clone found at `/Users/masondillon/github/socket-technical-enablement-exercise`, and `main` was clean and tracking `origin/main`.
+- `mkdir prod` created a new application directory, followed by `git pull --ff-only`: fast-forwarded `main` from `4b38bc1` to `c8afa2b` with only `project/part-i-walkthrough.md` updated.
+- Entered `prod/` and ran `npm init -y`. npm created `prod/package.json` with default name `prod`, version `1.0.0`, main `index.js`, `type: commonjs`, ISC license, and default placeholder test. This is a user-observed successful initialization, not yet committed; no dependencies installed.
+- Next planned command: `npm pkg set name=activitypulse` to correct package metadata.
+
 ### Entry 002 — Token and first local CLI scan
 - **Assignment mapping:** Part I §§1.1–1.2
 - **Status:** Planned; not performed
