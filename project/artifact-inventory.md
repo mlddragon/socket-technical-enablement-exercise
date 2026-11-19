@@ -12,6 +12,7 @@ Reconciled 2026-11-18 against the existing GitHub tree, source conversation and 
 | Anonymized dataset | [CSV](data/activitypulse-activities.csv), [provenance and limitations](data/README.md) | Existing 117 records retained unchanged; source worksheets remain private; no loader |
 | Firsthand friction | [friction-log.md](friction-log.md) | Original access observation retained with newer status; concurrent-reporting caveat added as untested plan |
 | Teaching package outline | [teaching-package.md](teaching-package.md) | Existing candidate outline preserved; final topic/lab/talk track/readiness package pending |
+| Training platform research | [training-platform-options-2026-11-18.md](../research/training-platform-options-2026-11-18.md) | Current free/trial comparison and candidate delivery shape; no tool or format selected |
 | Official/public sources | [sources.md](../research/sources.md) | Existing source index preserved; current CI caveat and Actions references added |
 | Public issue research | [community-signals.md](../research/community-signals.md) | Existing reports preserved; not reproduced product defects |
 | Research assumptions | [assumptions-and-traceability.md](../research/assumptions-and-traceability.md) | Existing hypotheses preserved |
