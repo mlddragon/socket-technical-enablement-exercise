@@ -93,6 +93,8 @@
 
 - User executed `socket scan view ea295308-005a-4aeb-87f4-f525861e2fb4 /tmp/socket-baseline-scan.json --json --no-banner`. CLI confirmed Socket API response and **JSON successfully written** to local temporary file `/tmp/socket-baseline-scan.json`. Raw scan was recovered without another scan submission. Content/manifest coverage **not yet inspected**. Next proposed local read-only command uses Python 3.12 JSON parsing to print top-level keys and types; inspect only relevant fields after schema is known.
 
+- User inspected locally saved raw scan JSON using Python 3.12: top-level keys `['ok', 'data']`, with `ok` a boolean and `data` a **list**. Manifest coverage and element structure not yet established. Next command checks length of `data`, first element type, and first element keys without dumping data.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
