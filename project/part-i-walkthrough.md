@@ -76,6 +76,9 @@
 
 - User ran `socket scan create --help` on CLI v1.15.0. Help explicitly lists API **quota 1 unit** and permission `full-scans:create`; target defaults to cwd and recursively discovers supported manifests in directories, including `package.json` and `requirements.txt`. Supports `--org`, `--repo`, `--branch`, `--default-branch`, `--report`, `--read-only`, and `--cwd`. `--report` waits and runs policy evaluation; `--read-only` stops before creating an actual report. `--reach` is optional full application reachability and not needed for baseline. Token and org remain unset; no scan initiated. Next: create least-scoped organization token in Socket UI, keeping secret value out of chat/logs.
 
+- User reports the recruiter-provisioned Enterprise organization UI shows **100,000,000 quota units**. Treat as user-observed allocation, not as model tokens or confirmed number of scans; `socket scan create --help` identified a 1-unit quota cost for that operation. Exact accounting and current balance not independently verified.
+- User requests **`--no-banner` on all subsequent Socket commands** to suppress repetitive header output. Next proposed full-scan command from repository root: `socket scan create --no-banner --repo=socket-technical-enablement-exercise --branch=main --default-branch --report .`. **Not yet run.** The latest pasted terminal output repeats the earlier successful login, not a scan result.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
