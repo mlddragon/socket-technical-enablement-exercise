@@ -46,6 +46,8 @@
 
 - User created `prod/report.py` and ran `$(brew --prefix python@3.12)/bin/python3.12 report.py` from `prod/`. Python returned valid JSON `total_records: 117`; `by_activity_type`: `application: 27`, `follow_up: 16`, `interview: 4`, `job_readiness: 4`, `other: 66`. Category counts sum to 117; this verifies data read and type-frequency summary (not uniqueness, duration, or schema validation). Next: integrate Node CLI with Python reporter; Python 3.12 path invocation works while default `python3` still points at system Python 3.9.6.
 
+- User ran `command -v python3.12` from `prod/`; observed `/opt/homebrew/bin/python3.12`. The Node CLI can invoke `python3.12` through PATH. Next action proposed: update `prod/cli.js` to launch Python reporter via Node `spawnSync`, parse JSON and display counts; not yet executed.
+
 ### Entry 002 — Token and first local CLI scan
 - **Assignment mapping:** Part I §§1.1–1.2
 - **Status:** Planned; not performed
