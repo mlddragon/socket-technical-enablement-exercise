@@ -136,6 +136,8 @@
 
 - **Warn visibility verified (Part I Block-vs-Warn comparison complete):** User ran `socket scan report 46093b05-bcd0-438a-9592-4e2a8f045ef3 --json --fold=version --report-level=warn --no-banner`. Response `ok:true`, `healthy:true`, and report `alerts.pypi.pyyaml['6.0.2'] = {type:'potentialVulnerability',policy:'warn',manifest:['prod/requirements.txt']}`. Combined create-`--report` had shown no alerts because its default output threshold was **Error**; standalone `--report-level=warn` surfaced the warning without failing health or CI-style process exit. Full evidence: original scan under Ignore -> healthy, exit 0; fresh Block scan `1a1190d3-8b85-4692-9f01-310c3cc406bf` -> finding `policy:'error'`, unhealthy, exit 1; fresh Warn scan `46093b05-bcd0-438a-9592-4e2a8f045ef3` -> finding `policy:'warn'`, healthy, exit 0. **Pending cleanup:** User instructed to restore the `Potential vulnerability` rule to **Inherit** (`Ignore (inherited)` under Balanced), rather than explicitly setting Ignore. Restoration not yet confirmed.
 
+- **Policy restoration confirmed by user:** After completing Ignore/Block/Warn comparison, user reported completing the requested UI action to change the organization-level `Potential vulnerability` rule from explicit **Warn** to **Inherit** under the existing Balanced preset. Expected effective action is `Ignore (inherited)`; restoration is based on user confirmation, without an additional screenshot/API verification. Organization-wide policy experiment concluded; no intentional overrides remain from this test.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
