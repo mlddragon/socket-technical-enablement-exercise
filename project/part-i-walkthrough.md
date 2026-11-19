@@ -79,6 +79,8 @@
 - User reports the recruiter-provisioned Enterprise organization UI shows **100,000,000 quota units**. Treat as user-observed allocation, not as model tokens or confirmed number of scans; `socket scan create --help` identified a 1-unit quota cost for that operation. Exact accounting and current balance not independently verified.
 - User requests **`--no-banner` on all subsequent Socket commands** to suppress repetitive header output. Next proposed full-scan command from repository root: `socket scan create --no-banner --repo=socket-technical-enablement-exercise --branch=main --default-branch --report .`. **Not yet run.** The latest pasted terminal output repeats the earlier successful login, not a scan result.
 
+- **First baseline scan execution reported by user, output lost:** User states they executed the previously proposed `socket scan create --repo=socket-technical-enablement-exercise --branch=main --default-branch --report .` command without `--no-banner`. They mistakenly pasted the earlier login output, subsequently cleared Terminal, and cannot provide the scan output/exit status. **Do not assume scan creation or success** until checking server-side scan records. Proposed recovery: `socket scan list --no-banner` from repository root to locate latest scan, then inspect its ID/metadata/report. Re-run only if scan history confirms no usable scan, or if policy/exit-code evidence needs a fresh run. Original CLI exit code is not recoverable from a cleared completed command.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
