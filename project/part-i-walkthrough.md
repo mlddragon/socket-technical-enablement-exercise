@@ -44,6 +44,8 @@
 - User ran `head -n 5 ../project/data/activitypulse-activities.csv` from `prod/`; header verified as `record_id,day,participant,activity_type,source,activity_category,duration_hours,status,online`. Example rows show `application`, `follow_up`, `other`, blank or zero durations, and statuses `recorded`/`logged`; these are **sample observations only**, not yet entire-file statistics.
 - Next user action: create `prod/report.py` with Python standard library `csv.DictReader`, `Counter(activity_type)`, and JSON summary (`total_records`, `by_activity_type`), reading `project/data/activitypulse-activities.csv` via a path relative to `__file__`. Execution/output not yet observed.
 
+- User created `prod/report.py` and ran `$(brew --prefix python@3.12)/bin/python3.12 report.py` from `prod/`. Python returned valid JSON `total_records: 117`; `by_activity_type`: `application: 27`, `follow_up: 16`, `interview: 4`, `job_readiness: 4`, `other: 66`. Category counts sum to 117; this verifies data read and type-frequency summary (not uniqueness, duration, or schema validation). Next: integrate Node CLI with Python reporter; Python 3.12 path invocation works while default `python3` still points at system Python 3.9.6.
+
 ### Entry 002 — Token and first local CLI scan
 - **Assignment mapping:** Part I §§1.1–1.2
 - **Status:** Planned; not performed
