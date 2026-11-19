@@ -95,6 +95,8 @@
 
 - User inspected locally saved raw scan JSON using Python 3.12: top-level keys `['ok', 'data']`, with `ok` a boolean and `data` a **list**. Manifest coverage and element structure not yet established. Next command checks length of `data`, first element type, and first element keys without dumping data.
 
+- Local Python inspection of saved raw scan JSON found `len(response['data']) == 0` (empty list; no first record). Together with previous `healthy:true`, `alerts:{}`, this confirms the original scan produced **zero package records and no Warn-or-higher alerts**, not evidence of meaningful dependency coverage. ActivityPulse baseline had no third-party packages in `package.json`/`requirements.txt`, which is one plausible explanation; **manifest discovery/coverage remains unverified**. Next validate manifest contents before deciding whether to introduce a benign third-party dependency and rescan. This distinction is important for the customer education exercise.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
