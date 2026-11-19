@@ -1,23 +1,23 @@
-# Teaching package (planning only)
+# Part III — Teach It Back: Selected Topic & Package Index
 
-Choose one subject after hands-on work. Assignment deliverables should remain deliberately small:
-1. **Hands-on lab:** a new SE/TAM/Support engineer can complete in 30 minutes or less.
-2. **One-page talk track:** expected customer questions and objections.
-3. **Readiness check:** observable proof of competence plus explicit "not ready" signals.
+**Selected November 19, 2026:** **Diagnosing a Socket security-policy block versus an authentication/tooling failure.** Selected because both behaviors were observed directly in Part I; this package does **not depend on completing Part II Firewall**.
 
-## Candidate topic: distinguishing a security policy block from infrastructure/toolchain failures
+## Three deliverables
 
-This is a *candidate*, not the selected Part III topic. Research pointers: DOC-01, DOC-02, CS-02, CS-03, CS-04 and A-02/A-03. Verify against actual enterprise environment before teaching product-specific behavior.
+1. **[Hands-on lab — 25 minutes](part-iii-lab.md):** Learner compares a policy Block, a Warn, and a GitHub Actions 401, using authentic saved scan IDs and CI logs (or sanitized case cards when org access is unavailable). No org-wide policy changes or malicious package execution.
+2. **[One-page customer talk track](part-iii-talk-track.md):** Practical response framework, objection handling, and safe evidence to request.
+3. **[Practical readiness check](part-iii-readiness-check.md):** Observable scenario-based competence criteria, explicit not-ready conditions, and targeted remediation.
 
-## Traceability table
+**Evidence basis:** [Part I briefing](part-i-briefing.md), [Part I walkthrough](part-i-walkthrough.md), and [Actions run #44557864628](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628).
 
-| Material / lesson step | Evidence ID | Statement being taught | Verified? | Follow-up |
-|---|---|---|---|---|
+## Status and final checks
 
-## Draft lab objective
+- **Drafted and saved:** All three complete initial drafts, based on actual scan and runner evidence.
+- **Needs learner/instructor review:** Confirm target learner's read access to saved scan IDs; otherwise use provided sanitized case cards. Verify actual spoken time for talk track and that it fits on one page in chosen export layout.
+- **Needs dry run:** Time the lab, test historical `socket scan report` commands under read-only scopes, and make sure the readiness assessment is deliverable without an active Socket organization.
+- **Submission:** Part III is the package for advance submission. The original deadline was November 19 at 1:30 p.m. Eastern; user requested an extension to Monday, but acknowledgment should be checked before asserting it was granted. These repository drafts have **not been emailed or submitted**.
+- **Scope note:** Part II may not be completed. Nothing in this topic requires a Firewall proxy.
 
-Learner identifies, demonstrates and explains a policy-enforced block using a safe test fixture, distinguishes it from ordinary installation failures, and tells a customer what evidence to capture.
+**Teaching intent:** Make the diagnostic decision concrete: did the scan evaluate a package and enforce an alert policy, or did the scanner fail to authenticate/initialize? Never infer malware from a red CI result alone. Pair any conclusion with observable evidence and a safe next action.
 
-## Draft readiness criteria
-
-Learner can distinguish observed output from assumptions, explain the enforcement mechanism in plain language and show an actual policy result without executing malicious code.
+Original candidate notes and research IDs were incorporated into the above deliverables; this page supersedes the earlier planning-only outline.
