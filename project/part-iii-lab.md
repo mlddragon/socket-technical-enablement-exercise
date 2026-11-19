@@ -46,7 +46,7 @@ A red CI indicator alone does not say *why* something failed. You need the packa
    ~~~
 
    If it fails because you lack organizational access, stop that path and use the provided historical evidence below. Do not regenerate the token or change policy.
-4. In the report—or in **Provided evidence** immediately below—locate four details: the package/version, alert type, policy action, and `healthy` result. Compare the output to the reference screenshot beside this example once provided.
+4. In the report—or in **Provided evidence** immediately below—locate four details: the package/version, alert type, policy action, and `healthy` result. The highlighted comparison graphic in Activity 2 shows exactly where the health and policy values appear.
 5. Record your findings in **Case A** of the worksheet at the end. In the **Next action** cell, describe what you would ask the dependency owner or security reviewer to assess before the release proceeds.
 
 ### Expected result — what it should look like
@@ -61,9 +61,7 @@ Healthy:  false
 Original combined create/report process exit code: 1
 ~~~
 
-> **Expected-result screenshot — Activity 1:** The supplied CLI screenshot confirms `ok: true`, `healthy: false`, `potentialVulnerability`, `policy: error`, and the PyYAML version. The screenshot will appear here once its image file is added to the repository. It is a report-generation success with an **unhealthy scan**, not a contradiction.
->
-> **Screenshot placement:** `project/images/part-iii/activity-1-policy-block.png` (pending image upload; don't show a broken image link).
+**Visual reference:** Activity 2 includes a side-by-side annotated excerpt showing the key lines from the Block and Warn terminal reports. The original Activity 1 screenshot will be inserted here once the PNG is uploaded into the repository; meanwhile the provided evidence below is sufficient to complete the task.
 
 The explicit **`policy: error`**, the named package finding, and **`healthy:false`** demonstrate that analysis reached a policy-enforcement decision. Exit **1** was observed when the **original scan-create/report command** ran under Block; running the read-only `scan report` command above is not a repeat of that process exit test.
 
@@ -90,8 +88,8 @@ Security detection, visibility thresholds, and enforcement are separate concepts
    ~~~
 
    If you are working from case evidence, read the expected result below instead.
-4. Find the package and `potentialVulnerability` alert. Look for `policy: warn` and `healthy:true`.
-5. Compare this result with Case A. In **Case B** of the worksheet, record the difference and answer: **Which CLI option makes the warning visible?**
+4. Find the package and `potentialVulnerability` alert. Look for `policy: warn` and `healthy:true`. Compare the fields with the highlighted reference below; if you lack Socket access, use the supplied values.
+5. **Compare the two reports side by side** using the annotated visual below. Locate the highlighted **`healthy`** field in each column, then the highlighted **`policy`** field. Confirm that the package/version and finding type are the same. Record the differences in **Case B** of the worksheet, and answer: **Which CLI option makes the warning visible?**
 
 ### Expected result — what it should look like
 
@@ -103,6 +101,18 @@ Healthy:  true
 Original combined scan process exit code: 0
 Report visibility: --report-level=warn
 ~~~
+
+**Side-by-side evidence comparison (highlighted):** The visual below reproduces the important lines from the two verified terminal reports. The colored outlines identify the **health** and **effective policy** values; this is an annotated excerpt, not a new scan or a substitute for the actual CLI output.
+
+![Comparison of PyYAML scan results: Block (healthy false, policy error) versus Warn (healthy true, policy warn), with both fields highlighted](images/part-iii/policy-block-vs-warn.svg)
+
+| What to compare | **Activity 1 — Block** | **Activity 2 — Warn** |
+|---|---|---|
+| Package | `pypi/pyyaml/6.0.2` | `pypi/pyyaml/6.0.2` |
+| Alert type | `potentialVulnerability` | `potentialVulnerability` |
+| **Policy action** | **`error` (Block)** | **`warn`** |
+| **Scan health** | **`false`** | **`true`** |
+| Original combined command exit | `1` | `0` |
 
 The warning is **not a policy Block**. Its original combined create/report command exited **0**. In this exercise, using an Error-only threshold could hide warnings from the displayed alert summary; `--report-level=warn` includes them.
 
@@ -120,20 +130,20 @@ Courtney's team needs to know whether to assign this issue to a dependency/secur
 
 ### Steps to complete
 
-1. Open [Socket Security CI — workflow run #44557864628](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628).
-2. **Find the run-attempt selector** near the run heading. Select **Attempt 1** (the first failed attempt). GitHub's interface may present attempts in a dropdown or link instead of a tab; if the selector is not obvious, use the run summary's attempts/history view.
+1. Open the [actual Socket Security CI workflow run](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628) in GitHub. If GitHub is unavailable or you lack access, use the complete sanitized excerpts below rather than looking for background project documents.
+2. Near the workflow-run heading, locate **Run attempt** (or the attempts/history selector), then choose **Attempt 1**. If the selector is not visible, examine the run's attempt history; do not spend more than one minute hunting for a UI control. The relevant evidence is also printed below.
 3. Open the **socket-security** job. Expand **Run Socket Security Scan** in the step list. The earlier **checkout**, **Python setup**, and **Socket CLI installation** steps should show success.
 4. In the scan step, find the earliest `401 Client Error: Unauthorized` entry. Note the requested endpoint `/v0/python-cli-runs`; the subsequent trace also references `/v0/organizations`. Find **Process completed with exit code 3**.
 5. In **Case C** of the worksheet, record the failing stage and the HTTP status. Explain why this evidence does **not** establish a malicious dependency or a policy Block.
-6. Return to the same workflow run's attempts/history, select **Attempt 4**, and expand **Run Socket Security Scan** again. Locate:
+6. Return to the same workflow run's attempt selector, choose **Attempt 4**, and expand **Run Socket Security Scan**. If attempts are inaccessible, use the provided successful-run excerpt. Locate:
    - Successful **CLI run registration** and **Organization initialization**.
    - **No issues found** and a successful job.
    - The warning: **Diff scan comparison failed with APIAccessDenied(Insufficient permissions), falling back to the streaming scan comparison**.
-7. In your notes, answer: Did the attempt-4 fallback cause the job to fail? What part of the process was working despite that warning?
+7. In **Case C** of the worksheet, answer: **Did the attempt-4 fallback cause the job to fail?** What steps succeeded despite that warning? Include one safe way to investigate a wrong or missing credential without revealing it.
 
 ### Expected result — what it should look like
 
-**Attempt 1 — failed authentication:**
+**Attempt 1 — failed authentication (sanitized excerpt):**
 
 ~~~text
 Starting Socket Security CLI version 2.12.2
@@ -144,7 +154,7 @@ Unexpected error when running the CLI: Unauthorized
 Process completed with exit code 3
 ~~~
 
-**Attempt 4 — successful scan with limited comparison mode:**
+**Attempt 4 — successful scan with limited comparison mode (sanitized excerpt):**
 
 ~~~text
 CLI run registration completed
@@ -156,6 +166,8 @@ Job conclusion: success
 ~~~
 
 The historical troubleshooting established that the original CI secret contained a different `SHA512-...==` value, while the working credential was the actual Socket API token beginning with `sktsec_`. Changing the secret value resolved the **401**. Additional scope changes were also tried, so you must not claim the expanded scopes alone were the cause or solution. **Never request or expose the complete token.**
+
+**Visual guidance for GitHub Actions:** In the job steps, compare the checkmarks beside **checkout**, **Python setup**, and **Socket CLI installation** with the failed **Run Socket Security Scan** step in attempt 1. In attempt 4, all job steps succeed; the text still includes a non-fatal permission fallback. A screenshot of these log views can be placed directly beneath this paragraph when available, but the embedded excerpts above give you everything needed for the diagnosis.
 
 **Checkpoint:** You should distinguish **failed authentication before analysis** from **completed analysis with a non-fatal fallback**. A non-blocking warning in a successful job is not the same thing as a 401.
 
@@ -171,10 +183,10 @@ Courtney must turn raw scan details into a safe engineering decision. The team n
 
 ### Steps to complete
 
-1. Fill each row using evidence gathered in Activities 1–3. The **original observed exit code** may be included, but must not be your only justification.
-2. Under your worksheet, write **two sentences per case**: the first states the verified facts; the second identifies the next safe action.
-3. Read the three updates aloud as though you were briefing Courtney and their team.
-4. Check that none of the updates claims malware without evidence, promises a root cause not established by logs, exposes tokens, or recommends bypassing the organization's policy.
+1. Copy the five-column worksheet immediately below into your notes. Fill all three rows with evidence from Activities 1–3. Use the **original observed exit code** only alongside the actual scan finding or HTTP error; never use the number as your sole explanation.
+2. Under the table, write **two sentences for each case**. Sentence 1 must state the actual evidence and the outcome. Sentence 2 must identify the next safe step and its owner (security/dependency review or CI/credentials). For example, a useful opening is, “The report identified PyYAML 6.0.2 and applied the Block policy; the scan was unhealthy.” Write your own next-action sentence.
+3. Read your three updates aloud as though you're briefing Courtney and their engineering team. Keep each explanation under 20 seconds.
+4. Review each update against this checklist: You named the evidence, distinguished policy from infrastructure, assigned the right follow-up owner, and did not claim malware, expose credentials, or advise bypassing policy.
 
 ### Expected result — what it should look like
 
@@ -183,6 +195,8 @@ Courtney must turn raw scan details into a safe engineering decision. The team n
 | A — Block | Your answer | Your answer | Your answer | Your answer |
 | B — Warn | Your answer | Your answer | Your answer | Your answer |
 | C — 401 | Your answer | Your answer | Your answer | Your answer |
+
+**Expected worksheet outcome:** **Case A:** completed evaluation; PyYAML `potentialVulnerability`, `policy: error`, unhealthy; policy-enforced Block; dependency/security owner investigates package behavior and policy. **Case B:** completed evaluation; same package, `policy: warn`, healthy; non-blocking warning; explain risk and report-level visibility. **Case C:** no completed dependency evaluation in failed attempt; HTTP 401 during Socket API calls; authentication/tooling failure; CI owner validates the correct repository-secret value and permissions without revealing it.
 
 **Self-check:** A should be an evaluated policy Block; B should be a non-blocking Warn; C should be authentication/tooling failure. For A, start with a dependency and policy review. For C, start with the correct credential and CI configuration **without exposing secret contents**. Bonus: identify attempt 4's streaming fallback as a remaining narrower permissions issue, not a failed scan.
 
