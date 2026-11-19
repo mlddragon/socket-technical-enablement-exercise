@@ -87,6 +87,8 @@
 
 - User ran `socket scan report --help --no-banner` (CLI v1.15.0). Confirmed syntax `socket scan report [options] <SCAN_ID> [OUTPUT_PATH]`; quota 1 unit; help lists permission `full-scans:list`, with `--json`, `--fold=pkg|version|file|none`, `--short`, `--license`, `--report-level` (default `warn`). CLI reports only warn and error policy alerts by default. **Potential docs/help discrepancy:** CLI help lists only `full-scans:list`, while official docs' report section was interpreted as requiring `security-policy:read` too; verify behavior rather than asserting omission. Next proposed run for recovered scan: `socket scan report ea295308-005a-4aeb-87f4-f525861e2fb4 --json --fold=version --no-banner`. No report result observed yet.
 
+- User ran `socket scan report ea295308-005a-4aeb-87f4-f525861e2fb4 --json --fold=version --no-banner`. CLI reported **`Scan result: success`**, returned `{ok:true,data:{includeLicensePolicy:false,healthy:true,orgSlug:'mason-dillon-interview',scanId:'ea295308-005a-4aeb-87f4-f525861e2fb4',options:{fold:'version',reportLevel:'warn'},alerts:{}}}`. Interpretation: security-policy report healthy with **no Warn-or-higher alerts reported** under currently configured policies. License policy **not** evaluated. Does **not** yet establish coverage of both Node and Python manifests or absence of alerts below Warn threshold. Next inspect `socket scan view --help --no-banner` to identify how to retrieve underlying inventory/findings.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
