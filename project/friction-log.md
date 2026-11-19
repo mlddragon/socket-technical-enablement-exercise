@@ -19,13 +19,13 @@ Firsthand observations during the Socket Technical Enablement interview exercise
 
 The private work-item record now records Mason's confirmation that organization access works, reported to Grok on November 18 about the night of November 16. This supersedes the entry's earlier access-pending status. It is an owner report, not a reproduced scan or verification of token scopes/Enterprise capabilities in this task. The original first-login observation above remains as dated evidence.
 
-## Entry 002 — Concurrent integration reporting (planning)
+## Entry 002 — Concurrent integration reporting
 
-- **Status:** Documented caveat; experiment not run.
+- **Status:** Verified November 19. The GitHub App and Actions each left a dependency-review comment on PR #1. See the [comparison outcome](integration-comparison.md#verified-execution-outcome-and-closure--2026-11-19).
 - **Source:** [Socket Scan from CI/CD](https://docs.socket.dev/docs/sca-ci), checked November 18, advises choosing either the GitHub App or a pipeline on a GitHub repository to avoid two sets of comments.
 - **Decision:** Mason explicitly accepts this risk for a controlled concurrent GitHub App/Actions comparison. The earlier suggestion to disable CI before App installation is superseded.
 - **Expected evidence:** Separate App and Actions outputs on the same PR/head commit, duplicate-comment examples if observed, notifications/review burden, timing, check behavior and closure of the overlap. Use the [comparison protocol](integration-comparison.md).
-- **Actual result:** No integration installed/configured and no scan or duplicate PR comment observed during this documentation work.
+- **Actual result:** Both integrations reported during the controlled overlap. The GitHub App remained the routine PR path, and the feature branch switched Actions to manual dispatch.
 - **Potential documentation improvement:** Add a comparison note explaining how to attribute App versus CI feedback and return to one normal PR-reporting path after an evaluation.
 
 For technical issues, also record product version, OS, CLI version, relevant errors, first steps tried, and resolution when applicable. Do not paste tokens, private correspondence, or confidential data.
@@ -50,7 +50,7 @@ For technical issues, also record product version, OS, CLI version, relevant err
 - **Verified permission combination:** `socket scan create` → `full-scans:create`; `socket scan list/view/metadata/diff` → `full-scans:list`; `socket scan report` → `full-scans:list` **plus** `security-policy:read`; `socket scan create --report` uses all three. Source: [Socket scan docs](https://docs.socket.dev/docs/socket-scan), API Token Requirements / Report / List-View sections. The user's pasted `socket scan create --help` independently confirms `full-scans:create`.
 - **Suggested improvement:** Add a **task-based least-privilege workflow matrix / worksheet** with complete scope sets for common jobs (first scan, scan-and-evaluate policy, read-only triage, CI automation, scan administration). Link each row to command references and explain optional vs. required permissions. This is a starting recommendation; exact information architecture remains open pending more product experience. A template could include *goal / commands / required scopes / optional scopes / verification / common failure modes*.
 - **Teaching value:** Build a quickstart permissions decision aid to prevent granting broad scopes just to get a scan working and speed first-week onboarding for SEs/TAMs/Support.
-- **Status:** Firsthand friction recorded; proposed docs change not submitted to Socket. No API token created yet. Full spreadsheet handoff context, scoped sample matrix, and non-final design considerations are saved in [CLI permissions worksheet handoff](cli-permissions-worksheet-handoff.md); Work thread will receive separate user-specific build instructions.
+- **Status:** Firsthand friction recorded; proposed docs change not submitted to Socket. Token creation and scan results were verified later in the [Part I briefing](part-i-briefing.md). Spreadsheet handoff context, scoped sample matrix, and non-final design considerations are saved in [CLI permissions worksheet handoff](cli-permissions-worksheet-handoff.md); Work thread will receive separate user-specific build instructions.
 
 
 ## Entry 005 — Package-score explainability and human-centered documentation (firsthand, 2026-11-19)

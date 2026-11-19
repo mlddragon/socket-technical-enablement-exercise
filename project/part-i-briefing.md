@@ -3,7 +3,8 @@
 **Prepared:** November 19, 2026  
 **Candidate:** Mason Dillon  
 **Exercise repository:** [mlddragon/socket-technical-enablement-exercise](https://github.com/mlddragon/socket-technical-enablement-exercise)  
-**Status:** Hands-on Part I demonstrations completed; limited cleanup and presentation rehearsal outstanding.  
+**Status:** Part I demonstrations complete. Panel rehearsal remains.
+
 **Purpose:** Interview-ready narrative and evidence index. This is **not** a claim that every optional investigation or documentation improvement has been implemented.
 
 ## 1. Approach and environment
@@ -44,9 +45,9 @@ The exercised alert type was **Potential vulnerability**, initially **Ignore (in
 
 | Dimension | Local npm Socket CLI | Socket GitHub App | GitHub Actions Python Socket CLI |
 |---|---|---|---|
-| Start | Manual terminal command | Connected App installed for **selected repository only**; automatic PR event | `pull_request` workflow; runner supplied by GitHub |
+| Start during comparison | Manual terminal command | Connected App installed for **selected repository only**; automatic PR event | `pull_request` workflow; runner supplied by GitHub |
 | Auth | Socket org-scoped token | GitHub App repository authorization | Socket token in GitHub Actions secret, plus GitHub-provided PR token |
-| Primary evidence | CLI report, scan IDs, health, exit codes | [Socket bot comment](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1#issuecomment-7012611620), PR checks and [dependency diff report](https://socket.dev/dashboard/org/mason-dillon-interview/diff-scan/b7326217-a2c7-4130-84ae-026912813e8c?tab=dependencies) | [Actions run #44557864628](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628), runner logs, [Actions bot comment](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1#issuecomment-7014418426) |
+| Primary evidence | CLI report, scan IDs, health, exit codes | [Socket bot comment](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1#issuecomment-7012611620), PR checks and [dependency diff report (Socket organization access)](https://socket.dev/dashboard/org/mason-dillon-interview/diff-scan/b7326217-a2c7-4130-84ae-026912813e8c?tab=dependencies) | [Actions run #44557864628](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628), runner logs, [Actions bot comment](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1#issuecomment-7014418426) |
 | Verified result | Manual dependency and policy evaluations successful | Detected newly added picocolors; supplied summary scores and successful PR/project checks | **Attempt 4 passed**; one added artifact; “No issues found” |
 | Limitations | Must be triggered and interpreted by operator | Package category scores shown without package-specific explanation of deductions in reviewed views | Setup more involved; initial credential failures; preferred diff scan still falls back to streaming |
 
@@ -84,7 +85,8 @@ The [firsthand friction log](friction-log.md) contains detailed observations and
 
 **Suggested 5–8-minute Part I walkthrough:** Show ActivityPulse working; summarize baseline-versus-PyYAML scan; show Block/Warn result table; open [PR #1](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1) and point out App review plus Actions comment; show passing [Actions run attempt 4](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628), noting streaming fallback; conclude with one customer-onboarding recommendation and one concrete documentation improvement. Favor captured evidence over changing org policy live during the panel.
 
-**Primary evidence index:**
+**Primary evidence index:** The public PR comments, Actions run, and [lab screenshots](part-iii-lab.md) provide evidence without access to the Socket organization.
+
 - [Detailed execution history](part-i-walkthrough.md) — commands, scan IDs, observed results and caveats
 - [PR #1](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1) — direct dependency change and both bots
 - [Successful Actions run, attempt 4](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628) — job logs and permissions fallback

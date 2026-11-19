@@ -1,6 +1,6 @@
-# Informational artifact inventory
+# Artifact inventory as of November 18, 2026
 
-Reconciled 2026-11-18 against the existing GitHub tree, source conversation and local research file. This inventory does not claim that planned lab or application deliverables have been completed.
+This historical snapshot records the planning artifacts present on November 18. For the implemented application, scan evidence, and teaching materials, see [current project status](PROJECT-STATUS.md).
 
 | Artifact | Saved location | Status |
 |---|---|---|
@@ -22,4 +22,4 @@ Reconciled 2026-11-18 against the existing GitHub tree, source conversation and 
 
 The private assignment document was consulted for the PRD mapping; its full text and private correspondence are not reproduced in this public repository. Private activity ledgers and original tracker records remain in their existing destinations. The dataset already contains generic records derived from those sources.
 
-All repository artifacts are informational Markdown or sample CSV. No application code, `prod/`, runtime/package manifests, lockfiles, workflow configuration, environment provisioning or tooling installation is included. Future requirements and command examples in prose describe work that has not been performed by this task.
+At this checkpoint, the artifacts were informational Markdown and sample CSV. No application code, `prod/`, runtime/package manifests, lockfiles, workflow configuration, environment provisioning or tooling installation is included. Future requirements and command examples in prose describe work that has not been performed by this task.

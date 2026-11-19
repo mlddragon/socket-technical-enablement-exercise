@@ -2,6 +2,16 @@
 
 **Decision:** Accepted 2026-11-18; controlled experiment completed and overlap closed 2026-11-19. Full results are in [Part I briefing](part-i-briefing.md) and [walkthrough](part-i-walkthrough.md). Historical protocol below is retained to show the intended method.
 
+## Verified execution outcome and closure — 2026-11-19
+
+- **Repo/PR:** [PR #1](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1), branch `feature/activitypulse-cli-output`, open through panel by user decision.
+- **GitHub App:** Scoped only to this repository; automatically posted [Socket bot overview](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1#issuecomment-7012611620) and successful checks. Detected new `npm/picocolors@1.1.1`.
+- **GitHub Actions:** [Run #44557864628](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628) attempt 4 succeeded after the actual `sktsec_` token was saved correctly; [second dependency overview comment](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1#issuecomment-7014418426) posted by `github-actions[bot]`. Preferred diff scan fell back to streaming because of insufficient permissions even after `diff-scans:create` and `diff-scans:list`; scan completed with no issues.
+- **Real duplicate feedback:** two bot comments on the same PR, one per integration, confirmed. Not two independent vulnerabilities.
+- **Overlap end:** User approved keeping App and switching Actions to manual-only. Commit [`293b739`](https://github.com/mlddragon/socket-technical-enablement-exercise/commit/293b739b07cf5cfc081dd59982afaa02dc4e7599) replaced `pull_request` with `workflow_dispatch`, accepting required `pr_number`. GitHub returned no Actions runs for the updated feature head. Historical comments intentionally preserved. Manual workflow dispatch generally requires the workflow on the default branch.
+- **Credential disposition:** User chose to retain dedicated CI token post-interview, not revoke; value never captured in repository.
+- **Chosen customer default:** GitHub App for low-friction ongoing PR visibility; CLI for learning scan/policy mechanics; Actions only for justified CI gates or manual testing. Avoid running both App and Actions PR comment paths routinely.
+
 ## Rationale and accepted tradeoff
 
 Socket's [Scan from CI/CD](https://docs.socket.dev/docs/sca-ci), checked November 18, recommends choosing either its GitHub App or a CI pipeline for a given GitHub repository because both can produce duplicate PR comments. Mason explicitly accepts that documented risk for a controlled period on this exercise repository. The goal is to compare workflows, outputs and negative impacts, and retain concrete examples for the interview discussion.
@@ -50,9 +60,9 @@ For each conclusion, record expected behavior, actual behavior, an attributable 
 
 These are evaluation questions. Only duplicate reporting is documented by the cited caveat; none is a firsthand finding yet. Capture counts/timing only when observed. Retain a concise before/after example if available and a recommendation for normal use based on the actual evidence.
 
-## Execution record
+## Execution record at the planning checkpoint
 
-| Item | Current value |
+| Item | Value at planning checkpoint |
 |---|---|
 | Comparison PR / base / head | Not selected |
 | App configuration / CI run | Not configured by this task |
@@ -62,14 +72,3 @@ These are evaluation questions. Only duplicate reporting is documented by the ci
 | Final normal configuration / closure proof | Pending execution |
 
 Link observations from the [friction log](friction-log.md). Update the [AI-use log](ai-use-and-verification.md) with verification against actual product behavior when the experiment is performed.
-
-
-## Verified execution outcome and closure — 2026-11-19
-
-- **Repo/PR:** [PR #1](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1), branch `feature/activitypulse-cli-output`, open through panel by user decision.
-- **GitHub App:** Scoped only to this repository; automatically posted [Socket bot overview](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1#issuecomment-7012611620) and successful checks. Detected new `npm/picocolors@1.1.1`.
-- **GitHub Actions:** [Run #44557864628](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628) attempt 4 succeeded after the actual `sktsec_` token was saved correctly; [second dependency overview comment](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1#issuecomment-7014418426) posted by `github-actions[bot]`. Preferred diff scan fell back to streaming because of insufficient permissions even after `diff-scans:create` and `diff-scans:list`; scan completed with no issues.
-- **Real duplicate feedback:** two bot comments on the same PR, one per integration, confirmed. Not two independent vulnerabilities.
-- **Overlap end:** User approved keeping App and switching Actions to manual-only. Commit [`293b739`](https://github.com/mlddragon/socket-technical-enablement-exercise/commit/293b739b07cf5cfc081dd59982afaa02dc4e7599) replaced `pull_request` with `workflow_dispatch`, accepting required `pr_number`. GitHub returned no Actions runs for the updated feature head. Historical comments intentionally preserved. Manual workflow dispatch generally requires the workflow on the default branch.
-- **Credential disposition:** User chose to retain dedicated CI token post-interview, not revoke; value never captured in repository.
-- **Chosen customer default:** GitHub App for low-friction ongoing PR visibility; CLI for learning scan/policy mechanics; Actions only for justified CI gates or manual testing. Avoid running both App and Actions PR comment paths routinely.

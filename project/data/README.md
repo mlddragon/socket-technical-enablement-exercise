@@ -10,5 +10,5 @@ The CSV was already committed before this reconciliation. All 117 rows are prese
 
 Despite its name, `duration_hours` can contain fixed reporting credits (for example, an application credit) as well as supported manual durations. It is not a uniform measure of elapsed work. A blank value means no recorded amount; zero is a distinct recorded value and must not be converted to missing. Relative day labels preserve offsets; file order is not necessarily chronological. Generic participant/organization labels and retained patterns are for demonstration and do not guarantee resistance to reidentification if combined with outside information.
 
-Do not use this demonstration file to backfill actual project time, infer PATH eligibility, or restore private names. Original records and any duration clarification belong in their private trackers. These data files are informational artifacts; no loader or application has been implemented.
+Do not use this demonstration file to backfill actual project time, infer PATH eligibility, or restore private names. Original records and any duration clarification belong in their private trackers. The [ActivityPulse reporter](../../prod/report.py) uses this CSV by default. See the [run instructions](../../README.md#run-activitypulse).
 

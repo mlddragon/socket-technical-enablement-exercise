@@ -1,9 +1,10 @@
 # Socket Technical Enablement Exercise — Current Project Status
 
-**Reviewed:** November 19, 2026, from GitHub `main` tree/commits, open PR #1, the Part I evidence brief, and Part III deliverables.  
-**Current main commit:** `a373d71c65c20e4f1a1192db7a1dc46e61daa795`  
-**Panel:** **Tuesday, November 24, 2026 at 1:00 PM Eastern** — recruiting coordinator proposed time, candidate accepted, and coordinator confirmed sending invite November 19.  
-**Submission target:** **Monday, November 23 by 1:00 PM Eastern** as a conservative working target based on the original 24-hour-before-panel instruction. This is **inferred, not separately confirmed as an explicit revised deadline**.
+**Reviewed:** November 19, 2026. Verified against GitHub `main`, open PR #1, and the committed evidence.
+
+**Panel:** **Tuesday, November 24, 2026 at 1:00 PM Eastern** (confirmed by recruiting).
+
+**Submission target:** **Monday, November 23 by 1:00 PM Eastern** as the working target based on the original 24-hour instruction. Recruiting has not separately confirmed the revised submission time.
 
 ## Executive status
 
@@ -12,12 +13,12 @@
 | **Part I: Scan and interpret** | **Complete / verified** | Functioning two-runtime ActivityPulse app; full baseline and PyYAML scans; nuanced finding interpretation. [Part I briefing](part-i-briefing.md), [walkthrough](part-i-walkthrough.md). |
 | **Part I: GitHub integration paths** | **Complete / verified** | GitHub App detects `picocolors` change on [PR #1](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1); Actions Python CLI run passed after correcting token. Duplicate bot comments verified; automated CI PR trigger intentionally disabled on feature branch, App retained. |
 | **Part I: Block vs Warn enforcement** | **Complete / verified** | PyYAML potentialVulnerability Block scan unhealthy / combined command exit 1; Warn healthy / exit 0. Policy returned to Inherit per user confirmation. |
-| **Part I: Explain decisions, friction and evidence** | **Mostly complete** | [Briefing](part-i-briefing.md), [friction log](friction-log.md), [AI-use log](ai-use-and-verification.md). Rehearsal and final presentation selection outstanding. Native diff-scan preferred mode still falls back to streaming for permission denial despite `diff-scans:create` and `diff-scans:list`; baseline CI scan succeeded. |
-| **Part II: Socket Firewall registry mode** | **Not attempted** | Need registry-mode container setup, package-manager proxy configuration, safe policy-block demonstration, actual logs and wrap-up if chosen. No Part II implementation or evidence present on `main`. Optional prioritization: currently behind Part III submission; not completed, not to be represented as such. |
-| **Part III: Hands-on lab ≤30 min** | **Substantially drafted / illustrated; not yet dry-run or submitted** | [25-minute Courtney-led lab](part-iii-lab.md), original Block/Warn terminal PNGs, four GitHub Actions PNGs, original side-by-side comparison, self-check and collapsible answer key. Needs learner/usability review, measured timing and screenshot/render checks. |
+| **Part I: Explain decisions, friction and evidence** | **Complete / documented** | [Briefing](part-i-briefing.md), [friction log](friction-log.md), [AI-use log](ai-use-and-verification.md). Interview rehearsal remains. In Attempt 4, the preferred diff scan fell back to streaming after a permission denial. The job succeeded. |
+| **Part II: Socket Firewall registry mode** | **Not attempted** | Registry-mode setup, package-manager proxy configuration, and a policy-block demonstration remain. There is no Part II implementation or captured evidence. |
+| **Part III: Hands-on lab ≤30 min** | **Complete for this milestone** | [25-minute Courtney-led lab](part-iii-lab.md), original Block/Warn terminal PNGs, four GitHub Actions PNGs, original side-by-side comparison, self-check and collapsible answer key. Mason reported a successful walkthrough and accepted this version. GitHub rendering was verified. |
 | **Part III: One-page customer talk track** | **Draft exists; format not validated** | [Talk track](part-iii-talk-track.md) covers three failure modes and customer objections. Confirm it actually fits one page in final submission format and matches final lab narrative. |
 | **Part III: Practical readiness check** | **Draft exists; performance test not validated** | [Readiness rubric](part-iii-readiness-check.md) has two scenarios, Warn follow-up, observable readiness/not-ready criteria, safety gates and remediation. Need consistency review and short trial. |
-| **Extra: Package Scores documentation rewrite** | **Draft / pending human review** | [Rewrite](package-scores-rewrite.md) and [Google Doc review copy](https://docs.google.com/document/d/1bm8TfSpiRpJJDsCublt_rcPcJtmmN5wza23yOrIHb8Q/edit). Separately useful evidence of documentation/enablement judgment; not an assigned Part III deliverable and not confirmed to have been submitted to Socket. |
+| **Extra: Package Scores documentation rewrite** | **Draft / pending human review** | [Repository draft](package-scores-rewrite.md). Additional enablement work outside the required Part III package. |
 
 ## Part I detailed accounting
 
@@ -35,7 +36,7 @@
 - [x] Full CI run [#44557864628](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628), attempt 4 passed; preferred diff-scan had insufficient-permission fallback but streaming scan succeeded.
 - [x] Two bot PR comments observed, one App and one Actions.
 - [x] User selected GitHub App as routine PR path, disabled automatic Actions triggers on feature branch in commit `293b739`; retained manual workflow and expanded-scope CI token.
-- [x] PR #1 left open for interview. **Important:** current `main` does not include `picocolors` or the Actions workflow; they remain on the open feature branch. Manual workflow dispatch is generally only available after the workflow exists on the default branch.
+- [x] PR #1 left open for interview. **Important:** current `main` does not include `picocolors` or the Actions workflow; they remain on the open feature branch. GitHub requires the workflow file on the default branch for manual dispatch.
 
 ### 3. Policy demonstration and teaching
 - [x] Temporarily set Potential vulnerability rule to Block; fresh scan `1a1190d3-8b85-4692-9f01-310c3cc406bf` unhealthy, error action, original command exit 1.
@@ -61,9 +62,8 @@ The assignment's referenced Firewall exercise requests **registry mode in a cont
 - [x] Activity 3 uses original GitHub Actions screenshots (attempt 1, 401 search, failed-vs-success comparisons) and accessible historical logs plus sanitized excerpts.
 - [x] Activity 4 includes worksheet, self-check and expandable answer key.
 - [x] Self-contained learner materials; no requirement to consult Part I planning records.
-- [ ] **Human verification:** check GitHub rendered layout at desktop and narrow widths, screenshot legibility, image alt text, links to exact Actions attempts, and whether expandable answer key hides correctly; file presence and Markdown references were confirmed from repo, **not pixel-by-pixel rendered inspection**.
-- [ ] **Run timed learner walkthrough:** confirm a new engineer can finish in 25 minutes without being given interviewer-only access or the answer key too early. Confirm whether practical readiness assessment is included in 25 min or immediately after (the separate check is 5–7 min, making combined total potentially above 30 min).
-- [ ] Optional editorial alignment: the story currently says `Courtney asks a new team member`; previously requested wording was `Courtney has asked you to investigate this.` Ensure learner-facing narrative consistently meets intended voice before finalizing.
+- [x] Mason reported a successful walkthrough and accepted the 25-minute lab as complete for this milestone. The GitHub page was checked for embedded screenshots, comparisons, and the collapsed answer key.
+- The practical readiness check is a separate activity. Its draft duration is 5–7 minutes.
 
 ### One-page talk track: [part-iii-talk-track.md](part-iii-talk-track.md)
 - [x] Draft customer explanation of Block vs Warn vs 401, plus objections and response guidance.
@@ -79,16 +79,9 @@ The assignment's referenced Firewall exercise requests **registry mode in a cont
 
 ## Prioritized next actions
 
-1. **Confirm final submission timing** relative to the November 24 1:00 PM ET panel. The candidate accepted this rescheduling and the coordinator said they sent the invite. Use **November 23 1:00 PM ET** as a conservative submission target based on the originally stated 24-hour review rule unless explicitly revised.
-2. **Finish a timed review of Part III lab**, with actual screenshot/render checks and minor story/copy fixes. No need for comprehensive historical documentation cleanup.
-3. **Ensure talk track really fits one page** and readiness check can be assessed within assigned time. Choose export format (Markdown links, PDF or other explicit requested format) and build a concise shareable package.
-4. **Submit Part III package** through the requested channel; verify delivery/receipt. No repository file alone constitutes submission.
-5. **Rehearse Part I demonstration** using saved reports and PR #1. Keep policy Inherit; do not expose tokens.
-6. **Consider Part II Firewall only after Part III is submission-ready.** Explicitly label any partial attempt.
-7. **Post-interview housekeeping:** decide when to merge or close PR #1, whether to move manual workflow to main, and whether to keep connected App/token as already requested. No automatic changes.
+1. Finalize the talk track and readiness check. Verify one-page layout and assessment timing.
+2. Prepare the formal Part III submission separately. Use **Monday, November 23 at 1:00 PM Eastern** as the working target unless recruiting confirms a different deadline.
+3. Rehearse the Part I walkthrough using saved reports and PR #1.
+4. Attempt Part II Firewall if time permits. It remains outstanding.
 
-## Repository hygiene observations
-
-Several historical planning documents (`README.md`, `project/README.md`, `project/PRD.md`, `project/artifact-inventory.md` and sections of `project/friction-log.md`) still contain dated “planning only,” “no app/scan,” or “experiment not started” language. **They are stale compared with actual commits**, but need not be wholesale rewritten before the interview. Treat this status record and the verified Part I brief as current, while retaining dated planning history.
-
-**Sources reviewed:** GitHub `main` tree/commits through `a373d71c6`; `project/part-iii-lab.md`, talk track, readiness check, teaching package index, Package Scores rewrite, Part I briefing, execution plan, PRD and repository READMEs; GitHub PR #1. Recruiting schedule was verified against the November 19 Socket email thread, not inferred from obsolete planning files.
+The [root README](../README.md) is the reviewer entry point. The [project index](README.md) separates current deliverables from historical planning. This repository is available for progress review. The formal submission is still pending.

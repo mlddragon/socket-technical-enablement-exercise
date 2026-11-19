@@ -1,13 +1,14 @@
 # ActivityPulse — Product Requirements Document
 
 **Version:** 0.4 — Controlled concurrent integration comparison (2026-11-18)  
-**Status:** Planning / requirements discovery  
+**Status as of November 18, 2026:** Planning / requirements discovery
+
 **Repository:** [mlddragon/socket-technical-enablement-exercise](https://github.com/mlddragon/socket-technical-enablement-exercise)  
 **Primary interface:** Terminal CLI  
 **Data:** Anonymized local records derived from existing trackers  
 **Target languages:** Node.js, Python, eventually Go
 
-**Current authorization:** Informational artifacts only. The application phases below describe future work. Do not create a `prod/` folder, application code, manifests, lockfiles, workflow files, runtime environments, tokens, secrets, or integration setup during this documentation task. See [activity log](activity-log.md) and [artifact inventory](artifact-inventory.md).
+**Historical scope for this revision:** Informational artifacts only. The application phases below were proposed work at the time. Implementation and integration setup were outside the scope of this revision. See [current project status](PROJECT-STATUS.md) for implemented work and [the activity log](activity-log.md) for the historical record.
 
 **Change from v0.3:** Mason explicitly chose to run the Socket GitHub App and GitHub Actions CI scanning concurrently for a controlled period, accepting the documented duplicate-comment risk. This replaces the earlier advice to disable CI before connecting the App. The assignment still treats CI as optional; our project decision is to include the comparison when implementation is separately authorized.
 

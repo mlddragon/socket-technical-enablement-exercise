@@ -1,25 +1,19 @@
-# Interview project workspace
+# Exercise evidence and project notes
 
-This is intentionally separate from [research](../research/README.md) but in the same GitHub repo.
+Start with the [repository README](../README.md) for the exercise overview and ActivityPulse run instructions. See [current project status](PROJECT-STATUS.md) for milestones and remaining work.
 
-**Current checkpoint (2026-11-19):** [Verified project status and next actions](PROJECT-STATUS.md) covers Parts I–III, submitted-versus-draft materials, and current scheduling. This takes precedence over historical planning-only notes below; those remain as dated design records.
+## Current evidence and deliverables
 
-- [prerequisites-checklist.md](prerequisites-checklist.md): documented environment and access checks before implementation.
-- [part-i-walkthrough.md](part-i-walkthrough.md): continuously maintained, workflow-first Part I walkthrough with assignment cross-references and evidence.
-- [part-i-conceptual-notes.md](part-i-conceptual-notes.md): source-linked Part I §4 API token and policy/resolution reference notes with open verification checklists.
-- [friction-log.md](friction-log.md): firsthand setup and documentation experience.
-- [cli-permissions-worksheet-handoff.md](cli-permissions-worksheet-handoff.md): task-oriented Socket CLI scope matrix, firsthand docs friction, and requirements for a future Work-thread spreadsheet. **Brief only; spreadsheet not built, user to provide detailed instructions.**
-- [teaching-package.md](teaching-package.md): one short hands-on lab, one-page talk track and readiness check, with evidence references.
-- [PRD.md](PRD.md): ActivityPulse v0.4 requirements, future phases and exercise mapping.
-- [integration-comparison.md](integration-comparison.md): controlled concurrent GitHub App/Actions evaluation, accepted duplicate comments and evidence matrix.
-- [activity-log.md](activity-log.md): confirmed research/planning work and duration reconciliation.
-- [ai-use-and-verification.md](ai-use-and-verification.md): AI assistance, corrections and validation limits.
-- [artifact-inventory.md](artifact-inventory.md): saved artifacts and their status.
-- [data/README.md](data/README.md): existing anonymized sample data and limitations.
-- Use only sanitized examples; do not commit secrets or real enterprise identifiers.
-- Owner-confirmed access is recorded in the friction-log follow-up. Verify actual entitlement and token capabilities before hands-on work.
+- **Part I:** [Briefing](part-i-briefing.md), [execution walkthrough](part-i-walkthrough.md), [integration comparison](integration-comparison.md), and [conceptual references](part-i-conceptual-notes.md).
+- **Part III:** [Teaching package index](teaching-package.md), [completed lab](part-iii-lab.md), [talk track draft](part-iii-talk-track.md), and [readiness check draft](part-iii-readiness-check.md).
+- **Documentation:** [Friction and recommendations](friction-log.md), [CLI permissions worksheet brief](cli-permissions-worksheet-handoff.md), and [Package Scores rewrite draft](package-scores-rewrite.md).
+- **Supporting records:** [AI use and verification](ai-use-and-verification.md) and [sample data and its limitations](data/README.md).
 
-Current scope is informational only. Future implementation in the PRD is not authorization to create application code, `prod/`, manifests, workflows or tooling setup.
+## Historical planning and research
+
+- [ActivityPulse PRD](PRD.md), [prerequisites checklist](prerequisites-checklist.md), and [Part I execution plan](part-i-execution-plan.md) capture the original design and scope.
+- [Activity log](activity-log.md) and [November 18 artifact inventory](artifact-inventory.md) preserve earlier checkpoints. Use the current project status for progress.
+- [Research index](../research/README.md) separates source material and public reports from firsthand evidence.
 
 ## Documentation protocol — owner decision (2026-11-18)
 
