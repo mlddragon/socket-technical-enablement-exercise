@@ -68,7 +68,7 @@
 - **Friction / follow-up:** Pending
 
 ### Entry 002a — Socket CLI global installation
-- User ran `npm install -g socket` from repository root. npm reported `added 24 packages in 1s` and `6 packages are looking for funding`; no installation error reported. This is a **global tool installation**, not an ActivityPulse application dependency. Installed CLI version and successful command execution not yet verified; next run `socket --version`.
+- User ran `npm install -g socket` from repository root. npm reported `added 24 packages in 1s` and `6 packages are looking for funding`; no installation error reported. This is a **global tool installation**, not an ActivityPulse application dependency. User ran `socket --version` and reported `1.15.0`; installed CLI version now verified. Next run `socket scan --help` before choosing token scopes and scan arguments.
 
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
