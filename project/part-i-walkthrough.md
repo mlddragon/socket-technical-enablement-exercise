@@ -97,6 +97,8 @@
 
 - Local Python inspection of saved raw scan JSON found `len(response['data']) == 0` (empty list; no first record). Together with previous `healthy:true`, `alerts:{}`, this confirms the original scan produced **zero package records and no Warn-or-higher alerts**, not evidence of meaningful dependency coverage. ActivityPulse baseline had no third-party packages in `package.json`/`requirements.txt`, which is one plausible explanation; **manifest discovery/coverage remains unverified**. Next validate manifest contents before deciding whether to introduce a benign third-party dependency and rescan. This distinction is important for the customer education exercise.
 
+- User verified local inputs using `cat prod/package.json prod/requirements.txt`: `package.json` contains package `activitypulse` (version `1.0.0`, CommonJS) with **no `dependencies` or `devDependencies`**; appended `requirements.txt` printed **no content**, consistent with an empty file. Thus zero third-party dependency packages in baseline inputs plausibly explains empty scan result, though direct manifest discovery is not proven. Plan: implement legitimate YAML activity import in ActivityPulse using PyYAML, add an explicit pinned Python requirement, then re-run a scan to verify real dependency detection, before deliberate policy comparisons.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
