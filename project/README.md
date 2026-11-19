@@ -19,3 +19,7 @@ Current scope is informational only. Future implementation in the PRD is not aut
 ## Documentation protocol — owner decision (2026-11-18)
 
 **Default: selective evidence capture (Option C), proactive and continuous.** The assistant should document decisions, meaningful product behavior, errors, policy enforcement, integration comparisons, and learning observations **as work happens**, rather than waiting for the owner to request logging or reconstructing notes at the end. Preserve minimal command/result/reference information for routine successes; preserve detailed sanitized evidence for noteworthy findings and failures. Ask if the appropriate level of detail is unclear, and follow any owner-specific instructions. Never assume unattended actions or observations occurred; request evidence when the assistant cannot observe a hands-on step. Do not commit secrets or personally identifying account details. Prefer updating existing PRD, friction log, AI-use log, and activity log over duplicating records; don't invent participation time.
+
+## Part I walkthrough format — owner decision (2026-11-18)
+
+Organize the eventual Part I walkthrough **in the sequence of the actual work performed**, with an explicit cross-reference to each numbered assignment requirement. Preserve the difference between planned steps and observed outcomes. This format is selected for the walkthrough, not an instruction to start implementation.
