@@ -7,11 +7,11 @@
 
 ## The story — Courtney's release decision (0–3 minutes)
 
-Courtney (they/them) is the **lead software engineer** for ActivityPulse. They build features alongside their team and coach less-experienced engineers through reviews, releases, and production issues. Their team has recently added Socket to the software supply-chain review process.
+Courtney is the **lead software engineer** for ActivityPulse. They build features alongside their team and coach less-experienced engineers through reviews, releases, and production issues. Their team has recently added Socket to the software supply-chain review process.
 
 ActivityPulse imports activity records using Python's PyYAML library and presents results through a Node.js CLI. Courtney's team is preparing a release when two apparently contradictory reports arrive. One Socket CLI scan says **unhealthy** and blocks the dependency under policy. A GitHub Actions job also turns red, but its log shows **401 Unauthorized**, not a package alert. Meanwhile, another scan of the same PyYAML dependency reports only a warning.
 
-Courtney must decide whether a dependency needs security review, the CI configuration needs repair, or both. They cannot responsibly tell the team to bypass controls just because a build is red. The learner is stepping into Courtney's investigation: work from the evidence, tell the team what it actually means, and choose the next action.
+Courtney must decide whether a dependency needs security review, the CI configuration needs repair, or both. They cannot responsibly tell the team to bypass controls just because a build is red. Courtney has asked you to investigate this. Work from the evidence, tell the team what it actually means, and choose the next action.
 
 ### Before you begin
 
@@ -19,7 +19,7 @@ Courtney must decide whether a dependency needs security review, the CI configur
 
 **Why:** These historical results are real and reproducible as **read-only investigations**. The original policy was restored to Balanced / Inherit after the experiment, so re-running a new scan today is **not** expected to reproduce the same Block.
 
-**Have ready:** A browser with access to the [exercise repository](https://github.com/mlddragon/socket-technical-enablement-exercise), a notes area, and—**only if you already have authorized read-only Socket org access**—Socket CLI v1.15.x. To fetch historical reports, the token needs `full-scans:list` and `security-policy:read`. Do not request or paste token values.
+**Have ready:** A terminal and a notes area; to retrieve saved scans directly, use an already-authorized Socket CLI v1.15.x. To inspect the GitHub Actions example, use the direct workflow link in Activity 3. The lab contains all case evidence needed to complete the exercises, even when you lack access to the original organization's scans. To fetch historical reports, the token needs `full-scans:list` and `security-policy:read`. Do not request or paste token values.
 
 **If you lack Socket org access:** Use the **Provided evidence** under each activity. Complete the classification and handoff anyway. Do not create an account, modify permissions, or change organization policy just to run this lab.
 
@@ -37,16 +37,16 @@ A red CI indicator alone does not say *why* something failed. You need the packa
 
 ### Steps to complete
 
-1. Open the [Part I evidence brief](part-i-briefing.md) in another tab, and scroll to **Section 3 — Security-policy experiment**.
-2. Locate scan ID **`1a1190d3-8b85-4692-9f01-310c3cc406bf`** under the **Block** row. Keep that scan ID available.
-3. **If you have authorized Socket CLI access**, open a terminal and run the read-only command:
+1. Open a terminal where Socket CLI is installed. If you do not have CLI access, continue using the supplied evidence in this activity; you can still complete every question.
+2. Copy this saved **Block** scan ID: **`1a1190d3-8b85-4692-9f01-310c3cc406bf`**.
+3. **If you have authorized Socket CLI access**, run this read-only command:
 
    ~~~bash
    socket scan report 1a1190d3-8b85-4692-9f01-310c3cc406bf --json --fold=version --no-banner
    ~~~
 
    If it fails because you lack organizational access, stop that path and use the provided historical evidence below. Do not regenerate the token or change policy.
-4. In the returned report—or in **Provided evidence**—find these four details: the package/version, alert type, policy action, and `healthy` result.
+4. In the report—or in **Provided evidence** immediately below—locate four details: the package/version, alert type, policy action, and `healthy` result. Compare the output to the reference screenshot beside this example once provided.
 5. Record your findings in **Case A** of the worksheet at the end. In the **Next action** cell, describe what you would ask the dependency owner or security reviewer to assess before the release proceeds.
 
 ### Expected result — what it should look like
@@ -60,6 +60,10 @@ Policy:   error  (Block)
 Healthy:  false
 Original combined create/report process exit code: 1
 ~~~
+
+> **Expected-result screenshot — Activity 1:** The supplied CLI screenshot confirms `ok: true`, `healthy: false`, `potentialVulnerability`, `policy: error`, and the PyYAML version. The screenshot will appear here once its image file is added to the repository. It is a report-generation success with an **unhealthy scan**, not a contradiction.
+>
+> **Screenshot placement:** `project/images/part-iii/activity-1-policy-block.png` (pending image upload; don't show a broken image link).
 
 The explicit **`policy: error`**, the named package finding, and **`healthy:false`** demonstrate that analysis reached a policy-enforcement decision. Exit **1** was observed when the **original scan-create/report command** ran under Block; running the read-only `scan report` command above is not a repeat of that process exit test.
 
@@ -77,8 +81,8 @@ Security detection, visibility thresholds, and enforcement are separate concepts
 
 ### Steps to complete
 
-1. Return to **Section 3** of the [Part I evidence brief](part-i-briefing.md).
-2. Locate the historical **Warn** scan ID **`46093b05-bcd0-438a-9592-4e2a8f045ef3`**.
+1. Keep your terminal and notes area open. This activity uses a different saved scan of the same dependency, so you do not need to open another document.
+2. Copy the historical **Warn** scan ID **`46093b05-bcd0-438a-9592-4e2a8f045ef3`**.
 3. If you have authorized CLI access, run:
 
    ~~~bash
