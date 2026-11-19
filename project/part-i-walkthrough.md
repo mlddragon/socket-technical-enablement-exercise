@@ -140,6 +140,8 @@
 
 - **GitHub App installation observed (Part I):** User navigated to `Settings → Integrations → Connected Apps → GitHub`, selected **Only select repositories** with `mlddragon/socket-technical-enablement-exercise`, then installed/authorized the Socket GitHub App. User confirms connection. Initial GitHub-linked dashboard still loading: Vulnerabilities **'No CVEs found'**, ecosystem **PyPI**, **1 dependency**, **0 alerts shown**; attack-campaign view unchanged. Do **not** confuse no CVEs/dashboard visible alerts with raw Socket scan findings: prior CLI found PyYAML behavioral indicators that inherited policy ignored. App initialization/PR automation **not yet verified**. Next action: allow dashboard to settle and create one narrowly scoped test PR to observe whether app analyzes PR and comments/checks; don't claim PR behavior until directly observed.
 
+- **GitHub App PR test under development (2026-11-19):** User created local feature branch `feature/activitypulse-cli-output` and executed `npm install --prefix prod picocolors@1.1.1`. npm reported `added 1 package`, `audited 2 packages`, and `found 0 vulnerabilities` (the last result is **npm audit**, not Socket). This should change `prod/package.json` and `prod/package-lock.json`; not yet independently diff-verified. Proposed tiny legitimate use in `prod/cli.js`: `const pc = require('picocolors');` and `console.log(pc.bold(pc.cyan('\nActivity Summary')));` replacing plain heading. **Edits, tests, Git commits, PR opening, and Socket App processing remain pending.**
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
