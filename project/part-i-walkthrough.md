@@ -67,6 +67,8 @@
 - **References:** [Socket scan documentation](https://docs.socket.dev/docs/socket-scan), [Token docs](https://docs.socket.dev/docs/api-keys)
 - **Friction / follow-up:** Pending
 
+- User ran `socket login --help` (CLI v1.15.0) while banner still displayed `token: (not set), org: (not set)`. Help states default browser login supplies read-only package/alert/threat-feed access; `socket login --api-token` provides masked API-token login for scans and write commands. Help mentions quota 1 unit and optional `--api-base-url`, `--api-proxy`. Next user action proposed: run `socket login --api-token` and supply `Socket Token 1` secret locally via masked prompt (never share secret). Login success and storage behavior not yet observed.
+
 ### Entry 002a — Socket CLI global installation
 - User ran `npm install -g socket` from repository root. npm reported `added 24 packages in 1s` and `6 packages are looking for funding`; no installation error reported. This is a **global tool installation**, not an ActivityPulse application dependency. User ran `socket --version` and reported `1.15.0`; installed CLI version now verified. Next run `socket scan --help` before choosing token scopes and scan arguments.
 
