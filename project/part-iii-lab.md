@@ -171,7 +171,7 @@ Courtney must turn raw scan details into a safe engineering decision. The team n
 1. Complete the three worksheet rows below. If you already recorded evidence during Activities 1–3, reuse your notes. Pair each original exit code you cite with the finding or HTTP error that explains it.
 2. Under the table, write **two sentences for each case**. Sentence 1 must state the actual evidence and the outcome. Sentence 2 must identify the next safe step and its owner (security/dependency review or CI/credentials). For example, a useful opening is, “The report identified PyYAML 6.0.2 and applied the Block policy; the scan was unhealthy.” Write your own next-action sentence.
 3. Read your three updates aloud as though you're briefing Courtney and their engineering team. Keep each explanation under 20 seconds.
-4. Review each update against this checklist: You named the evidence, distinguished policy from infrastructure, assigned the right follow-up owner, and did not claim malware, expose credentials, or advise bypassing policy.
+4. Open **Reveal the answer key** after drafting your updates. Compare your worksheet, then review each update against this checklist: You named the evidence, distinguished policy from infrastructure, assigned the right follow-up owner, and did not claim malware, expose credentials, or advise bypassing policy.
 
 ### Expected result — what it should look like
 
@@ -181,9 +181,18 @@ Courtney must turn raw scan details into a safe engineering decision. The team n
 | B — Warn | Your answer | Your answer | Your answer | Your answer |
 | C — 401 | Your answer | Your answer | Your answer | Your answer |
 
-**Expected worksheet outcome:** **Case A:** completed evaluation; PyYAML `potentialVulnerability`, `policy: error`, unhealthy; policy-enforced Block; dependency/security owner investigates package behavior and policy. **Case B:** completed evaluation; same package, `policy: warn`, healthy; non-blocking warning; have the dependency owner review the finding and document the release decision. Use the Warn reporting threshold to keep the finding visible. **Case C:** no completed dependency evaluation in failed attempt; HTTP 401 during Socket API calls; authentication/tooling failure; CI owner validates the correct repository-secret value and permissions without revealing it.
+<details>
+<summary>Reveal the answer key</summary>
 
-**Self-check:** A should be an evaluated policy Block; B should be a non-blocking Warn; C should be authentication/tooling failure. For A, start with a dependency and policy review. For C, start with the correct credential and CI configuration **without exposing secret contents**. Bonus: identify attempt 4's streaming fallback as a remaining narrower permissions issue, not a failed scan.
+| Case | Scan analysis completed? | Evidence to cite | Classification | Safe next action |
+|---|---|---|---|---|
+| A — Block | Yes | PyYAML 6.0.2, `potentialVulnerability`, `policy: error`, `healthy: false`. The original scan-create/report command exited `1`. | Policy Block | Ask the dependency owner and security reviewer to assess whether the finding applies to ActivityPulse's YAML loading path and recommend remediation before release. |
+| B — Warn | Yes | Same PyYAML finding, `policy: warn`, `healthy: true`. The original scan-create/report command exited `0`. | Non-blocking warning | Ask the dependency owner to review the finding and document the release decision. Use `--report-level=warn` to keep the warning visible. |
+| C — 401 | No | Attempt 1 returned HTTP `401 Unauthorized` during Socket API calls. The Python CLI exited `3` before dependency analysis completed. | Authentication failure | Ask the CI owner to verify that the workflow references the intended repository secret and that it contains an authorized Socket API token. Keep the value out of logs and messages. |
+
+**Attempt 4 follow-up:** The job passed after the preferred diff scan fell back to streaming comparison. The fallback did not cause a job failure.
+
+</details>
 
 ## The story concludes — Courtney makes the call
 
@@ -195,7 +204,7 @@ With the evidence separated, Courtney can send the dependency finding to the app
 
 ## Facilitator notes (not learner steps)
 
-- **Facilitator answer key:** A = package PyYAML 6.0.2, `potentialVulnerability`, policy `error`, unhealthy, original exit 1. B = same finding, `warn`, healthy, original exit 0, visible at `--report-level=warn`. C = Python CLI HTTP 401 before scan completion, original exit 3; actual token value correction resolved it. Attempt 4 succeeded with streaming comparison after a diff permission fallback.
+- **Facilitator answer key:** Expand **Reveal the answer key** under Activity 4.
 - **If learner lacks org access:** Use the supplied screenshots and log excerpts without asking for credentials. GitHub job logs remain the main clickable exercise; if the attempt selector is unavailable, provide sanitized excerpts rather than fabricating live access. Do not score an access constraint as learner incompetence.
 - **Timing:** Narrative/orientation 3 min; Block 7; Warn 5; auth failure/success comparison 6; customer handoff 4 = **25 min**.
 - **Do not conflate:** A CLI `scan report` inspection with the original `scan create --report` exit code; GitHub App PR comments with Python CI job status; a diff-scan fallback with total scan failure; detected indicators with confirmed maliciousness.
