@@ -6,6 +6,8 @@
 
 November 19, 2026. Editorial direction by Mason Dillon. Drafted by ChatGPT.
 
+[Google Doc review copy](https://docs.google.com/document/d/1bm8TfSpiRpJJDsCublt_rcPcJtmmN5wza23yOrIHb8Q/edit)
+
 Socket scores package versions from 0 to 100 across five categories: supply chain risk, quality, maintenance, vulnerabilities, and license. Higher scores reflect more favorable signals in that category. In [Package Search](https://docs.socket.dev/docs/package-search), open a package and select Versions to compare releases. Open Alerts, Dependencies, or License to see the details that matter to your decision.
 
 ## Why scores exist
