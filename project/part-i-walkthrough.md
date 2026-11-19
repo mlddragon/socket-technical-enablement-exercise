@@ -72,6 +72,8 @@
 
 - User ran `socket scan --help` with CLI v1.15.0. Banner reported `token: (not set), org: (not set)` and cwd repository root. Available subcommands: `create`, `del`, `diff`, `list`, `metadata`, `reach`, `report`, `setup`, `view`. Key distinction: `create` creates a scan; `report` checks results against organization security/license policy. Next: inspect `socket scan create --help` to verify invocation and flags before token creation. No token or scan configured yet.
 
+- User ran `socket scan create --help` on CLI v1.15.0. Help explicitly lists API **quota 1 unit** and permission `full-scans:create`; target defaults to cwd and recursively discovers supported manifests in directories, including `package.json` and `requirements.txt`. Supports `--org`, `--repo`, `--branch`, `--default-branch`, `--report`, `--read-only`, and `--cwd`. `--report` waits and runs policy evaluation; `--read-only` stops before creating an actual report. `--reach` is optional full application reachability and not needed for baseline. Token and org remain unset; no scan initiated. Next: create least-scoped organization token in Socket UI, keeping secret value out of chat/logs.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
