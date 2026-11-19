@@ -2,6 +2,7 @@
 
 This is intentionally separate from [research](../research/README.md) but in the same GitHub repo.
 
+- [prerequisites-checklist.md](prerequisites-checklist.md): documented environment and access checks before implementation.
 - [part-i-walkthrough.md](part-i-walkthrough.md): continuously maintained, workflow-first Part I walkthrough with assignment cross-references and evidence.
 - [part-i-conceptual-notes.md](part-i-conceptual-notes.md): source-linked Part I §4 API token and policy/resolution reference notes with open verification checklists.
 - [friction-log.md](friction-log.md): firsthand setup and documentation experience.
