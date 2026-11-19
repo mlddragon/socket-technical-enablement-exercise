@@ -66,5 +66,6 @@ The CLI prints **117 total records** and a count by activity type. No npm packag
 
 ## Further reading
 
+- [Repository guide for agents](AGENTS.md) explains where to find evidence and how the folders are organized.
 - [Friction log and documentation recommendations](project/friction-log.md) record onboarding, permissions, and interpretation issues from the exercise.
 - [Current project status](project/PROJECT-STATUS.md) tracks completed work and remaining milestones. [Project notes](project/README.md) index the supporting records.
