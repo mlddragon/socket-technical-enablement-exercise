@@ -8,7 +8,9 @@ console.log('I am ActivityPulse v0.1');
 
 const reporter = path.join(__dirname, 'report.py');
 
-const result = spawnSync('python3.12', [reporter], {
+const python = process.env.ACTIVITYPULSE_PYTHON || 'python3.12';
+
+const result = spawnSync(python, [reporter], {
   encoding: 'utf8'
 });
 
