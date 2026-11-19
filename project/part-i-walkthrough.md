@@ -37,7 +37,7 @@
 - Existing correct local clone found at `/Users/masondillon/github/socket-technical-enablement-exercise`, and `main` was clean and tracking `origin/main`.
 - `mkdir prod` created a new application directory, followed by `git pull --ff-only`: fast-forwarded `main` from `4b38bc1` to `c8afa2b` with only `project/part-i-walkthrough.md` updated.
 - Entered `prod/` and ran `npm init -y`. npm created `prod/package.json` with default name `prod`, version `1.0.0`, main `index.js`, `type: commonjs`, ISC license, and default placeholder test. This is a user-observed successful initialization, not yet committed; no dependencies installed.
-- `npm pkg set name=activitypulse` succeeded (no output); `cat package.json` verified `"name": "activitypulse"`, with remaining npm defaults and no dependencies. Next planned: `npm pkg set main=cli.js`.
+- `npm pkg set name=activitypulse` succeeded (no output); `cat package.json` verified `"name": "activitypulse"`, with remaining npm defaults and no dependencies. User confirmed `npm pkg set main=cli.js` completed without error; verification of resulting manifest not independently shown. Next planned: create minimal `prod/cli.js` printing `ActivityPulse v0.1` and `Hello World!` (not yet user-confirmed).
 
 ### Entry 002 — Token and first local CLI scan
 - **Assignment mapping:** Part I §§1.1–1.2
