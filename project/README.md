@@ -2,6 +2,8 @@
 
 This is intentionally separate from [research](../research/README.md) but in the same GitHub repo.
 
+**Current checkpoint (2026-11-19):** [Verified project status and next actions](PROJECT-STATUS.md) covers Parts I–III, submitted-versus-draft materials, and current scheduling. This takes precedence over historical planning-only notes below; those remain as dated design records.
+
 - [prerequisites-checklist.md](prerequisites-checklist.md): documented environment and access checks before implementation.
 - [part-i-walkthrough.md](part-i-walkthrough.md): continuously maintained, workflow-first Part I walkthrough with assignment cross-references and evidence.
 - [part-i-conceptual-notes.md](part-i-conceptual-notes.md): source-linked Part I §4 API token and policy/resolution reference notes with open verification checklists.
