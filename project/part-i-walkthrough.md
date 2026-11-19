@@ -99,6 +99,8 @@
 
 - User verified local inputs using `cat prod/package.json prod/requirements.txt`: `package.json` contains package `activitypulse` (version `1.0.0`, CommonJS) with **no `dependencies` or `devDependencies`**; appended `requirements.txt` printed **no content**, consistent with an empty file. Thus zero third-party dependency packages in baseline inputs plausibly explains empty scan result, though direct manifest discovery is not proven. Plan: implement legitimate YAML activity import in ActivityPulse using PyYAML, add an explicit pinned Python requirement, then re-run a scan to verify real dependency detection, before deliberate policy comparisons.
 
+- User updated `prod/requirements.txt` to `PyYAML==6.0.2` and edited `prod/report.py` in Nano to import `sys`/`yaml`, accept optional file path, and parse `.yaml`/`.yml` with `yaml.safe_load(file) or []`; other suffixes retain CSV DictReader. User reported successful syntax check (`python3.12 -m py_compile prod/report.py`, silent), creation of isolated `/tmp/activitypulse-venv` via `python3.12 -m venv` (silent), and **successful PyYAML==6.0.2 installation** into that venv using `.../bin/python -m pip install -r prod/requirements.txt`. Python 3.12 Apple Silicon wheel installed. Not yet tested for runtime or verified against saved file contents. Next run `/tmp/activitypulse-venv/bin/python prod/report.py` and expect baseline 117 rows and original category counts. **Integration caveat:** Node `prod/cli.js` still spawns system `python3.12`; importing yaml there may fail unless wrapper is adjusted or dependency also available to that interpreter.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
