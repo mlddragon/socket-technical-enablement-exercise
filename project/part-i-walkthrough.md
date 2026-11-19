@@ -89,6 +89,8 @@
 
 - User ran `socket scan report ea295308-005a-4aeb-87f4-f525861e2fb4 --json --fold=version --no-banner`. CLI reported **`Scan result: success`**, returned `{ok:true,data:{includeLicensePolicy:false,healthy:true,orgSlug:'mason-dillon-interview',scanId:'ea295308-005a-4aeb-87f4-f525861e2fb4',options:{fold:'version',reportLevel:'warn'},alerts:{}}}`. Interpretation: security-policy report healthy with **no Warn-or-higher alerts reported** under currently configured policies. License policy **not** evaluated. Does **not** yet establish coverage of both Node and Python manifests or absence of alerts below Warn threshold. Next inspect `socket scan view --help --no-banner` to identify how to retrieve underlying inventory/findings.
 
+- User ran `socket scan view --help --no-banner` (CLI v1.15.0). Usage `socket scan view [options] <SCAN_ID> [OUTPUT_FILE]`, requires `full-scans:list`, quota 1 unit; supports `--json`, `--markdown`, `--stream` (JSON-only). To avoid unwieldy terminal output, next proposed read-only retrieval: `socket scan view ea295308-005a-4aeb-87f4-f525861e2fb4 /tmp/socket-baseline-scan.json --json --no-banner`. This writes scan data to a local temporary file, not repo. Retrieval not yet observed.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
