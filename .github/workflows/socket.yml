@@ -1,8 +1,12 @@
 name: Socket Security CI
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'Existing pull request number to analyze'
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -32,4 +36,4 @@ jobs:
           socketcli \
             --target-path "$GITHUB_WORKSPACE" \
             --scm github \
-            --pr-number "${{ github.event.pull_request.number }}"
+            --pr-number "${{ inputs.pr_number }}"
