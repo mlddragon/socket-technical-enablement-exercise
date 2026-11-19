@@ -20,7 +20,7 @@
 
 - User located a local `socket-project` directory, but `git remote -v` there reported `fatal: not a git repository (or any of the parent directories): .git`. Do not delete or infer its contents.
 - User then entered adjacent `socket-technical-enablement-exercise` directory within their local `github` folder. `git remote -v` confirmed `origin` fetch and push target `https://github.com/mlddragon/socket-technical-enablement-exercise.git`.
-- This is the correct existing working clone; skip an additional `git clone`. `git status` still pending to establish branch and local changes.
+- This is the correct existing working clone; skip an additional `git clone`. `git status` verified `main` tracking `origin/main`, up to date, with a clean working tree (user-run check). Next: inspect top-level directory layout before creating application files.
 
 ## Walkthrough entries (add in actual execution order)
 
