@@ -171,7 +171,7 @@ Courtney must turn raw scan details into a safe engineering decision. The team n
 1. Complete the three worksheet rows below. If you already recorded evidence during Activities 1–3, reuse your notes. Pair each original exit code you cite with the finding or HTTP error that explains it.
 2. Under the table, write **two sentences for each case**. Sentence 1 must state the actual evidence and the outcome. Sentence 2 must identify the next safe step and its owner (security/dependency review or CI/credentials). For example, a useful opening is, “The report identified PyYAML 6.0.2 and applied the Block policy; the scan was unhealthy.” Write your own next-action sentence.
 3. Read your three updates aloud as though you're briefing Courtney and their engineering team. Keep each explanation under 20 seconds.
-4. Open **Reveal the answer key** after drafting your updates. Compare your worksheet, then review each update against this checklist: You named the evidence, distinguished policy from infrastructure, assigned the right follow-up owner, and did not claim malware, expose credentials, or advise bypassing policy.
+4. Use the **Self-check** below to review your updates. Then open **Reveal the answer key** to compare your worksheet.
 
 ### Expected result — what it should look like
 
@@ -180,6 +180,14 @@ Courtney must turn raw scan details into a safe engineering decision. The team n
 | A — Block | Your answer | Your answer | Your answer | Your answer |
 | B — Warn | Your answer | Your answer | Your answer | Your answer |
 | C — 401 | Your answer | Your answer | Your answer | Your answer |
+
+**Self-check**
+
+- Cite the evidence behind each diagnosis, such as the alert and policy action or the HTTP error.
+- Distinguish a policy Block, a non-blocking Warn, and an authentication failure.
+- Name the follow-up owner and give them one safe next action.
+- Treat the finding as a potential vulnerability. Keep credentials private and leave policy controls in place.
+- Verify whether the streaming fallback affected Attempt 4's final job status.
 
 <details>
 <summary>Reveal the answer key</summary>
