@@ -109,6 +109,8 @@
 
 - **Environment diagnosis confirmed by user:** Running `PATH="/tmp/activitypulse-venv/bin:$PATH" node prod/cli.js` succeeded, unlike the prior plain `node prod/cli.js` (`ModuleNotFoundError: yaml`). This establishes the Node wrapper can execute successfully using the Python environment where PyYAML was installed; no code change required for the diagnostic. Next inspect `prod/cli.js` and make its Python interpreter configurable to avoid requiring a custom PATH in normal use. User confirmed success but did not provide verbatim output, so do not claim exact counts from this run beyond previously verified Python direct tests.
 
+- **YAML implementation locally committed:** User ran `git status --short`: three intended modified `prod` files plus untracked `.DS_Store`/`prod/__pycache__`; added root `.gitignore` rules `.DS_Store`, `__pycache__/`, `*.pyc`. Subsequent status confirmed four intended files only. Reviewed `git diff` confirming configurable `ACTIVITYPULSE_PYTHON` with `python3.12` fallback, conditional YAML parser with `yaml.safe_load`, and pinned `PyYAML==6.0.2`. Staged four explicit files; `git diff --cached --stat` showed 4 files, 18 insertions, 4 deletions. **Local commit `efb192f`**: `Add YAML activity import and configurable Python interpreter` (4 files, `.gitignore` created). **Not yet pushed**. Since walkthrough is updated remotely through GitHub, next synchronize with `git pull --rebase origin main` before push; rebase can change the final SHA. No post-dependency scan yet.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
