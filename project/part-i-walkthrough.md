@@ -118,6 +118,8 @@
 
 - User ran `socket scan view 1d9db0a0-20e8-4508-8255-b8ec0c353027 /tmp/socket-pyyaml-scan.json --json --no-banner`. CLI confirmed API response and successful write to `/tmp/socket-pyyaml-scan.json`; no repeat scan required. **Raw data not yet inspected.** Next proposed local Python JSON inspection: `response['ok']`, `len(response['data'])`, and capped preview of first 3 package records. Compare baseline raw `data=[]` with observed new records before claiming PyYAML detected.
 
+- **Second scan detected PyYAML plus substantial raw findings:** User inspected `/tmp/socket-pyyaml-scan.json` locally; API `ok: True`, `len(data): 53`. First raw record: `type:pypi`, `name:pyyaml`, `version:6.0.2`, source release `tar-gz`, license `MIT`, score `overall:0.88` and `supplyChain:0.88` (others visible license/maintenance/quality/vulnerability 1). Four visible alerts on PyYAML: `potentialVulnerability` (severity `middle`, org-policy action `ignore`, note about unsafe Python YAML constructors), `filesystemAccess` (low/ignore), `urlStrings` (low/ignore), `usesEval` (middle/ignore). User's own application uses `yaml.safe_load`, mitigating direct risk of arbitrary object construction for that code path; raw package finding alone does not establish exploitability. `data` length 53 represents **raw records**, not yet established to be 53 unique dependencies. **Key insight:** detection results contain ignored findings despite a healthy Error-threshold policy report; detection vs policy-enforcement are separate. Need inspect distinct package names/types plus alert actions/counts before drawing wider conclusions.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
