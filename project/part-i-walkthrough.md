@@ -138,6 +138,8 @@
 
 - **Policy restoration confirmed by user:** After completing Ignore/Block/Warn comparison, user reported completing the requested UI action to change the organization-level `Potential vulnerability` rule from explicit **Warn** to **Inherit** under the existing Balanced preset. Expected effective action is `Ignore (inherited)`; restoration is based on user confirmation, without an additional screenshot/API verification. Organization-wide policy experiment concluded; no intentional overrides remain from this test.
 
+- **GitHub App installation observed (Part I):** User navigated to `Settings → Integrations → Connected Apps → GitHub`, selected **Only select repositories** with `mlddragon/socket-technical-enablement-exercise`, then installed/authorized the Socket GitHub App. User confirms connection. Initial GitHub-linked dashboard still loading: Vulnerabilities **'No CVEs found'**, ecosystem **PyPI**, **1 dependency**, **0 alerts shown**; attack-campaign view unchanged. Do **not** confuse no CVEs/dashboard visible alerts with raw Socket scan findings: prior CLI found PyYAML behavioral indicators that inherited policy ignored. App initialization/PR automation **not yet verified**. Next action: allow dashboard to settle and create one narrowly scoped test PR to observe whether app analyzes PR and comments/checks; don't claim PR behavior until directly observed.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
