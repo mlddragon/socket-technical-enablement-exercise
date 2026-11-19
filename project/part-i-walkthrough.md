@@ -41,6 +41,9 @@
 
 - User created `prod/cli.js` with `'use strict';`, `console.log('Hello World!');`, and `console.log('I am ActivityPulse v0.1');` (verified through user-run `cat cli.js`). This is a deliberate harmless variation on the proposed wording. User ran `node cli.js` from `prod/` and observed exactly two lines: `Hello World!` and `I am ActivityPulse v0.1`; first Node CLI execution succeeded. Next: inspect first five CSV lines with `head -n 5 ../project/data/activitypulse-activities.csv` before implementing Python reporter.
 
+- User ran `head -n 5 ../project/data/activitypulse-activities.csv` from `prod/`; header verified as `record_id,day,participant,activity_type,source,activity_category,duration_hours,status,online`. Example rows show `application`, `follow_up`, `other`, blank or zero durations, and statuses `recorded`/`logged`; these are **sample observations only**, not yet entire-file statistics.
+- Next user action: create `prod/report.py` with Python standard library `csv.DictReader`, `Counter(activity_type)`, and JSON summary (`total_records`, `by_activity_type`), reading `project/data/activitypulse-activities.csv` via a path relative to `__file__`. Execution/output not yet observed.
+
 ### Entry 002 — Token and first local CLI scan
 - **Assignment mapping:** Part I §§1.1–1.2
 - **Status:** Planned; not performed
