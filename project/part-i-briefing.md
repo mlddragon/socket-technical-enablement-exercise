@@ -60,7 +60,7 @@ The GitHub App's PR overview for picocolors reported Supply Chain Security **100
 4. A subsequent full rerun after adding `diff-scans:create` and `diff-scans:list` also **passed** (run #44557864628, **attempt 4**, November 19); however, logs **still** said `APIAccessDenied(Insufficient permissions)` for preferred diff-scan comparison and `effective=streaming` fallback. The precise remaining authorization reason is **unresolved** and does **not** invalidate the successful streaming scan.
 5. GitHub runner warned that `actions/checkout@v4` and `actions/setup-python@v5` target deprecated Node 20 and were forced to run on Node 24. Non-blocking workflow-maintenance concern, not a Socket security finding.
 
-**Concurrent reporting experiment:** Both `socket-security[bot]` and `github-actions[bot]` posted dependency-overview comments to PR #1. This reproduces the duplicate-feedback cost Socket warns about when GitHub App and CI PR reporting are used together. **Recommendation for normal use:** retain the GitHub App as the easiest default onboarding path and disable or narrow automatic Actions PR reporting after the experiment; retain CLI/CI as alternatives for explicit automation or independent pipeline gates. **Closure not yet performed/verified.**
+**Concurrent reporting experiment:** Both `socket-security[bot]` and `github-actions[bot]` posted dependency-overview comments to PR #1. This reproduces the duplicate-feedback cost Socket warns about when GitHub App and CI PR reporting are used together. **Recommendation for normal use:** retain the GitHub App as the easiest default onboarding path and disable or narrow automatic Actions PR reporting after the experiment; retain CLI/CI as alternatives for explicit automation or independent pipeline gates. **Closure verified:** On PR #1 feature head `293b739b07cf5cfc081dd59982afaa02dc4e7599`, the Actions workflow trigger was changed to manual `workflow_dispatch` with a `pr_number` input. GitHub returned **no Actions workflow runs for the new head** after the update; PR #1 remains open, with both historical bot comments preserved. Socket GitHub App remains connected; fresh App behavior after this edit has not been independently re-tested. The manual workflow normally becomes dispatchable after it is present on the default branch.
 
 ## 5. Technical judgment questions
 
@@ -93,9 +93,9 @@ The [firsthand friction log](friction-log.md) contains detailed observations and
 - [AI-use and verification log](ai-use-and-verification.md) — assistance and independent checks
 
 **Minimal remaining Part I decisions:**
-- [ ] **End deliberate overlap:** disable or narrow the GitHub Actions `pull_request` trigger, preserving workflow/code for reference; verify App still runs independently. Do not silently change the repo before user approval.
-- [ ] **Keep or close PR #1:** recommend leaving open through interview or merging/closing only after evidence is preserved; no action taken.
-- [ ] **Token hygiene:** decide whether to retain the temporary expanded-scope CI token after the interview or revoke it; never expose its value.
+- [x] **End deliberate overlap:** user approved retention of GitHub App and suspension of automatic Actions PR scanning; changed feature-branch workflow to manual `workflow_dispatch` and observed no Actions run for new head. App remains installed. Future manual dispatch normally requires the workflow on the default branch.
+- [x] **Keep PR #1 open through interview:** user explicitly selected this; GitHub verified PR state remains open at head `293b739`.
+- [x] **Token decision:** user explicitly chose to **retain** the dedicated CI token after the interview; no token revoked, rotated or inspected.
 - [ ] **Interview rehearsal:** choose one documentation improvement and one first-week teaching sequence; no requirement to polish every historical planning file.
 
 **Submission interpretation:** The assignment's Part I involves hands-on demonstrations, conceptual answers and a friction log. This document serves as a compact discussion/evidence brief; the explicit advance-submission requirement is for **Part III** materials, not an assumed standalone Part I PDF. Do not assume this briefing has been emailed to the panel.
