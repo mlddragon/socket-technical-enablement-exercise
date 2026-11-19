@@ -101,6 +101,8 @@
 
 - User updated `prod/requirements.txt` to `PyYAML==6.0.2` and edited `prod/report.py` in Nano to import `sys`/`yaml`, accept optional file path, and parse `.yaml`/`.yml` with `yaml.safe_load(file) or []`; other suffixes retain CSV DictReader. User reported successful syntax check (`python3.12 -m py_compile prod/report.py`, silent), creation of isolated `/tmp/activitypulse-venv` via `python3.12 -m venv` (silent), and **successful PyYAML==6.0.2 installation** into that venv using `.../bin/python -m pip install -r prod/requirements.txt`. Python 3.12 Apple Silicon wheel installed. Not yet tested for runtime or verified against saved file contents. Next run `/tmp/activitypulse-venv/bin/python prod/report.py` and expect baseline 117 rows and original category counts. **Integration caveat:** Node `prod/cli.js` still spawns system `python3.12`; importing yaml there may fail unless wrapper is adjusted or dependency also available to that interpreter.
 
+- **CSV regression passed after adding PyYAML:** User executed `/tmp/activitypulse-venv/bin/python prod/report.py`; observed total `117`, `application:27`, `follow_up:16`, `interview:4`, `job_readiness:4`, `other:66`, matching baseline exactly. Confirms existing default CSV execution works in isolated environment. New YAML branch and Node.js wrapper integration still untested. Next test: create `/tmp/activitypulse-test.yaml` with two `application` and one `interview` entries, then invoke Python script with optional YAML path.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
