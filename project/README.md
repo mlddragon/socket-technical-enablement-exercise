@@ -6,7 +6,7 @@ Start with the [repository README](../README.md) for the exercise overview and A
 
 - **Part I:** [Briefing](part-i-briefing.md), [execution walkthrough](part-i-walkthrough.md), [integration comparison](integration-comparison.md), and [conceptual references](part-i-conceptual-notes.md).
 - **Part III:** [Teaching package index](teaching-package.md), [completed lab](part-iii-lab.md), [talk track draft](part-iii-talk-track.md), and [readiness check draft](part-iii-readiness-check.md).
-- **Documentation:** [Friction and recommendations](friction-log.md), [CLI permissions worksheet brief](cli-permissions-worksheet-handoff.md), and [Package Scores rewrite draft](package-scores-rewrite.md).
+- **Documentation:** [Friction and recommendations](friction-log.md), [Socket CLI Permissions Explorer](https://docs.google.com/spreadsheets/d/1iQLzZkCqyz8XxqFjk2UQPY5TDkvVa1a49uHQ3eLOBPY/edit?usp=sharing) ([design brief](cli-permissions-worksheet-handoff.md)), and [Package Scores rewrite draft](package-scores-rewrite.md).
 - **Supporting records:** [AI use and verification](ai-use-and-verification.md) and [sample data and its limitations](data/README.md).
 
 ## Historical planning and research

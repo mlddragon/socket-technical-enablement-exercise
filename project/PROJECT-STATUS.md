@@ -18,6 +18,7 @@
 | **Part III: Hands-on lab ≤30 min** | **Complete for this milestone** | [25-minute Courtney-led lab](part-iii-lab.md), original Block/Warn terminal PNGs, four GitHub Actions PNGs, original side-by-side comparison, self-check and collapsible answer key. Mason reported a successful walkthrough and accepted this version. GitHub rendering was verified. |
 | **Part III: One-page customer talk track** | **Draft exists; format not validated** | [Talk track](part-iii-talk-track.md) covers three failure modes and customer objections. Confirm it actually fits one page in final submission format and matches final lab narrative. |
 | **Part III: Practical readiness check** | **Draft exists; performance test not validated** | [Readiness rubric](part-iii-readiness-check.md) has two scenarios, Warn follow-up, observable readiness/not-ready criteria, safety gates and remediation. Need consistency review and short trial. |
+| **Extra: Socket CLI Permissions Explorer** | **Working reference** | [Socket CLI Permissions Explorer](https://docs.google.com/spreadsheets/d/1iQLzZkCqyz8XxqFjk2UQPY5TDkvVa1a49uHQ3eLOBPY/edit?usp=sharing) covers documented CLI scopes and suggests mappings by role, persona, and use case. Untested API paths still require validation. |
 | **Extra: Package Scores documentation rewrite** | **Draft / pending human review** | [Repository draft](package-scores-rewrite.md). Additional enablement work outside the required Part III package. |
 
 ## Part I detailed accounting

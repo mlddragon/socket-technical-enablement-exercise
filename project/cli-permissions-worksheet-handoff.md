@@ -1,6 +1,7 @@
 # Socket CLI permissions worksheet — Work-thread handoff
 
-**Status:** Requirements/discussion persisted; spreadsheet NOT built. **Date:** 2026-11-18 (America/Detroit).  
+**Historical design brief, November 18, 2026.** The live [Socket CLI Permissions Explorer](https://docs.google.com/spreadsheets/d/1iQLzZkCqyz8XxqFjk2UQPY5TDkvVa1a49uHQ3eLOBPY/edit?usp=sharing) was built afterward and is the current worksheet.
+
 **Purpose:** Allow a separate ChatGPT Work thread to retrieve precise background, then follow the user's **additional, specific spreadsheet-building instructions**. **Do not interpret this document as authorization to build or choose the final platform/layout.**
 
 ## User's objective and observed pain point
