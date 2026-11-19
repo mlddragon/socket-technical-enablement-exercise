@@ -70,6 +70,8 @@
 ### Entry 002a — Socket CLI global installation
 - User ran `npm install -g socket` from repository root. npm reported `added 24 packages in 1s` and `6 packages are looking for funding`; no installation error reported. This is a **global tool installation**, not an ActivityPulse application dependency. User ran `socket --version` and reported `1.15.0`; installed CLI version now verified. Next run `socket scan --help` before choosing token scopes and scan arguments.
 
+- User ran `socket scan --help` with CLI v1.15.0. Banner reported `token: (not set), org: (not set)` and cwd repository root. Available subcommands: `create`, `del`, `diff`, `list`, `metadata`, `reach`, `report`, `setup`, `view`. Key distinction: `create` creates a scan; `report` checks results against organization security/license policy. Next: inspect `socket scan create --help` to verify invocation and flags before token creation. No token or scan configured yet.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
