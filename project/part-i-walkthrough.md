@@ -107,6 +107,8 @@
 
 - **Node.js-to-Python integration failed as anticipated:** User ran `node prod/cli.js`; greeting printed but Python subprocess raised `ModuleNotFoundError: No module named 'yaml'` at `prod/report.py` line 4. The Node wrapper uses `python3.12` resolved via system PATH, while PyYAML 6.0.2 was installed only under `/tmp/activitypulse-venv`. This is an interpreter/dependency environment mismatch, not demonstrated YAML parser failure. Proposed diagnostic without editing files: `PATH="/tmp/activitypulse-venv/bin:$PATH" node prod/cli.js` to test wrapper against known-good venv. If successful, make interpreter configurable or document reproducible environment setup; retest before committing and rescanning.
 
+- **Environment diagnosis confirmed by user:** Running `PATH="/tmp/activitypulse-venv/bin:$PATH" node prod/cli.js` succeeded, unlike the prior plain `node prod/cli.js` (`ModuleNotFoundError: yaml`). This establishes the Node wrapper can execute successfully using the Python environment where PyYAML was installed; no code change required for the diagnostic. Next inspect `prod/cli.js` and make its Python interpreter configurable to avoid requiring a custom PATH in normal use. User confirmed success but did not provide verbatim output, so do not claim exact counts from this run beyond previously verified Python direct tests.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
