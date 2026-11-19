@@ -48,6 +48,8 @@
 
 - User ran `command -v python3.12` from `prod/`; observed `/opt/homebrew/bin/python3.12`. The Node CLI can invoke `python3.12` through PATH. Next action proposed: update `prod/cli.js` to launch Python reporter via Node `spawnSync`, parse JSON and display counts; not yet executed.
 
+- User reported updated `prod/cli.js` with Node `spawnSync('python3.12', [reporter])`, JSON parsing and formatted output, then ran `node cli.js` successfully. Observed output: `Hello World!`; `I am ActivityPulse v0.1`; `Activity Summary`; `Total records: 117`; application 27, follow_up 16, interview 4, job_readiness 4, other 66. Confirms end-to-end Node -> Python 3.12 -> CSV -> JSON -> Node reporting with no external application packages yet. Next step proposed `npm install --package-lock-only` to establish an npm lockfile; not yet run.
+
 ### Entry 002 — Token and first local CLI scan
 - **Assignment mapping:** Part I §§1.1–1.2
 - **Status:** Planned; not performed
