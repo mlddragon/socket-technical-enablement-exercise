@@ -83,6 +83,8 @@
 
 - User ran `socket scan metadata --help --no-banner` (v1.15.0). Help confirms syntax `socket scan metadata [options] <SCAN_ID>`, quota **1 unit**, required permission **`full-scans:list`**, and optional `--json`, `--markdown`, `--org`. Proposed next invocation `socket scan metadata ea295308-005a-4aeb-87f4-f525861e2fb4 --json --no-banner` to inspect the previously recovered scan. No metadata response observed yet.
 
+- User ran `socket scan metadata ea295308-005a-4aeb-87f4-f525861e2fb4 --json --no-banner`. Response had `ok: true`; `created_at: 2026-11-19T06:10:37.909Z`, `updated_at: 2026-11-19T06:10:39.279Z`, repository `socket-technical-enablement-exercise`, branch `main`, `integration_type: api`, `scan_type: socket`, `scan_state: resolve`, `has_cached_result: true`, `incomplete: false`. `commit_hash`, `commit_message`, `pull_request` null and `committers` empty, so association with branch **does not establish commit-level attribution**. Omit internal organization/repository IDs and any credential metadata from public report. State `resolve` is the CLI-returned state; do not infer exact security policy health or confirmed Node/Python manifest coverage from metadata. Next inspect `socket scan report --help --no-banner` and run a policy report for saved scan without creating another.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
