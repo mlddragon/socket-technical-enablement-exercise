@@ -91,6 +91,8 @@
 
 - User ran `socket scan view --help --no-banner` (CLI v1.15.0). Usage `socket scan view [options] <SCAN_ID> [OUTPUT_FILE]`, requires `full-scans:list`, quota 1 unit; supports `--json`, `--markdown`, `--stream` (JSON-only). To avoid unwieldy terminal output, next proposed read-only retrieval: `socket scan view ea295308-005a-4aeb-87f4-f525861e2fb4 /tmp/socket-baseline-scan.json --json --no-banner`. This writes scan data to a local temporary file, not repo. Retrieval not yet observed.
 
+- User executed `socket scan view ea295308-005a-4aeb-87f4-f525861e2fb4 /tmp/socket-baseline-scan.json --json --no-banner`. CLI confirmed Socket API response and **JSON successfully written** to local temporary file `/tmp/socket-baseline-scan.json`. Raw scan was recovered without another scan submission. Content/manifest coverage **not yet inspected**. Next proposed local read-only command uses Python 3.12 JSON parsing to print top-level keys and types; inspect only relevant fields after schema is known.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
