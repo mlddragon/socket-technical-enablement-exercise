@@ -2,6 +2,7 @@
 
 This is intentionally separate from [research](../research/README.md) but in the same GitHub repo.
 
+- [part-i-conceptual-notes.md](part-i-conceptual-notes.md): source-linked Part I §4 API token and policy/resolution reference notes with open verification checklists.
 - [friction-log.md](friction-log.md): firsthand setup and documentation experience.
 - [teaching-package.md](teaching-package.md): one short hands-on lab, one-page talk track and readiness check, with evidence references.
 - [PRD.md](PRD.md): ActivityPulse v0.4 requirements, future phases and exercise mapping.
