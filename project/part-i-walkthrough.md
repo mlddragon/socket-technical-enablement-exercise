@@ -56,6 +56,8 @@
 
 - User ran `git commit -m "Add ActivityPulse Node.js and Python baseline"` successfully on local `main`. Observed commit `d2cd96e`, 5 files, 79 insertions; all five `prod/` files created. This is **local only** as of the observation; remote sync/push pending. Next step requested: `git fetch origin` to inspect remote documentation changes without affecting local commit.
 
+- User ran `git push origin main` successfully after rebasing; output confirms remote `main` moved from `6ce89d3` to `e078a11`, publishing the five-file ActivityPulse baseline. The resulting baseline commit is [`e078a11`](https://github.com/mlddragon/socket-technical-enablement-exercise/commit/e078a11), replacing pre-rebase local SHA `d2cd96e`. Node and Python functional smoke tests passed previously. **Next:** Part I §1 install Socket CLI, then scope token and first scan. Note baseline has no third-party npm/Python dependencies, so security findings may be absent; verify manifest detection separately.
+
 ### Entry 002 — Token and first local CLI scan
 - **Assignment mapping:** Part I §§1.1–1.2
 - **Status:** Planned; not performed
