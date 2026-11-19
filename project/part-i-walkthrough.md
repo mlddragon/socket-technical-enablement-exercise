@@ -2,7 +2,7 @@
 
 **Status:** Living document; planning completed in part, hands-on execution not started as of November 18, 2026.
 
-**Documentation decision:** Maintain this walkthrough continuously as work occurs. Organize it in actual execution order, not merely the assignment's order, and cross-reference the assignment sections. Capture routine success concisely; preserve additional sanitized evidence for meaningful findings, failures, policy changes, and integration comparisons. Update proactively rather than reconstructing from memory.
+**Documentation decision:** Maintain this walkthrough continuously as work occurs. Organize it in actual execution order, not merely the assignment's order, and cross-reference the assignment sections. Capture routine success concisely; preserve additional sanitized evidence for meaningful findings, failures, policy changes, and integration comparisons. Update proactively rather than reconstructing from memory. **Command capture decision:** Record every meaningful command required to reproduce the workflow, with purpose, execution context, and relevant official reference. Preserve full or extended terminal output only where it demonstrates behavior, failure, enforcement, or an important discrepancy; otherwise summarize outcomes. Redact tokens, secrets, and identifying metadata.
 
 **Assignment source:** *Technical Enablement Lead Peer Interview*, Part I, sections 1–5, pages 3–4.
 
