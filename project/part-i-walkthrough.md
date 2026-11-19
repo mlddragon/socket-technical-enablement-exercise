@@ -103,6 +103,8 @@
 
 - **CSV regression passed after adding PyYAML:** User executed `/tmp/activitypulse-venv/bin/python prod/report.py`; observed total `117`, `application:27`, `follow_up:16`, `interview:4`, `job_readiness:4`, `other:66`, matching baseline exactly. Confirms existing default CSV execution works in isolated environment. New YAML branch and Node.js wrapper integration still untested. Next test: create `/tmp/activitypulse-test.yaml` with two `application` and one `interview` entries, then invoke Python script with optional YAML path.
 
+- **YAML feature test passed:** User created `/tmp/activitypulse-test.yaml` with two `application` and one `interview` records, then executed `/tmp/activitypulse-venv/bin/python prod/report.py /tmp/activitypulse-test.yaml`. Observed `total_records: 3`, `by_activity_type: {application: 2, interview: 1}`. With prior 117-record CSV regression, both Python input paths now tested successfully in isolated PyYAML 6.0.2 environment. Node.js wrapper still invokes bare `python3.12` and has not yet been re-tested after external YAML import was introduced; next run `node prod/cli.js` to observe whether its Python interpreter can import `yaml`. No Git changes committed, no post-dependency Socket scan run yet.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
