@@ -212,7 +212,7 @@ The following mapping follows the original *Technical Enablement Lead Peer Inter
 | Part I, 2.1: GitHub App and dependency PR | YAML support with PyYAML | Planned |
 | Part I, 2.2–2.3: Integration comparison | Controlled concurrent GitHub App + Actions comparison, with CLI reference | Decision accepted; protocol documented; first-path teaching recommendation explicitly deferred until all three integrations are tested |
 | Part I, 3.1–3.3: Block/warn policy | Prefer a naturally occurring ActivityPulse dependency finding; if none suitable, use a deliberately selected safe test dependency or manifest entry | Primary/fallback decision confirmed; finding and behavior unverified |
-| Part I, 4: Conceptual questions | Separate technical notes and teaching explanations | Not yet planned |
+| Part I, 4: Conceptual questions | [Source-linked living reference notes](part-i-conceptual-notes.md) for API token scoping and resolutions vs. rules | Documented from official sources; firsthand verification and examples still open |
 | Part I, 5: Interview preparation | Live demo and friction log | Ongoing |
 | Part II: Socket Firewall | Local registry-mode proxy and blocked install | Not yet designed |
 | Part III: Teach it back | Lab, one-page talk track, readiness check | Topic not selected |
