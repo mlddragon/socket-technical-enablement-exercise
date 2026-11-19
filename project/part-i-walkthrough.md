@@ -39,6 +39,8 @@
 - Entered `prod/` and ran `npm init -y`. npm created `prod/package.json` with default name `prod`, version `1.0.0`, main `index.js`, `type: commonjs`, ISC license, and default placeholder test. This is a user-observed successful initialization, not yet committed; no dependencies installed.
 - `npm pkg set name=activitypulse` succeeded (no output); `cat package.json` verified `"name": "activitypulse"`, with remaining npm defaults and no dependencies. User confirmed `npm pkg set main=cli.js` completed without error; verification of resulting manifest not independently shown. Next planned: create minimal `prod/cli.js` printing `ActivityPulse v0.1` and `Hello World!` (not yet user-confirmed).
 
+- User created `prod/cli.js` with `'use strict';`, `console.log('Hello World!');`, and `console.log('I am ActivityPulse v0.1');` (verified through user-run `cat cli.js`). This is a deliberate harmless variation on the proposed wording. Execution with `node cli.js` pending.
+
 ### Entry 002 — Token and first local CLI scan
 - **Assignment mapping:** Part I §§1.1–1.2
 - **Status:** Planned; not performed
