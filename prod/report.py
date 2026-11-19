@@ -5,10 +5,7 @@ import yaml
 from collections import Counter
 from pathlib import Path
 
-default_file = (
-    Path(__file__).resolve().parent.parent
-    / "project/data/activitypulse-activities.csv"
-)
+default_file = Path(__file__).resolve().parent / "data/activitypulse-activities.csv"
 
 data_file = Path(sys.argv[1]) if len(sys.argv) > 1 else default_file
 

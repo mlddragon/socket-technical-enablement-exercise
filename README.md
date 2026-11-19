@@ -21,11 +21,11 @@ These materials supplement the exercise and sit outside the three required Part 
 
 | Additional work | Open | What it shows |
 |---|---|---|
-| **Socket CLI Permissions Explorer** | [Socket CLI Permissions Explorer](https://docs.google.com/spreadsheets/d/1iQLzZkCqyz8XxqFjk2UQPY5TDkvVa1a49uHQ3eLOBPY/edit?usp=sharing) · [Design brief](project/cli-permissions-worksheet-handoff.md) | Google Sheets reference covering 68 commands and variants. Filter by customer role, persona, or use case and see a deduplicated **Scopes to tick** list. The shared sheet is open for comments. Use an editable copy to try the dropdowns. Scope entries are based on documentation and CLI help, with live API verification still needed for untested paths. |
+| **Socket CLI Permissions Explorer** | [Socket CLI Permissions Explorer](https://docs.google.com/spreadsheets/d/1iQLzZkCqyz8XxqFjk2UQPY5TDkvVa1a49uHQ3eLOBPY/edit?usp=sharing) · [Design brief](research/planning/cli-permissions-worksheet-handoff.md) | Google Sheets reference covering 68 commands and variants. Filter by customer role, persona, or use case and see a deduplicated **Scopes to tick** list. The shared sheet is open for comments. Use an editable copy to try the dropdowns. Scope entries are based on documentation and CLI help, with live API verification still needed for untested paths. |
 | **Package Scores documentation rewrite** | [Repository draft](project/package-scores-rewrite.md) · [Google Doc review copy](https://docs.google.com/document/d/1bm8TfSpiRpJJDsCublt_rcPcJtmmN5wza23yOrIHb8Q/edit) | Proposed rewrite for people interpreting scores in their daily work. AI-assisted draft awaiting human review. |
 | **Socket community research** | [Enablement themes](research/discord-enablement-themes-2026.md) · [Detailed findings](research/discord-may-nov-2026.md) | Attributed customer and community reports that informed the training and documentation ideas. |
 | **Teaching delivery options** | [Training platform comparison](research/training-platform-options-2026-11-18.md) | Research into authoring and sharing options for the teaching package. |
-| **ActivityPulse design** | [Product requirements and assignment mapping](project/PRD.md) | Historical design record for the two-runtime demo and its role in the exercise. |
+| **ActivityPulse design** | [Product requirements and assignment mapping](research/planning/PRD.md) | Historical design record for the two-runtime demo and its role in the exercise. |
 
 [Run ActivityPulse](#run-activitypulse) · [Current project status](project/PROJECT-STATUS.md)
 
@@ -43,7 +43,7 @@ The [Part I briefing](project/part-i-briefing.md) is the short overview. Each ro
 
 ## ActivityPulse demo
 
-**ActivityPulse** is the demo repository’s CLI. [Node.js](prod/cli.js) invokes a [Python reporter](prod/report.py), reads its JSON summary, and prints activity counts. The reporter reads the bundled [117-record sample CSV](project/data/activitypulse-activities.csv) or a YAML file. PyYAML provides the dependency used in the policy demonstration.
+**ActivityPulse** is the demo repository’s CLI. [Node.js](prod/cli.js) invokes a [Python reporter](prod/report.py), reads its JSON summary, and prints activity counts. The reporter reads the bundled [117-record sample CSV](prod/data/activitypulse-activities.csv) or a YAML file. PyYAML provides the dependency used in the policy demonstration.
 
 The Part III lab uses original CLI and GitHub Actions evidence to teach when to review a blocked dependency, when to follow up on a warning, and when to hand an authentication failure to the CI owner. It includes screenshots and log excerpts for readers without Socket organization access.
 

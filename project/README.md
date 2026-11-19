@@ -4,16 +4,14 @@ Start with the [repository README](../README.md) for the exercise overview and A
 
 ## Current evidence and deliverables
 
-- **Part I:** [Briefing](part-i-briefing.md), [execution walkthrough](part-i-walkthrough.md), [integration comparison](integration-comparison.md), and [conceptual references](part-i-conceptual-notes.md).
+- **Part I:** [Briefing](part-i-briefing.md), [execution walkthrough](part-i-walkthrough.md), [integration comparison](integration-comparison.md), and [conceptual references](../research/planning/part-i-conceptual-notes.md).
 - **Part III:** [Teaching package index](teaching-package.md), [completed lab](part-iii-lab.md), [talk track draft](part-iii-talk-track.md), and [readiness check draft](part-iii-readiness-check.md).
-- **Documentation:** [Friction and recommendations](friction-log.md), [Socket CLI Permissions Explorer](https://docs.google.com/spreadsheets/d/1iQLzZkCqyz8XxqFjk2UQPY5TDkvVa1a49uHQ3eLOBPY/edit?usp=sharing) ([design brief](cli-permissions-worksheet-handoff.md)), and [Package Scores rewrite draft](package-scores-rewrite.md).
-- **Supporting records:** [AI use and verification](ai-use-and-verification.md) and [sample data and its limitations](data/README.md).
+- **Documentation:** [Friction and recommendations](friction-log.md), [Socket CLI Permissions Explorer](https://docs.google.com/spreadsheets/d/1iQLzZkCqyz8XxqFjk2UQPY5TDkvVa1a49uHQ3eLOBPY/edit?usp=sharing) ([design brief](../research/planning/cli-permissions-worksheet-handoff.md)), and [Package Scores rewrite draft](package-scores-rewrite.md).
+- **Supporting records:** [AI use and verification](ai-use-and-verification.md) and [sample data and its limitations](../prod/data/README.md).
 
-## Historical planning and research
+## Background and planning
 
-- [ActivityPulse PRD](PRD.md), [prerequisites checklist](prerequisites-checklist.md), and [Part I execution plan](part-i-execution-plan.md) capture the original design and scope.
-- [Activity log](activity-log.md) and [November 18 artifact inventory](artifact-inventory.md) preserve earlier checkpoints. Use the current project status for progress.
-- [Research index](../research/README.md) separates source material and public reports from firsthand evidence.
+The [research index](../research/README.md) links source material, community reports, and [historical planning](../research/README.md#historical-planning). Use [current project status](PROJECT-STATUS.md) for progress.
 
 ## Documentation protocol — owner decision (2026-11-18)
 

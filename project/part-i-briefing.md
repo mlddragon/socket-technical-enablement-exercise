@@ -67,7 +67,7 @@ The GitHub App's PR overview for picocolors reported Supply Chain Security **100
 
 **Why organization-scoped and capability-scoped tokens?** Organization scope binds a credential to the correct tenancy; capability scope limits which operations that credential may invoke. This supports least privilege and independent rotation/revocation of local, CI and other credentials. GitHub App authorization is a **separate** trust boundary from Socket API-token scopes. The working local three-scope token and distinct CI token made that distinction concrete.
 
-**When resolve an alert versus add a policy rule?** Use a **narrow resolution** for a specific reviewed finding (e.g., verified false positive or documented tolerable risk) bounded by repository, artifact/version and alert identity where possible. Use a **policy rule** to set intentional treatment for a **class of findings** across an agreed scope (Block/Warn/Monitor/Ignore). Avoid broad permanent resolutions that unintentionally suppress new versions or unrelated findings. The Block/Warn test altered an org-wide **policy**, not an alert resolution; no actual resolution lifecycle test was performed. [Conceptual reference notes](part-i-conceptual-notes.md) preserve official-source nuance.
+**When resolve an alert versus add a policy rule?** Use a **narrow resolution** for a specific reviewed finding (e.g., verified false positive or documented tolerable risk) bounded by repository, artifact/version and alert identity where possible. Use a **policy rule** to set intentional treatment for a **class of findings** across an agreed scope (Block/Warn/Monitor/Ignore). Avoid broad permanent resolutions that unintentionally suppress new versions or unrelated findings. The Block/Warn test altered an org-wide **policy**, not an alert resolution; no actual resolution lifecycle test was performed. [Conceptual reference notes](../research/planning/part-i-conceptual-notes.md) preserve official-source nuance.
 
 ## 6. Friction, documentation improvements and first-week teaching
 
@@ -91,7 +91,7 @@ The [firsthand friction log](friction-log.md) contains detailed observations and
 - [PR #1](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1) — direct dependency change and both bots
 - [Successful Actions run, attempt 4](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628) — job logs and permissions fallback
 - [Friction log](friction-log.md) — firsthand product/docs assessment
-- [Integration comparison protocol](integration-comparison.md) and [conceptual notes](part-i-conceptual-notes.md)
+- [Integration comparison protocol](integration-comparison.md) and [conceptual notes](../research/planning/part-i-conceptual-notes.md)
 - [AI-use and verification log](ai-use-and-verification.md) — assistance and independent checks
 
 **Minimal remaining Part I decisions:**

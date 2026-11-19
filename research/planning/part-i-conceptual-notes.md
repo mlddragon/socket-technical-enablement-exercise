@@ -54,7 +54,7 @@ Org scoping limits the organization context; capability scoping limits allowed o
 - [ ] Demonstrate Block → Warn independently per Part I §3, documenting health, exit code, and policy effects.
 - [ ] Test whether identical findings reappear or remain resolved; no assumed outcome.
 - [ ] Confirm whether a script-content-aware exception mechanism exists; no such capability is established by the reviewed references.
-- [ ] Record observations and any public-doc improvement in [friction log](friction-log.md).
+- [ ] Record observations and any public-doc improvement in [friction log](../../project/friction-log.md).
 
 ## Evidence discipline and expansion
 

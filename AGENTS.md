@@ -12,9 +12,9 @@ This repository contains Mason Dillon’s Socket Technical Enablement Lead inter
 
 | Location | What belongs there | How to read it |
 |---|---|---|
-| [`project/`](project/README.md) | Reviewer-facing deliverables, reports, screenshots, and supplemental enablement materials. | Start with the current evidence links. Draft labels apply to individual files. Dated plans, the PRD, and the artifact inventory are historical records. |
-| [`research/`](research/README.md) | Training preparation, community observations, source notes, hypotheses, and rough ideas that informed the exercise. | Use it to trace the thinking or find sources. An attributed report or hypothesis needs separate evidence before it can support a claim about Socket behavior. |
-| [`prod/`](prod/) | The ActivityPulse application and its runtime manifests. | [`cli.js`](prod/cli.js) invokes [`report.py`](prod/report.py) and formats the summary. The app reads the [anonymized CSV fixture](project/data/activitypulse-activities.csv) from `project/data/`, alongside its [provenance notes](project/data/README.md). Use the [README run instructions](README.md#run-activitypulse). |
+| [`project/`](project/README.md) | Reviewer-facing deliverables, reports, screenshots, and supplemental enablement materials. | Start with the current evidence links. Draft labels apply to individual files. Use this folder for current deliverables and evidence. |
+| [`research/`](research/README.md) | Training preparation, community observations, source notes, and hypotheses. [Historical planning](research/README.md#historical-planning) covers the dated plans, PRD, and artifact inventory. | Use it to trace the thinking or find sources. An attributed report or hypothesis needs separate evidence before it can support a claim about Socket behavior. |
+| [`prod/`](prod/) | The ActivityPulse application, runtime manifests, and bundled sample data. | [`cli.js`](prod/cli.js) invokes [`report.py`](prod/report.py) and formats the summary. The app reads the [anonymized CSV fixture](prod/data/activitypulse-activities.csv) from `prod/data/`, alongside its [provenance notes](prod/data/README.md). Use the [README run instructions](README.md#run-activitypulse). |
 
 Keep new deliverables and their evidence in `project/`, exploratory material in `research/`, and application code and runtime requirements in `prod/`. Use the indexes to distinguish the current deliverables from retained planning records.
 

@@ -1,6 +1,6 @@
 # Part I — Continuous hands-on walkthrough
 
-**Status:** Living document; planning completed in part, hands-on execution not started as of November 18, 2026.
+**Status:** Chronological record of the completed Part I demonstrations. Early entries describe work as it stood at the time. The sample CSV now lives in [`prod/data/`](../prod/data/), so commands recorded during initial setup may show its former location.
 
 **Documentation decision:** Maintain this walkthrough continuously as work occurs. Organize it in actual execution order, not merely the assignment's order, and cross-reference the assignment sections. Capture routine success concisely; preserve additional sanitized evidence for meaningful findings, failures, policy changes, and integration comparisons. Update proactively rather than reconstructing from memory. **Command capture decision:** Record every meaningful command required to reproduce the workflow, with purpose, execution context, and relevant official reference. Preserve full or extended terminal output only where it demonstrates behavior, failure, enforcement, or an important discrepancy; otherwise summarize outcomes. Redact tokens, secrets, and identifying metadata.
 
@@ -10,11 +10,11 @@
 
 - Demo repository exists. Current authorization is **documentation only**; no application or scan implementation has been performed through this document.
 - Socket Enterprise organization access: owner confirmed login succeeded; scopes/scan capability not yet tested.
-- ActivityPulse plan: initial Node.js CLI + Python reporting engine, anonymized CSV records; later YAML/PyYAML dependency PR. Go validation is optional. [PRD](PRD.md).
+- ActivityPulse plan: initial Node.js CLI + Python reporting engine, anonymized CSV records; later YAML/PyYAML dependency PR. Go validation is optional. [PRD](../research/planning/PRD.md).
 - CI scan is optional in the assignment, but selected for the comparison. Controlled GitHub App + GitHub Actions overlap is explicitly approved despite possible duplicate PR comments. [Comparison protocol](integration-comparison.md).
 - Policy Block → Warn test: prefer an organic finding from ActivityPulse; use a safe deliberate manifest/test dependency only if necessary.
 - Final recommendation for which integration to teach first is **deferred until local CLI, App and Actions have been tested and compared**.
-- Relevant conceptual research: [Part I §4 notes](part-i-conceptual-notes.md). Known documentation issues and hands-on friction: [friction log](friction-log.md). AI use: [AI verification log](ai-use-and-verification.md).
+- Relevant conceptual research: [Part I §4 notes](../research/planning/part-i-conceptual-notes.md). Known documentation issues and hands-on friction: [friction log](friction-log.md). AI use: [AI verification log](ai-use-and-verification.md).
 
 ## Local repository discovery — firsthand observation
 
@@ -30,7 +30,7 @@
 - **Action / commands:** Pending
 - **Expected:** Node.js and Python components run, with analyzable manifests.
 - **Actual result / sanitized evidence:** Pending
-- **References:** [PRD](PRD.md), [Socket CLI docs](https://docs.socket.dev/docs/socket-cli)
+- **References:** [PRD](../research/planning/PRD.md), [Socket CLI docs](https://docs.socket.dev/docs/socket-cli)
 - **Friction / follow-up:** Pending
 
 ### Baseline implementation observations (user-run, 2026-11-18)
@@ -187,7 +187,7 @@
 - **Status:** Deferred until evidence is collected
 - **Topics:** CLI/App/CI suitability and failure modes; first-week teaching path; org-scoped tokens; alert resolutions vs policy rules; friction log and public documentation improvement.
 - **Actual evidence and conclusions:** Pending
-- **References:** [Conceptual notes](part-i-conceptual-notes.md), [friction log](friction-log.md)
+- **References:** [Conceptual notes](../research/planning/part-i-conceptual-notes.md), [friction log](friction-log.md)
 
 ## Record format for additional entries
 

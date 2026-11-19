@@ -428,9 +428,9 @@ Part III materials are due **Thursday, November 19, at 1:30 PM Eastern**. Protec
 - [Socket GitHub App](https://docs.socket.dev/docs/sca-connect)
 - [Socket CI integration](https://docs.socket.dev/docs/sca-ci)
 - [Socket policies](https://docs.socket.dev/docs/policies)
-- [ActivityPulse PRD](https://github.com/mlddragon/socket-technical-enablement-exercise/blob/main/project/PRD.md)
-- [Continuous walkthrough](https://github.com/mlddragon/socket-technical-enablement-exercise/blob/main/project/part-i-walkthrough.md)
-- [Integration comparison protocol](https://github.com/mlddragon/socket-technical-enablement-exercise/blob/main/project/integration-comparison.md)
-- [Preflight checklist](https://github.com/mlddragon/socket-technical-enablement-exercise/blob/main/project/prerequisites-checklist.md)
+- [ActivityPulse PRD](PRD.md)
+- [Continuous walkthrough](../../project/part-i-walkthrough.md)
+- [Integration comparison protocol](../../project/integration-comparison.md)
+- [Preflight checklist](prerequisites-checklist.md)
 
 **Review status:** No Part I installation, application implementation, scan, or integration configuration has been performed as a result of preparing this document.

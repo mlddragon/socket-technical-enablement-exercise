@@ -8,7 +8,7 @@
 **Data:** Anonymized local records derived from existing trackers  
 **Target languages:** Node.js, Python, eventually Go
 
-**Historical scope for this revision:** Informational artifacts only. The application phases below were proposed work at the time. Implementation and integration setup were outside the scope of this revision. See [current project status](PROJECT-STATUS.md) for implemented work and [the activity log](activity-log.md) for the historical record.
+**Historical scope for this revision:** Informational artifacts only. The application phases below were proposed work at the time. Implementation and integration setup were outside the scope of this revision. See [current project status](../../project/PROJECT-STATUS.md) for implemented work and [the activity log](activity-log.md) for the historical record.
 
 **Change from v0.3:** Mason explicitly chose to run the Socket GitHub App and GitHub Actions CI scanning concurrently for a controlled period, accepting the documented duplicate-comment risk. This replaces the earlier advice to disable CI before connecting the App. The assignment still treats CI as optional; our project decision is to include the comparison when implementation is separately authorized.
 
@@ -104,7 +104,7 @@ All sample metrics are fictional.
 
 - Add a Node.js CLI.
 - Add a Python reporting engine.
-- Use the existing [117-record anonymized CSV](data/activitypulse-activities.csv); preserve its provenance and distinguish reporting credits from elapsed time as described in its [README](data/README.md).
+- Use the existing [117-record anonymized CSV](../../prod/data/activitypulse-activities.csv); preserve its provenance and distinguish reporting credits from elapsed time as described in its [README](../../prod/data/README.md).
 - Display "Hello World" and a basic summary.
 - Add appropriate package manifests and lockfiles.
 - Document local setup and execution.
@@ -118,7 +118,7 @@ All sample metrics are fictional.
 - Review the scan results.
 - Record findings and friction.
 
-After the successful local scan, plan the optional GitHub Actions scan from Part I §1.3. Leave it available for the controlled overlap in Phase 2. See [comparison protocol](integration-comparison.md) for prerequisites, evidence, and stop conditions. No workflow is created by this PRD update.
+After the successful local scan, plan the optional GitHub Actions scan from Part I §1.3. Leave it available for the controlled overlap in Phase 2. See [comparison protocol](../../project/integration-comparison.md) for prerequisites, evidence, and stop conditions. No workflow is created by this PRD update.
 
 **Expected outcome:** A functional two-language application with an initial Socket scan.
 
@@ -246,7 +246,7 @@ The planned YAML feature provides an authentic reason to open a dependency-chang
 
 We will observe how the GitHub App evaluates changes and compare that behavior with local CLI scans and GitHub Actions scanning on the same PR/commit. Mason accepts the duplicate PR comments documented by Socket for a controlled period so we can evaluate both integration experiences and show their negative impacts. This is an exercise-specific exception to Socket's normal recommendation to choose one GitHub reporting path.
 
-The [comparison protocol](integration-comparison.md) defines the entry criteria, evidence matrix and end condition. Start after baseline/local scanning, overlap on the planned dependency PR, capture results, then disable or narrow CI scanning to end concurrent PR reporting. Record actual start/end events when performed; none has occurred in this documentation task.
+The [comparison protocol](../../project/integration-comparison.md) defines the entry criteria, evidence matrix and end condition. Start after baseline/local scanning, overlap on the planned dependency PR, capture results, then disable or narrow CI scanning to end concurrent PR reporting. Record actual start/end events when performed; none has occurred in this documentation task.
 
 **Comparison acceptance criteria**
 
@@ -359,7 +359,7 @@ Maintain a separate AI-use and verification log as requested by the interview as
 - Anonymized, locally stored tracker-derived data; original private records remain in their source trackers.
 - No database or external integration in the baseline.
 - Incremental changes through pull requests.
-- Controlled concurrent GitHub App and Actions scanning for comparison, accepting duplicate PR comments and documenting negative impacts; see [decision and protocol](integration-comparison.md).
+- Controlled concurrent GitHub App and Actions scanning for comparison, accepting duplicate PR comments and documenting negative impacts; see [decision and protocol](../../project/integration-comparison.md).
 - Select which integration path to teach a new SE first **only after** the three hands-on paths have been compared.
 - For policy Block → Warn, first use an organic dependency finding; if none is suitable, use a controlled safe manifest/test dependency as fallback.
 

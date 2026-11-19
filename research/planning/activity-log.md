@@ -30,10 +30,10 @@ Private tracker reconciliation: existing preparation entries and contacts were p
 | 2026-11-18 owner decision | Run GitHub App and GitHub Actions scanning concurrently for a controlled period despite documented duplicate PR comments | Accepted project decision; supersedes advice to avoid overlap; protocol covers both workflows, outputs, negative impacts and closure |
 | 2026-11-18 repository reconciliation | Save PRD/decision, index existing artifacts, preserve detailed research, reconcile activity and add AI verification notes | Documentation and data only; no application implementation, prod folder, tooling setup or integration configuration |
 
-The source discussion is the November 18 “Check Emails for Assignment” conversation. The PRD draft and optional-CI answer were read directly; no prior statement of completion was treated as proof without inspecting the repository. This reconciliation checked official CI documentation and the live private tracker. See [AI-use and verification](ai-use-and-verification.md) for corrections and limitations.
+The source discussion is the November 18 “Check Emails for Assignment” conversation. The PRD draft and optional-CI answer were read directly; no prior statement of completion was treated as proof without inspecting the repository. This reconciliation checked official CI documentation and the live private tracker. See [AI-use and verification](../../project/ai-use-and-verification.md) for corrections and limitations.
 
 ## Time-recording rules
 
 Keep each activity on its actual date. Record only additional personal participation after the confirmed amounts above, excluding already credited contacts and overlap. Leave any unconfirmed duration blank and request clarification; do not substitute zero, a suggested timebox, a credit value or unattended agent time. These records do not establish final PATH eligibility or official packet submission.
 
-See [PRD](PRD.md), [comparison protocol](integration-comparison.md), [artifact inventory](artifact-inventory.md) and [friction log](friction-log.md).
+See [PRD](PRD.md), [comparison protocol](../../project/integration-comparison.md), [artifact inventory](artifact-inventory.md) and [friction log](../../project/friction-log.md).
