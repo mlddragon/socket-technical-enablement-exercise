@@ -60,10 +60,10 @@
 
 ### Entry 002 — Token and first local CLI scan
 - **Assignment mapping:** Part I §§1.1–1.2
-- **Status:** Planned; not performed
-- **Action / commands:** Pending; do not record token values
-- **Expected:** Scoped token permits full scan; results describe analysis state.
-- **Actual result / sanitized evidence:** Pending
+- **Status:** Organization token created; CLI authentication and first full scan pending
+- **Action / commands:** User created organization API token in Socket web UI. Friendly name: **`Socket Token 1`**. Selected scopes observed/confirmed: `full-scans:create`, `full-scans:list`, `security-policy:read`. Credential securely stored by user in Apple Passwords. No secret or token username/identifier saved to public documentation.
+- **Expected:** Scoped token permits full scan and policy-result inspection; requires live verification.
+- **Actual result / sanitized evidence:** Screenshot showed selected `full-scans:list` and `full-scans:create`; user explicitly confirmed `security-policy:read` also selected and named credential `Socket Token 1`. Token creation/completion evidenced by appearance in user's password vault. **No CLI authentication or scan has been performed yet.**
 - **References:** [Socket scan documentation](https://docs.socket.dev/docs/socket-scan), [Token docs](https://docs.socket.dev/docs/api-keys)
 - **Friction / follow-up:** Pending
 
