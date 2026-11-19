@@ -142,6 +142,8 @@
 
 - **GitHub App PR test under development (2026-11-19):** User created local feature branch `feature/activitypulse-cli-output` and executed `npm install --prefix prod picocolors@1.1.1`. npm reported `added 1 package`, `audited 2 packages`, and `found 0 vulnerabilities` (the last result is **npm audit**, not Socket). This should change `prod/package.json` and `prod/package-lock.json`; not yet independently diff-verified. Proposed tiny legitimate use in `prod/cli.js`: `const pc = require('picocolors');` and `console.log(pc.bold(pc.cyan('\nActivity Summary')));` replacing plain heading. **Edits, tests, Git commits, PR opening, and Socket App processing remain pending.**
 
+- **GitHub App PR test opened:** User committed the picocolors change locally (`1a933d1` pre-rebase), fetched and rebased on remote main (`e2c6fc3`), then pushed feature branch `feature/activitypulse-cli-output`. GitHub compare endpoint confirmed branch exactly 1 commit ahead/0 behind, four changes limited to `.gitignore`, `prod/cli.js`, `prod/package.json`, and `prod/package-lock.json`. Assistant created **PR #1** using connected GitHub: https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1 , title `Add colored ActivityPulse CLI output with picocolors`, head `8f03247fefbba65627405faa60549ae158e7bd88`, base `main`. PR is open and intentionally unmerged. Initial GitHub reads immediately after creation showed **zero PR comments and zero commit status entries**; this is only a point-in-time observation, not proof Socket App will not respond. Need observe app check runs, comments, and dashboard after processing.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
