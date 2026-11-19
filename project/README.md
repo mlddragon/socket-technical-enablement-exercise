@@ -6,6 +6,7 @@ This is intentionally separate from [research](../research/README.md) but in the
 - [part-i-walkthrough.md](part-i-walkthrough.md): continuously maintained, workflow-first Part I walkthrough with assignment cross-references and evidence.
 - [part-i-conceptual-notes.md](part-i-conceptual-notes.md): source-linked Part I §4 API token and policy/resolution reference notes with open verification checklists.
 - [friction-log.md](friction-log.md): firsthand setup and documentation experience.
+- [cli-permissions-worksheet-handoff.md](cli-permissions-worksheet-handoff.md): task-oriented Socket CLI scope matrix, firsthand docs friction, and requirements for a future Work-thread spreadsheet. **Brief only; spreadsheet not built, user to provide detailed instructions.**
 - [teaching-package.md](teaching-package.md): one short hands-on lab, one-page talk track and readiness check, with evidence references.
 - [PRD.md](PRD.md): ActivityPulse v0.4 requirements, future phases and exercise mapping.
 - [integration-comparison.md](integration-comparison.md): controlled concurrent GitHub App/Actions evaluation, accepted duplicate comments and evidence matrix.
