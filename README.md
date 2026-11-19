@@ -13,8 +13,21 @@ Use this index alongside Socket’s **Technical Enablement Lead Peer Interview**
 | **Part III · One-page talk track** | Draft | [One-page talk track](project/part-iii-talk-track.md) |
 | **Part III · Practical readiness check** | Draft | [Practical readiness check](project/part-iii-readiness-check.md) · [What “not ready” looks like](project/part-iii-readiness-check.md#decision) |
 | **AI use log** | Recorded | [AI use, corrections, and verification](project/ai-use-and-verification.md) |
+| **Appendix** | Supplemental | [Additional work and supporting research](#additional-work-and-supporting-research) |
 
-[Additional work and supporting research](#additional-work-and-supporting-research) · [Run ActivityPulse](#run-activitypulse) · [Current project status](project/PROJECT-STATUS.md)
+## Additional work and supporting research
+
+These materials supplement the exercise and sit outside the three required Part III deliverables.
+
+| Additional work | Open | What it shows |
+|---|---|---|
+| **Socket CLI Permissions Explorer** | [Socket CLI Permissions Explorer](https://docs.google.com/spreadsheets/d/1iQLzZkCqyz8XxqFjk2UQPY5TDkvVa1a49uHQ3eLOBPY/edit?usp=sharing) · [Design brief](project/cli-permissions-worksheet-handoff.md) | Google Sheets reference covering 68 commands and variants. Filter by customer role, persona, or use case and see a deduplicated **Scopes to tick** list. The shared sheet is open for comments. Use an editable copy to try the dropdowns. Scope entries are based on documentation and CLI help, with live API verification still needed for untested paths. |
+| **Package Scores documentation rewrite** | [Repository draft](project/package-scores-rewrite.md) · [Google Doc review copy](https://docs.google.com/document/d/1bm8TfSpiRpJJDsCublt_rcPcJtmmN5wza23yOrIHb8Q/edit) | Proposed rewrite for people interpreting scores in their daily work. AI-assisted draft awaiting human review. |
+| **Socket community research** | [Enablement themes](research/discord-enablement-themes-2026.md) · [Detailed findings](research/discord-may-nov-2026.md) | Attributed customer and community reports that informed the training and documentation ideas. |
+| **Teaching delivery options** | [Training platform comparison](research/training-platform-options-2026-11-18.md) | Research into authoring and sharing options for the teaching package. |
+| **ActivityPulse design** | [Product requirements and assignment mapping](project/PRD.md) | Historical design record for the two-runtime demo and its role in the exercise. |
+
+[Run ActivityPulse](#run-activitypulse) · [Current project status](project/PROJECT-STATUS.md)
 
 ## Part I · Getting familiar with Socket
 
@@ -50,18 +63,6 @@ The CLI prints **117 total records** and a count by activity type. No npm packag
 
 - **`main`** contains the working baseline and exercise materials.
 - **[PR #1](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1)** is open on `feature/activitypulse-cli-output`. It adds `picocolors` and retains a manual Actions workflow after the controlled comparison. The historical run used the earlier PR-triggered configuration. The branch-only workflow cannot be manually dispatched while it is absent from the default branch. [GitHub workflow trigger documentation](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow#defining-inputs-for-manually-triggered-workflows)
-
-## Additional work and supporting research
-
-These materials supplement the exercise and sit outside the three required Part III deliverables.
-
-| Additional work | Open | What it shows |
-|---|---|---|
-| **Socket CLI Permissions Explorer** | [Socket CLI Permissions Explorer](https://docs.google.com/spreadsheets/d/1iQLzZkCqyz8XxqFjk2UQPY5TDkvVa1a49uHQ3eLOBPY/edit?usp=sharing) · [Design brief](project/cli-permissions-worksheet-handoff.md) | Google Sheets reference covering 68 commands and variants. Filter by customer role, persona, or use case and see a deduplicated **Scopes to tick** list. The shared sheet is open for comments. Use an editable copy to try the dropdowns. Scope entries are based on documentation and CLI help, with live API verification still needed for untested paths. |
-| **Package Scores documentation rewrite** | [Repository draft](project/package-scores-rewrite.md) · [Google Doc review copy](https://docs.google.com/document/d/1bm8TfSpiRpJJDsCublt_rcPcJtmmN5wza23yOrIHb8Q/edit) | Proposed rewrite for people interpreting scores in their daily work. AI-assisted draft awaiting human review. |
-| **Socket community research** | [Enablement themes](research/discord-enablement-themes-2026.md) · [Detailed findings](research/discord-may-nov-2026.md) | Attributed customer and community reports that informed the training and documentation ideas. |
-| **Teaching delivery options** | [Training platform comparison](research/training-platform-options-2026-11-18.md) | Research into authoring and sharing options for the teaching package. |
-| **ActivityPulse design** | [Product requirements and assignment mapping](project/PRD.md) | Historical design record for the two-runtime demo and its role in the exercise. |
 
 ## Further reading
 
