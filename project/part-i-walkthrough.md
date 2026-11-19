@@ -105,6 +105,8 @@
 
 - **YAML feature test passed:** User created `/tmp/activitypulse-test.yaml` with two `application` and one `interview` records, then executed `/tmp/activitypulse-venv/bin/python prod/report.py /tmp/activitypulse-test.yaml`. Observed `total_records: 3`, `by_activity_type: {application: 2, interview: 1}`. With prior 117-record CSV regression, both Python input paths now tested successfully in isolated PyYAML 6.0.2 environment. Node.js wrapper still invokes bare `python3.12` and has not yet been re-tested after external YAML import was introduced; next run `node prod/cli.js` to observe whether its Python interpreter can import `yaml`. No Git changes committed, no post-dependency Socket scan run yet.
 
+- **Node.js-to-Python integration failed as anticipated:** User ran `node prod/cli.js`; greeting printed but Python subprocess raised `ModuleNotFoundError: No module named 'yaml'` at `prod/report.py` line 4. The Node wrapper uses `python3.12` resolved via system PATH, while PyYAML 6.0.2 was installed only under `/tmp/activitypulse-venv`. This is an interpreter/dependency environment mismatch, not demonstrated YAML parser failure. Proposed diagnostic without editing files: `PATH="/tmp/activitypulse-venv/bin:$PATH" node prod/cli.js` to test wrapper against known-good venv. If successful, make interpreter configurable or document reproducible environment setup; retest before committing and rescanning.
+
 ### Entry 003 — GitHub Actions scan
 - **Assignment mapping:** Part I §1.3 (optional)
 - **Status:** Selected for planned comparison; not performed
