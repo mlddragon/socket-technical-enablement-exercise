@@ -68,17 +68,16 @@ Security detection, visibility thresholds, and enforcement are separate concepts
 
 ### Steps to complete
 
-1. Keep your terminal and notes area open. This activity uses a different saved scan of the same dependency, so you do not need to open another document.
-2. Copy the historical **Warn** scan ID **`46093b05-bcd0-438a-9592-4e2a8f045ef3`**.
-3. If you have authorized CLI access, run:
+1. Open your notes to **Case B**. If you lack authorized Socket CLI access, skip the command and use the screenshot under **Expected result**.
+2. **If you have authorized Socket CLI access**, run this read-only command:
 
    ~~~bash
    socket scan report 46093b05-bcd0-438a-9592-4e2a8f045ef3 --json --fold=version --report-level=warn --no-banner
    ~~~
 
    If you are working from case evidence, read the expected result below instead.
-4. Find PyYAML 6.0.2 and its `potentialVulnerability` alert in the report or screenshot under **Expected result**.
-5. **Compare the two reports side by side** using the table under **Expected result**. Find **`healthy`** near the top of each report and **`policy`** under the PyYAML alert. Confirm that the package/version and finding type are the same. Record the differences in **Case B** of the worksheet, and answer: **Which CLI option makes the warning visible?**
+3. Find PyYAML 6.0.2 and its `potentialVulnerability` alert in the report or screenshot under **Expected result**.
+4. **Compare the two reports side by side** using the table under **Expected result**. Find **`healthy`** near the top of each report and **`policy`** under the PyYAML alert. Confirm that the package/version and finding type are the same. Record the differences in **Case B** of the worksheet, and answer: **Which CLI option makes the warning visible?**
 
 ### Expected result — what it should look like
 
@@ -86,7 +85,7 @@ Security detection, visibility thresholds, and enforcement are separate concepts
 
 Look for `healthy: true` and `policy: warn`. The original combined `scan create --report` command exited **0**. The read-only command above uses `--report-level=warn` to show warnings that an Error-only report can omit.
 
-#### Side-by-side comparison for Step 5
+#### Side-by-side comparison for Step 4
 
 | Field | Block | Warn |
 |---|---|---|
@@ -110,9 +109,23 @@ Courtney's team needs to know whether to assign this issue to a dependency/secur
 
 ### Steps to complete
 
-1. Open the [Attempt 1 job](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628/job/135678730253). You can also select Attempt 1 from the [workflow run](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628). If you can't open either job's logs within a minute, use the corresponding excerpt below.
-2. In the `socket-security` job, confirm that checkout, Python setup, and CLI installation succeeded. Expand **Run Socket Security Scan**. Find the first HTTP `401 Unauthorized`, the endpoint `/v0/python-cli-runs`, and exit code **3**. The subsequent trace also names `/v0/organizations`.
-3. Open the [Attempt 4 job](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628/job/135696762163). Expand **Run Socket Security Scan**. Find successful CLI registration and organization initialization, the streaming comparison fallback, and the final scan result. Check the overall job status. Compare the final outcome as well as the registration messages. Attempt 1 also logged “CLI run registration completed” immediately after the 401.
+1. Open the [Attempt 1 summary](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628/attempts/1) and select **socket-security** under **All jobs**. You can also open the [Attempt 1 job directly](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628/job/135678730253) or pick Attempt 1 from the [workflow run](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628). If you can't open either job's logs within a minute, use the screenshots and excerpts here.
+
+   ![Attempt 1 summary for Add colored ActivityPulse CLI output with picocolors, showing the failed socket-security job under All jobs](images/part-iii/actions-attempt-1.png)
+
+2. In the **socket-security** job, confirm that checkout, Python setup, and CLI installation succeeded. Expand **Run Socket Security Scan**, then enter `401` in the job's **Search logs** box. Read the first highlighted match. It names `/v0/python-cli-runs` and says **Unauthorized**. Clear the search to read the surrounding trace and find `/v0/organizations` and exit code **3**.
+
+   ![Job log search with 401 entered and the matching API request failed line outlined](images/part-iii/actions-search-401.png)
+
+3. Open the [Attempt 4 job](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628/job/135696762163) and expand **Run Socket Security Scan**. Compare the two jobs below. In Attempt 4, find organization initialization, the streaming comparison fallback, and the successful job status. Then find **No issues found** later in the log or in the excerpt under **Expected result**. Both attempts logged “CLI run registration completed,” so check what happened after that message.
+
+   | Attempt 1 — Failed | Attempt 4 — Succeeded |
+   |---|---|
+   | [![Attempt 1 failed status and HTTP 401 Unauthorized log line outlined](images/part-iii/actions-compare-failed.png)](images/part-iii/actions-compare-failed.png) | [![Attempt 4 succeeded status, registration and organization initialization, and streaming fallback outlined](images/part-iii/actions-compare-success.png)](images/part-iii/actions-compare-success.png) |
+   | **HTTP 401** before dependency analysis completed | **Organization initialized** and the job passed after switching to **streaming comparison** |
+
+   Select either screenshot to open it at full size.
+
 4. Record Attempt 1 in **Case C**. In your notes below the worksheet, explain whether Attempt 4's fallback caused the job to fail and name one credential check the CI owner can perform without revealing the secret.
 
 ### Expected result — what it should look like
