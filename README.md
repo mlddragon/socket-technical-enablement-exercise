@@ -6,9 +6,9 @@ Use this index alongside Socket’s **Technical Enablement Lead Peer Interview**
 
 | Requested item | Status | Open |
 |---|---|---|
-| **Friction log** | Part I recorded | [Friction log](project/friction-log.md) · [Proposed public docs changes](project/part-i-briefing.md#6-friction-documentation-improvements-and-first-week-teaching) |
+| **Friction log** | Parts I and II recorded | [Friction log](project/friction-log.md) · [Proposed public docs changes](project/part-i-briefing.md#6-friction-documentation-improvements-and-first-week-teaching) |
 | **Part I · Getting familiar with Socket** | Complete | [Part I evidence by assignment section](#part-i--getting-familiar-with-socket) |
-| **Part II · Socket Firewall** | Not attempted | [Status and outstanding evidence](project/PROJECT-STATUS.md#part-ii--if-time-permits) |
+| **Part II · Socket Firewall** | Registry-mode enforcement verified | [Demo results and evidence](project/part-ii-firewall-results.md) · [Runbook](project/part-ii-firewall-workplan.md) |
 | **Part III · Short hands-on lab** (30 minutes or less) | Complete · 25 minutes | [Hands-on lab](project/part-iii-lab.md) |
 | **Part III · One-page talk track** | Draft | [One-page talk track](project/part-iii-talk-track.md) |
 | **Part III · Practical readiness check** | Draft | [Practical readiness check](project/part-iii-readiness-check.md) · [What “not ready” looks like](project/part-iii-readiness-check.md#decision) |
@@ -23,7 +23,7 @@ These materials supplement the exercise and sit outside the three required Part 
 |---|---|---|
 | **Socket CLI Permissions Explorer** | [Socket CLI Permissions Explorer](https://docs.google.com/spreadsheets/d/1iQLzZkCqyz8XxqFjk2UQPY5TDkvVa1a49uHQ3eLOBPY/edit?usp=sharing) · [Design brief](research/planning/cli-permissions-worksheet-handoff.md) | Google Sheets reference covering 68 commands and variants. Filter by customer role, persona, or use case and see a deduplicated **Scopes to tick** list. The shared sheet is open for comments. Use an editable copy to try the dropdowns. Scope entries are based on documentation and CLI help, with live API verification still needed for untested paths. |
 | **Package Scores documentation rewrite** | [Repository draft](project/package-scores-rewrite.md) · [Google Doc review copy](https://docs.google.com/document/d/1bm8TfSpiRpJJDsCublt_rcPcJtmmN5wza23yOrIHb8Q/edit) | Proposed rewrite for people interpreting scores in their daily work. AI-assisted draft awaiting human review. |
-| **Progressive disclosure documentation skill** | [Full skill instructions](project/appendix/progressive-disclosure-docs/SKILL.md) · [Firewall Registry Mode rewrite draft](project/appendix/socket-firewall-registry-mode-rewrite.md) | Reusable approach from the Package Scores rewrite, tested on another dense Socket page. The Firewall draft demonstrates the writing method. Part II deployment remains outstanding. |
+| **Progressive disclosure documentation skill** | [Full skill instructions](project/appendix/progressive-disclosure-docs/SKILL.md) · [Firewall Registry Mode rewrite draft](project/appendix/socket-firewall-registry-mode-rewrite.md) | Reusable approach from the Package Scores rewrite, tested on another dense Socket page. The Firewall draft demonstrates the writing method. See the [Part II results](project/part-ii-firewall-results.md) for the live test. |
 | **Socket community research** | [Enablement themes](research/discord-enablement-themes-2026.md) · [Detailed findings](research/discord-may-nov-2026.md) | Attributed customer and community reports that informed the training and documentation ideas. |
 | **Teaching delivery options** | [Training platform comparison](research/training-platform-options-2026-11-18.md) | Research into authoring and sharing options for the teaching package. |
 | **ActivityPulse design** | [Product requirements and assignment mapping](research/planning/PRD.md) | Historical design record for the two-runtime demo and its role in the exercise. |

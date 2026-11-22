@@ -2,6 +2,8 @@
 
 **Status: PLAN ONLY (November 22, 2026).** This file is a handoff, not evidence that Docker, a registry, a security verdict, or a video has run. Interview: Tuesday November 24, 2026, 1:00 PM Eastern. The original seven-page exercise, sent November 10 by Lindsey Shanks, requires running **registry mode** in a container before the panel, connecting npm or pip, proving an **organization-policy installation block**, preserving terminal output and friction, and bringing Firewall running. Recruiter assistance was requested at least 48 hours before the interview; that cutoff has passed, so report any material blocker promptly rather than waiting. Do not email without Mason approving the message.
 
+**Execution follow-up:** See the [November 22 verified results](part-ii-firewall-results.md) for actual outcomes, capture status and the panel readiness checklist.
+
 ## Objective and stopping rule
 
 **Minimum viable outcome (first priority):** a running and reachable Firewall; npm explicitly pointed to it; one clean allowed artifact; an attempted `lodahs@0.0.1-security` download denied by Socket *security policy* with HTTP 403 / npm E403 and a Socket decision/request ID; screenshots and a 60–90-second unedited evidence capture; reproducible commands and friction log. No need to deploy upstream/middle registries, SIEM, multi-host networking or a production architecture.

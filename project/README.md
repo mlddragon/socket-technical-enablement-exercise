@@ -5,7 +5,7 @@ Start with the [repository README](../README.md) for the exercise overview and A
 ## Current evidence and deliverables
 
 - **Part I:** [Briefing](part-i-briefing.md), [execution walkthrough](part-i-walkthrough.md), [integration comparison](integration-comparison.md), and [conceptual references](../research/planning/part-i-conceptual-notes.md).
-- **Part II (planning only):** [Firewall registry-mode live demo and evidence runbook](part-ii-firewall-workplan.md). No live verification has been performed yet.
+- **Part II:** [Verified Firewall registry-mode results and readiness checklist](part-ii-firewall-results.md) and [live demo runbook](part-ii-firewall-workplan.md).
 - **Video script drafts (optional, not required Part III materials):** [Firewall walkthrough](appendix/video-scripts/firewall-demo-v1.md) and [CLI + GitHub App comparison](appendix/video-scripts/cli-github-demo-v1.md). Draft scripts are unproduced, with scenario assumptions distinguished from verified output.
 - **Part III:** [Teaching package index](teaching-package.md), [completed lab](part-iii-lab.md), [talk track draft](part-iii-talk-track.md), and [readiness check draft](part-iii-readiness-check.md).
 - **Documentation:** [Friction and recommendations](friction-log.md), [Socket CLI Permissions Explorer](https://docs.google.com/spreadsheets/d/1iQLzZkCqyz8XxqFjk2UQPY5TDkvVa1a49uHQ3eLOBPY/edit?usp=sharing) ([design brief](../research/planning/cli-permissions-worksheet-handoff.md)), and [Package Scores rewrite draft](package-scores-rewrite.md).
