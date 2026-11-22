@@ -1,8 +1,8 @@
 # Project activity log
 
-Reconciled 2026-11-18. This log records research, discussion and planning separately from unperformed application work. Dates use America/Detroit. Personal participation amounts below come from owner reports retained in the private activity tracker or the current conversation. Assistant runtime, chat timestamps, implementation estimates and assignment budgets are not elapsed work.
+Last updated 2026-11-22. This log records confirmed personal work and project activities. Dates use America/Detroit. Personal participation amounts below come from owner reports retained in the private activity tracker or the current conversation. Assistant runtime, chat timestamps, implementation estimates and assignment budgets are not elapsed work.
 
-## Confirmed research and planning
+## Confirmed personal time
 
 | Actual date | Work confirmed by source | Personal time | Reconciliation |
 |---|---|---|---|
@@ -13,10 +13,11 @@ Reconciled 2026-11-18. This log records research, discussion and planning separa
 | 2026-11-16 | Socket research and ActivityPulse planning | 15 minutes | Owner clarified in this reconciliation; excludes existing preparation and recruiter follow-up time |
 | 2026-11-17 | Socket research and ActivityPulse planning | 15 minutes | Owner clarified in this reconciliation; no duplicate Socket research/planning row found before entry |
 | 2026-11-18 | Socket research, ActivityPulse requirements/traceability discussion and concurrent-integration decision | 3 hours so far | Owner clarified in this reconciliation; snapshot of personal time, not a full-day estimate |
+| 2026-11-22 | Part II Firewall setup, policy block and evidence capture, plus Part III teaching package review and assignment audit | 1 hour | Mason confirmed this estimate for combined personal participation. It excludes unattended AI work and recruiter correspondence. |
 
 The November 16–18 clarification adds **3.5 hours** of supported personal research/planning time. Earlier entries remain unchanged. Completed recruiter contacts already have their own fixed follow-up credits; they are excluded from the personal durations above and have not been logged again. Fixed reporting credits are not evidence of elapsed minutes.
 
-Private tracker reconciliation: existing preparation entries and contacts were preserved. New entries on the Mason tab, rows 109–111, were read back as 0.25, 0.25 and 3 hours on their actual November 16, 17 and 18 dates. Automatic week/credit formulas, validation and existing formatting were preserved. No additional duration is inferred after the owner's “so far” snapshot.
+Private tracker reconciliation: existing preparation entries and contacts were preserved. New entries on the Mason tab, rows 109–111, were read back as 0.25, 0.25 and 3 hours on their actual November 16, 17 and 18 dates. Automatic week/credit formulas, validation and existing formatting were preserved. That reconciliation used the owner's November 18 “so far” snapshot.
 
 ## Discussion and artifact record
 
@@ -29,7 +30,7 @@ Private tracker reconciliation: existing preparation entries and contacts were p
 | 2026-11-18 source chat, optional CI discussion | CI prerequisites, local versus runner differences, initial lift estimate and proposed timebox | Estimates are planning suggestions, not actual effort; documented Python CI vs planned Node CLI distinction requires execution checks |
 | 2026-11-18 owner decision | Run GitHub App and GitHub Actions scanning concurrently for a controlled period despite documented duplicate PR comments | Accepted project decision; supersedes advice to avoid overlap; protocol covers both workflows, outputs, negative impacts and closure |
 | 2026-11-18 repository reconciliation | Save PRD/decision, index existing artifacts, preserve detailed research, reconcile activity and add AI verification notes | Documentation and data only; no application implementation, prod folder, tooling setup or integration configuration |
-| 2026-11-22 hands-on replay | Mason set up an isolated npm client, ran Firewall in registry mode, demonstrated allow and policy block, and captured terminal evidence | [Verified Part II results](../../project/part-ii-firewall-results.md). Personal duration unconfirmed and excluded from the time totals. |
+| 2026-11-22 Parts II and III | Mason ran the isolated Firewall demo, captured an allowed install and a policy block, and participated in the teaching package review and assignment audit | [Verified Part II results](../../project/part-ii-firewall-results.md) and [Part III teaching package](../../project/teaching-package.md). One combined personal hour is recorded above. |
 
 The source discussion is the November 18 “Check Emails for Assignment” conversation. The PRD draft and optional-CI answer were read directly; no prior statement of completion was treated as proof without inspecting the repository. This reconciliation checked official CI documentation and the live private tracker. See [AI-use and verification](../../project/ai-use-and-verification.md) for corrections and limitations.
 
