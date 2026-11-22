@@ -1,45 +1,25 @@
-# Part III — Customer Talk Track (one page)
+# Did Socket block the dependency, or did the scan fail?
 
-## “Did Socket block the dependency, or did the scan fail?”
+**Customer talk track · Developer leads, DevSecOps, and customer engineers**
 
-**Audience:** Developer lead / DevSecOps / customer engineer.  
-**Core message:** An unsuccessful CI run is not always a security decision. First determine whether scanning completed, whether a dependency alert was evaluated under policy, and whether the infrastructure/API path worked.
+Start with the job stage and the evidence. “Did the scanner return a policy decision for a package, or did the integration stop before it could evaluate one?”
 
-### Opening (30 seconds)
-“Socket can flag risky package behavior, then apply your organization's selected action. Separately, the scanner relies on valid credentials, connectivity, permissions and workflow configuration. If a job fails, we'll separate those two paths before deciding whether to change code, policy or the integration.”
+## Read the result
 
-### Three patterns to explain
+- **Policy Block.** In our PyYAML 6.0.2 example, `potentialVulnerability` had `policy: error`, the scan was unhealthy, and the command exited 1. Review the exact dependency and the alert with the dependency owner and security team before considering changes.
+- **Policy Warn.** The same finding had `policy: warn`. The scan was healthy and exited 0. A warning can remain actionable even when the build passes. Use `--report-level=warn` on the compatible report command to see it.
+- **Authentication failure.** GitHub Actions returned HTTP 401 and the Python CLI exited 3 before a scan result was available. Ask the CI owner to validate the secret reference and actual credential in the intended organization. Keep the value out of logs.
 
-| Customer sees | What it means in our verified ActivityPulse examples | First response |
-|---|---|---|
-| **Block:** `potentialVulnerability`, `policy: error`, `healthy:false`, CLI exit **1** | Scan evaluated PyYAML 6.0.2; active policy enforced the finding | Examine the exact dependency, behavior, policy scope and options; don't blindly bypass |
-| **Warn:** `policy: warn`, `healthy:true`, exit **0** | Finding is visible at Warn report level, but this scan did not fail | Explain accepted policy posture, document risk/owner as appropriate |
-| **Tooling error:** HTTP **401 Unauthorized**, Python CLI exit **3** | GitHub Actions failed to authenticate before completing its scan | Verify the intended secret and credential handling; don't classify the package as unsafe |
+## Handle common objections
 
-**Caution:** These exit codes were observed in this exercise, not guaranteed universal mappings. Interpret the surrounding logs.
+**“The build is red. Is the package malicious?”** A red result tells us where to investigate. Look for the package, finding, and policy action, or for an infrastructure error. Use the surrounding log to interpret exercise exit codes.
 
-### Likely questions and responses
+**“Can we switch Block to Warn to ship?”** That changes enforcement. Confirm the finding’s relevance and exposure, identify the risk owner, and use the agreed review process for any exception or policy change.
 
-**“The pipeline is red. Is our dependency malicious?”**  
-“Not necessarily. Show me where the run failed. An explicit policy finding and an HTTP authentication error require different responses.”
+**“The token was present. Why did it still fail?”** A masked value shows the workflow received something. Our successful rerun followed correction of the stored value to the actual Socket API token. Separately, a diff-scan permission denial triggered a streaming fallback and the job passed. Check which operation failed and whether the scan eventually completed.
 
-**“Can we change Block to Warn to ship?”**  
-“That changes organizational enforcement, not the underlying package behavior. Identify which finding triggered, assess exposure and ownership, and use the agreed change-control process. A scoped exception or risk decision should be deliberate and traceable.”
+## Agree on the next owner
 
-**“Why don't I see the warning in the report?”**  
-“Check the reporting threshold. In our experiment, `--report-level=warn` showed a warning hidden by an Error-only report.”
+Ask for the scan or run link, failed stage, package and version if present, and the policy action or HTTP error. Send policy findings to the dependency and security owners. Send authentication failures to the CI owner. If the evidence is incomplete, say what you observed and which log or report you’ll check next.
 
-**“But the token was present—how could authentication still fail?”**  
-“A masked environment variable proves a value was supplied, not that it is the correct credential. We resolved our 401 only after supplying the actual Socket API token, not a different value associated with its creation.”
-
-**“The Actions check is green but it still says insufficient permissions.”**  
-“The preferred diff-scan operation fell back to a streaming comparison, and the full job succeeded. That's a narrower capability gap, not a failed baseline scan. We should disclose the fallback and investigate it if customers require that diff mode.”
-
-**“Do we need the GitHub App and Actions?”**  
-“Usually choose one primary PR feedback path. We ran both for a controlled comparison and got duplicate dependency-review comments. Our default for fast onboarding is the GitHub App; CI is appropriate where pipeline-specific enforcement or custom workflow controls matter.”
-
-### Close: customer action plan
-“Send the sanitized command/job stage, alert type and policy action *or* API error, affected package and version if present, scan ID, relevant GitHub run URL, and whether the process completed. Do **not** send secret values. We will decide whether the next owner is dependency/policy review or tooling/auth troubleshooting.”
-
-**Evidence:** [Block/Warn results](part-i-briefing.md), [historical runner logs](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628).  
-**Scope:** Example outcomes are observed results, not promises of behavior across every Socket edition or version.
+**Exercise evidence** · [CLI Block and Warn](part-i-briefing.md#3-security-policy-experiment-ignore--block--warn--inherit) · [GitHub Actions run](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628)

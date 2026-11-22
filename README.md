@@ -10,8 +10,8 @@ Use this index alongside Socket’s **Technical Enablement Lead Peer Interview**
 | **Part I · Getting familiar with Socket** | Complete | [Part I evidence by assignment section](#part-i--getting-familiar-with-socket) |
 | **Part II · Socket Firewall** | Registry-mode enforcement verified | [Demo results and evidence](project/part-ii-firewall-results.md) · [Runbook](project/part-ii-firewall-workplan.md) |
 | **Part III · Short hands-on lab** (30 minutes or less) | Complete · 25 minutes | [Hands-on lab](project/part-iii-lab.md) |
-| **Part III · One-page talk track** | Draft | [One-page talk track](project/part-iii-talk-track.md) |
-| **Part III · Practical readiness check** | Draft | [Practical readiness check](project/part-iii-readiness-check.md) · [What “not ready” looks like](project/part-iii-readiness-check.md#decision) |
+| **Part III · One-page talk track** | One-page layout verified | [One-page PDF](project/part-iii-talk-track.pdf) · [Text version](project/part-iii-talk-track.md) |
+| **Part III · Practical readiness check** | Ready to run | [Practical readiness check](project/part-iii-readiness-check.md) · [What “not ready” looks like](project/part-iii-readiness-check.md#decision) |
 | **AI use log** | Recorded | [AI use, corrections, and verification](project/ai-use-and-verification.md) |
 | **Appendix** | Supplemental | [Additional work and supporting research](#additional-work-and-supporting-research) |
 

@@ -2,7 +2,7 @@
 
 **Topic:** Distinguishing a Socket policy block from scanner/tooling failures  
 **Learner:** New SE / TAM / Support engineer  
-**Check duration:** 5–7 minutes, following the ≤30-minute lab  
+**Check duration:** 5 minutes in the panel walkthrough or up to 7 minutes in a separate coaching session  
 **Method:** Scenario interpretation and short customer handoff, not a recall-only quiz
 
 ## Scenario prompts
@@ -23,6 +23,19 @@ Ask the learner to:
 4. Describe how to access the warning without making a policy change.
 5. Provide a concise, non-alarmist customer update without disclosing credentials.
 
+## Run the five-minute check
+
+Show the prompts with the answer key closed. Ask the learner to speak through their evidence and the next owner for each case.
+
+| Time | Facilitator action |
+|---|---|
+| 0:00–1:00 | Hand over the two excerpts and ask for a first classification. |
+| 1:00–3:00 | Ask for one piece of evidence and one safe next action per case. |
+| 3:00–4:00 | Give the Warn prompt and ask how to make the finding visible. |
+| 4:00–5:00 | Ask for a two-sentence customer update. Record the decision and any specific coaching need. |
+
+Use a neutral prompt if the learner stalls. Ask “Which line would you show me?” and allow one correction before scoring.
+
 ## Observable rubric
 
 | Competency | Ready behavior | Not-ready signal |
@@ -39,12 +52,16 @@ Ask the learner to:
 **Critical safety errors:** revealing or requesting secret values in logs/tickets; changing organization-wide security policy to make a test pass without authorization; claiming scan failure establishes malware; recommending indiscriminate bypass of Block without risk ownership.
 
 ### Remediation for “not ready”
-Provide a one-page decision tree (scan completed? security finding? policy action? API error?), replay the historical 401 and Block outputs with a mentor, and repeat the **same performance check with a different sanitized example**. Record the specific competency gap rather than simply issuing an overall score.
+Coach the specific missed decision. Ask whether the scan completed, what it found, which action policy applied, and whether an API error interrupted the run. Replay the relevant saved output with a mentor, then repeat the performance check with a different sanitized example. Record the exact competency gap.
 
-### Facilitator answer key
+<details>
+<summary>Facilitator answer key</summary>
+
 - **Scenario 1:** Policy-enforced finding; analysis reached evaluation; investigate the package and agreed security posture before remediation/exception.
 - **Scenario 2:** Authentication/tooling failure before successful dependency evaluation; validate GitHub secret is actual `sktsec_...` token and the intended scopes/organization, without disclosure. Actual historic cause was wrong secret value, not proven to be missing scopes.
 - **Follow-up:** `--report-level=warn` on a compatible report command; a successful Warn scan still may contain findings.
 - **Bonus distinction:** The successful CI run's insufficient-permission diff-scan fallback is a *partial capability* limitation while its streaming scan completed successfully, not another 401.
+
+</details>
 
 **Source:** [Part I briefing](part-i-briefing.md) and [verified Actions attempts](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628).

@@ -16,8 +16,8 @@
 | **Part I: Explain decisions, friction and evidence** | **Complete / documented** | [Briefing](part-i-briefing.md), [friction log](friction-log.md), [AI-use log](ai-use-and-verification.md). Interview rehearsal remains. In Attempt 4, the preferred diff scan fell back to streaming after a permission denial. The job succeeded. |
 | **Part II: Socket Firewall registry mode** | **Enforcement verified** | Firewall served isolated npm clients. An allowed install and policy-driven tarball 403 were recorded. [Results and live-demo checklist](part-ii-firewall-results.md). |
 | **Part III: Hands-on lab ≤30 min** | **Complete for this milestone** | [25-minute Courtney-led lab](part-iii-lab.md), original Block/Warn terminal PNGs, four GitHub Actions PNGs, original side-by-side comparison, self-check and collapsible answer key. Mason reported a successful walkthrough and accepted this version. GitHub rendering was verified. |
-| **Part III: One-page customer talk track** | **Draft exists; format not validated** | [Talk track](part-iii-talk-track.md) covers three failure modes and customer objections. Confirm it actually fits one page in final submission format and matches final lab narrative. |
-| **Part III: Practical readiness check** | **Draft exists; performance test not validated** | [Readiness rubric](part-iii-readiness-check.md) has two scenarios, Warn follow-up, observable readiness/not-ready criteria, safety gates and remediation. Need consistency review and short trial. |
+| **Part III: One-page customer talk track** | **One-page layout verified** | [PDF](part-iii-talk-track.pdf) · [Text version](part-iii-talk-track.md). Uses the lab’s Block, Warn, and 401 cases. |
+| **Part III: Practical readiness check** | **Ready to run; learner trial pending** | [Readiness rubric](part-iii-readiness-check.md) has two scenarios, a Warn follow-up, five-minute facilitator sequence, and explicit scoring and remediation. |
 | **Extra: Socket CLI Permissions Explorer** | **Working reference** | [Socket CLI Permissions Explorer](https://docs.google.com/spreadsheets/d/1iQLzZkCqyz8XxqFjk2UQPY5TDkvVa1a49uHQ3eLOBPY/edit?usp=sharing) covers documented CLI scopes and suggests mappings by role, persona, and use case. Untested API paths still require validation. |
 | **Extra: Package Scores documentation rewrite** | **Draft / pending human review** | [Repository draft](package-scores-rewrite.md). Additional enablement work outside the required Part III package. |
 
@@ -51,7 +51,7 @@
 
 Mason ran the registry-mode demo November 22. Firewall responded over TLS, resolved the interview organization, allowed a monitored npm install, and blocked the test fixture’s artifact with HTTP 403 under the existing policy. The original npm error matched the Firewall event by request ID. The service was up at the last check.
 
-The [Part II results](part-ii-firewall-results.md) preserve the sanitized observations, local evidence inventory and panel readiness checklist. Standalone screenshots and an edited walkthrough remain pending.
+The [Part II results](part-ii-firewall-results.md) preserve the sanitized observations, local evidence inventory and panel readiness checklist. The evidence includes verified screenshots and masked terminal excerpts. Two original local clips are available for the panel.
 
 ## Part III artifact inventory and content assessment
 
@@ -67,12 +67,13 @@ The [Part II results](part-ii-firewall-results.md) preserve the sanitized observ
 - The practical readiness check is a separate activity. Its draft duration is 5–7 minutes.
 
 ### One-page talk track: [part-iii-talk-track.md](part-iii-talk-track.md)
-- [x] Draft customer explanation of Block vs Warn vs 401, plus objections and response guidance.
-- [ ] Rehearse spoken use, align terminology with lab, then lay out as **one actual page**; raw Markdown title does not prove single-page final format.
+- [x] Customer explanation of Block, Warn, and 401 aligned with the lab. [PDF](part-iii-talk-track.pdf) verified as one page with working evidence links.
+- [ ] Rehearse the spoken delivery.
 
 ### Readiness check: [part-iii-readiness-check.md](part-iii-readiness-check.md)
 - [x] Evidence-based classification, safety critical errors, specific ready/not-ready criteria, remediation.
-- [ ] Check its standalone instructions, align with lab's Courtney narrative, and perform 5-minute sample assessment. Consider how to include it within the lab's **≤30-minute** envelope if the assignment measures the entire teaching package.
+- [x] Added a five-minute facilitator sequence aligned with the lab’s cases.
+- [ ] Run and time the assessment with a learner.
 
 ### Extra documentation improvement
 - [x] [Package Scores rewrite draft](package-scores-rewrite.md) added, linked to Google Doc. Provenance clearly marks it AI-assisted and awaiting editorial review.
@@ -80,7 +81,7 @@ The [Part II results](part-ii-firewall-results.md) preserve the sanitized observ
 
 ## Prioritized next actions
 
-1. Finalize the talk track and readiness check. Verify one-page layout and assessment timing.
+1. Review the three [Part III teaching materials](teaching-package.md) and rehearse the five-minute assessment.
 2. Prepare the formal Part III submission separately. Use **Monday, November 23 at 1:00 PM Eastern** as the working target unless recruiting confirms a different deadline.
 3. Rehearse the Part I walkthrough using saved reports and PR #1.
 4. Recheck Firewall health before the panel and open the local Part II evidence as a fallback.

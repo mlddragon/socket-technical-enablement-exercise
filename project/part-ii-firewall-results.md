@@ -23,14 +23,49 @@ This test verifies policy enforcement at artifact download. A successful metadat
 
 ## Evidence and Tuesday readiness
 
-| Checkpoint | Saved evidence |
+| Checkpoint | Reviewer evidence |
 |---|---|
-| P01–P02 | `P01-startup-health.txt` and `P02-org-validation.txt` |
-| P03 / C02 | `P03-allowed-decision.json` and `C02-allowed-install.mov` |
-| P04 / C03 | Original npm error and `C03-policy-block.mov` |
-| P05–P06 | `P05-http-verdict-headers.txt` and `P06-matching-decision-log.json` |
+| P01 · Startup and health | [Container status and HTTP 200](images/part-ii/P01-startup-health.png) |
+| P02 · Organization lookup | Saved startup line below, with the organization slug masked |
+| P03 · Allowed installation | npm success line and selected Firewall decision fields below |
+| P04 · Blocked install | npm’s original error lines below, with the full request ID and debug-log path omitted |
+| P05 · Response headers | The direct HTTP check below, with its separate request ID masked |
+| P06 · Request correlation | [Matching Firewall decision screenshot](images/part-ii/P06-matching-decision-log.png) |
 
-Mason saved the files in the local demo’s `capture/` directory. The table above summarizes the observed output for repository reviewers. Standalone screenshots and clip timestamps remain pending. The raw clips are local and the walkthrough video is unedited.
+<details>
+<summary>Terminal excerpts for P02–P05</summary>
+
+```text
+P02 · Firewall startup
+socket-firewall-1  | [2026-11-22 21:38:23] INFO: Resolved org slug from API: [INTERVIEW ORG]
+
+P03 · npm result and Firewall event
+added 1 package in 566ms
+decision: allowed
+action: monitor
+monitor_reason: Medium CVE,High CVE
+response_code: 200
+upstream_status: 200
+cached: false
+
+P04 · npm result
+npm error code E403
+npm error 403 403 Forbidden - GET https://localhost:8443/npm/lodahs/-/lodahs-0.0.1-security.tgz - Blocked by Security Policy
+
+P05 · Direct HTTP check
+/npm/lodahs
+HTTP/2 200
+
+/npm/lodahs/-/lodahs-0.0.1-security.tgz
+HTTP/2 403
+x-socket-request-id: [REDACTED]
+x-socket-decision: blocked
+x-socket-block-reason: Known malware
+```
+
+</details>
+
+The interview Mac holds the full local capture set and two raw clips. C02 shows the allowed install (44.5 seconds). C03 shows the policy block (26.6 seconds). The clips are available for the panel as a fallback. The optional edited walkthrough remains unproduced.
 
 Before the Tuesday panel, keep Colima and Firewall running and recheck this endpoint from the demo directory. The certificate is scoped to this request.
 
