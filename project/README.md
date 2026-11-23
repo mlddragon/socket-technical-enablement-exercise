@@ -4,12 +4,11 @@ Start with the [repository README](../README.md) for the exercise overview and A
 
 ## Current evidence and deliverables
 
+- **Part III:** [Teaching package](teaching-package.md) · [30-minute Widgets Mfg lab](part-iii-lab.md) · [one-page talk track](part-iii-talk-track.pdf) · [five-minute readiness check](part-iii-readiness-check.md).
 - **Part I:** [Briefing](part-i-briefing.md), [execution walkthrough](part-i-walkthrough.md), [integration comparison](integration-comparison.md), and [conceptual references](../research/planning/part-i-conceptual-notes.md).
 - **Part II:** [Verified Firewall registry-mode results and readiness checklist](part-ii-firewall-results.md) and [live demo runbook](part-ii-firewall-workplan.md).
-- **Video script drafts (optional, not required Part III materials):** [Firewall walkthrough](appendix/video-scripts/firewall-demo-v1.md) and [CLI + GitHub App comparison](appendix/video-scripts/cli-github-demo-v1.md). Draft scripts are unproduced, with scenario assumptions distinguished from verified output.
-- **Part III:** [Teaching package index](teaching-package.md), [30-minute demo lab](part-iii-lab.md), [one-page talk track](part-iii-talk-track.pdf), and [readiness check](part-iii-readiness-check.md).
-- **Documentation:** [Friction and recommendations](friction-log.md), [Socket CLI Permissions Explorer](https://docs.google.com/spreadsheets/d/1iQLzZkCqyz8XxqFjk2UQPY5TDkvVa1a49uHQ3eLOBPY/edit?usp=sharing) ([design brief](../research/planning/cli-permissions-worksheet-handoff.md)), and [Package Scores rewrite draft](package-scores-rewrite.md).
-- **Supporting records:** [AI use and verification](ai-use-and-verification.md) and [sample data and its limitations](../prod/data/README.md).
+- **Supporting evidence:** [Friction log](friction-log.md), [AI use and verification](ai-use-and-verification.md), and [sample data limitations](../prod/data/README.md).
+- **Extras:** [Appendix index](appendix/README.md) for the proposed field assessment, documentation examples, and optional video scripts.
 
 ## Background and planning
 

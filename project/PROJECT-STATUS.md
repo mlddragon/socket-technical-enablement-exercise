@@ -17,9 +17,7 @@
 | **Part II: Socket Firewall registry mode** | **Enforcement verified** | Firewall served isolated npm clients. An allowed install and policy-driven tarball 403 were recorded. [Results and live-demo checklist](part-ii-firewall-results.md). |
 | **Part III: Hands-on lab ≤30 min** | **Packaged** | [Widgets Mfg demo lab](part-iii-lab.md), GitHub template, shared dependency patch, CI workflow starter, and saved comparison results. |
 | **Part III: One-page customer talk track** | **One-page layout verified** | [PDF](part-iii-talk-track.pdf) · [Text version](part-iii-talk-track.md). Covers both engineer workflows and customer objections. |
-| **Part III: Practical readiness assessment** | **Five-minute demo gate ready to run; extended field assessment proposed** | [Assessment](part-iii-readiness-check.md) preserves the in-lab demo check and adds a separate 50–60-minute field assessment design. Timed learner trials, evaluator calibration, and field validation remain pending. |
-| **Extra: Socket CLI Permissions Explorer** | **Working reference** | [Socket CLI Permissions Explorer](https://docs.google.com/spreadsheets/d/1iQLzZkCqyz8XxqFjk2UQPY5TDkvVa1a49uHQ3eLOBPY/edit?usp=sharing) covers documented CLI scopes and suggests mappings by role, persona, and use case. Untested API paths still require validation. |
-| **Extra: Package Scores documentation rewrite** | **Draft / pending human review** | [Repository draft](package-scores-rewrite.md). Additional enablement work outside the required Part III package. |
+| **Part III: Practical readiness check** | **Five-minute check ready to run** | [In-lab check](part-iii-readiness-check.md) with explicit criteria for coaching and reassessment. A timed learner trial remains pending. |
 
 ## Part I detailed accounting
 
@@ -47,7 +45,7 @@
 - [x] Firsthand friction log with docs recommendations and separate AI verification notes.
 - [ ] Quick 5–8-minute Part I demo rehearsal; no need to change live policy again.
 
-## Part II — if time permits
+## Part II — Firewall evidence and panel readiness
 
 Mason ran the registry-mode demo November 22. Firewall responded over TLS, resolved the interview organization, allowed a monitored npm install, and blocked the test fixture’s artifact with HTTP 403 under the existing policy. The original npm error matched the Firewall event by request ID. The service was up at the last check.
 
@@ -59,11 +57,11 @@ The [Part II results](part-ii-firewall-results.md) preserve the sanitized observ
 
 - The [30-minute lab](part-iii-lab.md) starts with a buyer’s workflow question and ends with a two-view demo and recommendation.
 - The [public template](https://github.com/mlddragon/activitypulse-demo-template) generated two private training repos. The shared patch applied cleanly and the patched app ran locally. A fresh [verification PR](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/2) produced successful CI and App results on the pre-authorized exercise repo. The shared starter is verified there. A live run with two isolated integrations depends on access for those training repos.
-- The [one-page talk track](part-iii-talk-track.pdf) and [five-minute in-lab readiness check](part-iii-readiness-check.md) use the same buyer scenario. The same assessment file proposes a separate field-performance check and a five-minute panel explanation; that extended check has not been run with learners. Timing with a new learner remains to be measured.
+- The [one-page talk track](part-iii-talk-track.pdf) and [five-minute in-lab readiness check](part-iii-readiness-check.md) use the same buyer scenario. Timing with a new learner remains to be measured.
 
-### Extra documentation improvement
-- [x] [Package Scores rewrite draft](package-scores-rewrite.md) added, linked to Google Doc. Provenance clearly marks it AI-assisted and awaiting editorial review.
-- [ ] Review, correct any claims not fully validated, decide whether to use as a friction-log discussion sample or share separately. Not part of mandatory three-deliverable package.
+### Additional work
+
+See the [appendix index](appendix/README.md) for the proposed field assessment, documentation drafts, and research. The field assessment has not been run with learners.
 
 ## Prioritized next actions
 

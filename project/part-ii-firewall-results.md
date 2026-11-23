@@ -75,6 +75,6 @@ curl --noproxy '*' --cacert ssl/fullchain.pem \
   https://localhost:8443/health
 ```
 
-Expected response is `Health: HTTP 200`. If the container has stopped, use `docker --context colima compose up -d` from the demo directory, then recheck health and the organization lookup. Keep the local captures available as a fallback. After the panel, use the [runbook](part-ii-firewall-workplan.md#5-check-readiness-and-preserve-the-demo) for scoped cleanup.
+Expected response is `Health: HTTP 200`. If the container has stopped, use `docker --context colima compose up -d` from the demo directory, then recheck health and the organization lookup. Keep the local captures available as a fallback. After the panel, use the [runbook](part-ii-firewall-workplan.md#5-check-readiness-and-preserve-the-demo-510-minutes) for scoped cleanup.
 
 [Runbook](part-ii-firewall-workplan.md) · [Friction log](friction-log.md#entry-006--firewall-registry-mode-preflight-and-troubleshooting-2026-11-22) · [AI use and verification](ai-use-and-verification.md) · [Firewall setup guide](https://docs.socket.dev/docs/sfw-block-installs) · [Firewall decision data](https://docs.socket.dev/docs/sfw-data)
