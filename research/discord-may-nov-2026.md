@@ -44,4 +44,4 @@ Direct `#chat` message links and a forum reply deep link were opened in Discord 
 - Read current Socket installation, Firewall, policy, pricing, and ecosystem documentation; compare against these dated reports. The user-reported documentation gaps above may already be fixed.
 - Run a sanitized local lab for the chosen setup scenario. Record OS, package manager, runtime, Socket version, exact command, expected/actual output, and whether the behavior still reproduces.
 - Ask a Socket owner to confirm plan capabilities, supported integrations, and official escalation paths before presenting a customer-facing answer.
-- Keep any lab observations and training design in `project/` with references back to IDs D-01–D-12. Do not copy account details or credentials into this public repository.
+- Keep any lab observations and training design in `socket-deliverables/` with references back to IDs D-01–D-12. Do not copy account details or credentials into this public repository.

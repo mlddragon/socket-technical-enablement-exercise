@@ -8,7 +8,7 @@ Initial research reviewed 2026-11-15. URLs are the sources of record; recency an
 | DOC-02 | https://docs.socket.dev/docs/socket-firewall-enterprise-registry-mode | Socket official | Proxy topology, failure modes, caches, upstream/middle/downstream |
 | DOC-03 | https://docs.socket.dev/docs/socket-firewall-enterprise-registry-mode-installations | Socket official | Installation paths and prerequisites |
 | DOC-04 | https://docs.socket.dev/docs/socket-firewall-enterprise-registry-mode-configuration-reference | Socket official | Configuration and response headers |
-| DOC-05 | https://docs.socket.dev/docs/sca-ci | Socket official; checked 2026-11-18 | Recommends one GitHub reporting integration to avoid two sets of comments; accepted exercise exception in project/integration-comparison.md |
+| DOC-05 | https://docs.socket.dev/docs/sca-ci | Socket official; checked 2026-11-18 | Recommends one GitHub reporting integration to avoid two sets of comments; accepted exercise exception in socket-deliverables/integration-comparison.md |
 | DOC-06 | https://docs.socket.dev/docs/socket-for-github-actions | Socket official; checked 2026-11-18 | CI prerequisites, permissions, PR context and Python socketcli example; no workflow added here |
 | CODE-01 | https://github.com/SocketDev/socket-cli/issues | Public project issue tracker | Community-reported friction; not verified defects |
 | CODE-02 | https://github.com/SocketDev/socket-registry-firewall | Socket official release repository | Firewall deployment examples and troubleshooting |

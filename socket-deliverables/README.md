@@ -1,4 +1,4 @@
-# Exercise evidence and project notes
+# Socket Deliverables
 
 Start with the [repository README](../README.md) for the exercise overview and ActivityPulse run instructions. See [current project status](PROJECT-STATUS.md) for milestones and remaining work.
 
@@ -7,7 +7,7 @@ Start with the [repository README](../README.md) for the exercise overview and A
 - **Part III:** [Teaching package](teaching-package.md) · [30-minute Widgets Mfg lab](part-iii-lab.md) · [one-page talk track](part-iii-talk-track.pdf) · [five-minute readiness check](part-iii-readiness-check.md).
 - **Part I:** [Briefing](part-i-briefing.md), [execution walkthrough](part-i-walkthrough.md), [integration comparison](integration-comparison.md), and [conceptual references](../research/planning/part-i-conceptual-notes.md).
 - **Part II:** [Verified Firewall registry-mode results and readiness checklist](part-ii-firewall-results.md) and [live demo runbook](part-ii-firewall-workplan.md).
-- **Supporting evidence:** [Friction log](friction-log.md), [AI use and verification](ai-use-and-verification.md), and [sample data limitations](../prod/data/README.md).
+- **Supporting evidence:** [Friction log](friction-log.md), [AI use and verification](ai-use-and-verification.md), and [sample data limitations](../activitypulse/data/README.md).
 - **Extras:** [Appendix index](appendix/README.md) for the proposed field assessment, documentation examples, and optional video scripts.
 
 ## Background and planning

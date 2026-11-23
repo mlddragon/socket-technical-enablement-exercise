@@ -41,8 +41,8 @@ These rows are the initial **scan-command subset**, grounded in the [Socket scan
 
 - Public repository: https://github.com/mlddragon/socket-technical-enablement-exercise
 - Assignment: Part I §1.1 scoped API token + full scan, §§1.2–1.3 analyze results/optional CI, §2 GitHub App PR and compare, §3 Block→Warn policy.
-- [Part I walkthrough](../../project/part-i-walkthrough.md), [friction log Entry 004](../../project/friction-log.md), [Part I execution plan](part-i-execution-plan.md), [PRD](PRD.md).
-- ActivityPulse Node.js/Python five-file functional baseline published on `main` as commit `e078a11` (later documentation commits are expected). It processes 117 anonymized activity records. No external npm/Python dependencies yet; `prod/requirements.txt` is empty.
+- [Part I walkthrough](../../socket-deliverables/part-i-walkthrough.md), [friction log Entry 004](../../socket-deliverables/friction-log.md), [Part I execution plan](part-i-execution-plan.md), [PRD](PRD.md).
+- ActivityPulse Node.js/Python five-file functional baseline published on `main` as commit `e078a11` (later documentation commits are expected). It processes 117 anonymized activity records. At that checkpoint the baseline had no external npm or Python dependencies, and `requirements.txt` was empty.
 - Socket CLI installed and verified **v1.15.0**. `socket scan --help` banner: `token: (not set), org: (not set)`; `socket scan create --help` reviewed. **No organization API token has been created and no Socket scan has run**, at the last observed point.
 - Current manual next step: go to organization API-token creation page, inspect permissions, select least-privilege required scopes, avoid exposing secret token values.
 - The interview assignment's Part III materials are due 24 hours before Friday Nov 20 1:30 PM Eastern panel, i.e. **Thursday Nov 19, 1:30 PM Eastern**. Time is constrained; keep spreadsheet work scoped by user's coming instruction.
@@ -54,8 +54,8 @@ These rows are the initial **scan-command subset**, grounded in the [Socket scan
 - [Socket scan CLI commands and API-token requirements](https://docs.socket.dev/docs/socket-scan)
 - [Socket API keys, organization and capabilities](https://docs.socket.dev/docs/api-keys)
 - [Socket CLI](https://docs.socket.dev/docs/socket-cli)
-- [Friction log](../../project/friction-log.md)
-- [Part I walkthrough](../../project/part-i-walkthrough.md)
+- [Friction log](../../socket-deliverables/friction-log.md)
+- [Part I walkthrough](../../socket-deliverables/part-i-walkthrough.md)
 
 ## Handoff rule
 

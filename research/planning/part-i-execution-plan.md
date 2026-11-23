@@ -429,8 +429,8 @@ Part III materials are due **Thursday, November 19, at 1:30 PM Eastern**. Protec
 - [Socket CI integration](https://docs.socket.dev/docs/sca-ci)
 - [Socket policies](https://docs.socket.dev/docs/policies)
 - [ActivityPulse PRD](PRD.md)
-- [Continuous walkthrough](../../project/part-i-walkthrough.md)
-- [Integration comparison protocol](../../project/integration-comparison.md)
+- [Continuous walkthrough](../../socket-deliverables/part-i-walkthrough.md)
+- [Integration comparison protocol](../../socket-deliverables/integration-comparison.md)
 - [Preflight checklist](prerequisites-checklist.md)
 
 **Review status:** No Part I installation, application implementation, scan, or integration configuration has been performed as a result of preparing this document.

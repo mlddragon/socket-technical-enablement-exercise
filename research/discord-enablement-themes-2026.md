@@ -15,6 +15,6 @@ Research review date: 2026-11-15. This public summary is anonymized. It reflects
 - A community report is attributed evidence of one user's experience, not a verified product fact.
 - A visible moderator response establishes only what was said publicly, not a private ticket outcome.
 - Each training decision above is a hypothesis until checked against current Socket documentation and a sanitized lab.
-- Keep implementation notes and lesson drafts in `project/`; keep source research in `research/`.
+- Keep implementation notes and lesson drafts in `socket-deliverables/`; keep source research in `research/`.
 
 The [detailed Discord research report](https://drive.google.com/file/d/1Ok_zfzgDN3AzKA08m5kYsfdfkqW7z-Wd/view?usp=drivesdk) contains dated message links, attributed reports, staff replies, and public resolution notes. It is private in Google Drive; sign in with Mason's personal Google account to view it.

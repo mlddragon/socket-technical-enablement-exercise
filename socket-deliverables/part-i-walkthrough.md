@@ -1,6 +1,6 @@
 # Part I — Continuous hands-on walkthrough
 
-**Status:** Chronological record of the completed Part I demonstrations. Early entries describe work as it stood at the time. The sample CSV now lives in [`prod/data/`](../prod/data/), so commands recorded during initial setup may show its former location.
+**Status:** Chronological record of the completed Part I demonstrations. Recorded commands, output, and file paths reflect the checkout used at the time. In the current repository, use [ActivityPulse](../activitypulse/), its [sample CSV](../activitypulse/data/activitypulse-activities.csv), and the [Socket Deliverables index](README.md).
 
 **Documentation decision:** Maintain this walkthrough continuously as work occurs. Organize it in actual execution order, not merely the assignment's order, and cross-reference the assignment sections. Capture routine success concisely; preserve additional sanitized evidence for meaningful findings, failures, policy changes, and integration comparisons. Update proactively rather than reconstructing from memory. **Command capture decision:** Record every meaningful command required to reproduce the workflow, with purpose, execution context, and relevant official reference. Preserve full or extended terminal output only where it demonstrates behavior, failure, enforcement, or an important discrepancy; otherwise summarize outcomes. Redact tokens, secrets, and identifying metadata.
 

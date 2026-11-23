@@ -22,7 +22,7 @@
 ## Part I detailed accounting
 
 ### 1. Set up and scan
-- [x] Functional `prod/cli.js` Node.js → `prod/report.py` Python, 117 sample activity records, YAML import with PyYAML 6.0.2.
+- [x] Functional `activitypulse/cli.js` Node.js → `activitypulse/report.py` Python, 117 sample activity records, YAML import with PyYAML 6.0.2.
 - [x] Org-scoped Socket API token with minimum three local scan scopes; Socket CLI v1.15.0 authenticated.
 - [x] Baseline no-external-dependency full scan healthy, no alert records.
 - [x] PyYAML scan with one package represented by 53 release-artifact records; distinguish findings from policy and actual relevance.
@@ -69,4 +69,4 @@ See the [appendix index](appendix/README.md) for the proposed field assessment, 
 2. Rehearse the Part I walkthrough using saved reports and PR #1.
 3. Recheck Firewall health before the panel and open the local Part II evidence as a fallback.
 
-The [root README](../README.md) is the reviewer entry point. The [project index](README.md) separates current deliverables from historical planning.
+The [root README](../README.md) is the reviewer entry point. The [Socket Deliverables index](README.md) separates current deliverables from historical planning.

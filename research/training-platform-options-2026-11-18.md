@@ -1,6 +1,6 @@
 # Training format options for the Socket exercise
 
-Reviewed November 18, 2026. This is tool research, not a selection or authorization to start building. The exercise's planned teaching package is a lab of 30 minutes or less, a one-page customer talk track, and an observable readiness check ([project outline](../project/teaching-package.md)). Prices, limits, and sharing behavior can change; confirm again when creating the artifact.
+Reviewed November 18, 2026. This is tool research, not a selection or authorization to start building. The exercise's planned teaching package is a lab of 30 minutes or less, a one-page customer talk track, and an observable readiness check ([project outline](../socket-deliverables/teaching-package.md)). Prices, limits, and sharing behavior can change; confirm again when creating the artifact.
 
 ## Recommendation
 
