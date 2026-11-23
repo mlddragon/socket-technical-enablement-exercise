@@ -11,7 +11,7 @@ Use this index alongside Socket’s **Technical Enablement Lead Peer Interview**
 | **Part II · Socket Firewall** | Registry-mode enforcement verified | [Demo results and evidence](project/part-ii-firewall-results.md) · [Runbook](project/part-ii-firewall-workplan.md) |
 | **Part III · Short hands-on lab** (30 minutes or less) | Packaged · 30 minutes | [Hands-on lab](project/part-iii-lab.md) |
 | **Part III · One-page talk track** | One-page layout verified | [One-page PDF](project/part-iii-talk-track.pdf) · [Text version](project/part-iii-talk-track.md) |
-| **Part III · Practical readiness check** | Ready to run | [Practical readiness check](project/part-iii-readiness-check.md) |
+| **Part III · Practical readiness assessment** | Five-minute demo gate ready; extended field assessment proposed | [Practical readiness assessment](project/part-iii-readiness-check.md) |
 | **AI use log** | Recorded | [AI use, corrections, and verification](project/ai-use-and-verification.md) |
 | **Appendix** | Supplemental | [Additional work and supporting research](#additional-work-and-supporting-research) |
 
