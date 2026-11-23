@@ -186,7 +186,7 @@ In the browser, you can instead open a PR **in each repo** with that repo’s de
 | **A — CI** | Start on the PR checks, then open the Socket job in Actions. Show the CI dependency comment if it posted. | The run evaluated this PR’s change. Identify the completed scan and job result. Explain where an engineer would investigate a failed run. |
 | **B — App** | Start on the PR conversation and checks. Open the App’s dependency overview. | The App identifies the added package and version. Explain where an engineer would go to review a finding or get more detail. |
 
-If you use saved evidence, identify who posted each original PR comment. The original experiment intentionally ran both integrations on one PR, which produced duplicate feedback. Its successful Actions job completed via streaming comparison after the preferred diff scan was denied. That run shows a passing job. A claim that a failed check prevents merging requires verified merge settings. [Actions comment](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1#issuecomment-7014418426) · [App comment](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1#issuecomment-7012611620) · [Socket CI/CD guidance](https://docs.socket.dev/docs/sca-ci)
+If you use saved evidence, identify who posted each original PR comment. The original experiment intentionally ran both integrations on one PR, which produced duplicate feedback. A claim that a failed check prevents merging requires verified merge settings. [Actions comment](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1#issuecomment-7014418426) · [App comment](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1#issuecomment-7012611620) · [Socket CI/CD guidance](https://docs.socket.dev/docs/sca-ci)
 
 ## 18–25 minutes · Rehearse the recommendation
 
@@ -201,3 +201,18 @@ Give the two-view demo in three minutes. Take one unannounced customer question,
 ### Backup for customer questions
 
 If Courtney asks about a red job, start with the first meaningful error. The saved Actions 401 shows a job that failed before dependency analysis completed. The saved local CLI reports show a different event, where Socket evaluated a finding and applied Block or Warn. The CLI examples illustrate policy behavior in that experiment. They are separate from the outcome of either demo PR. [CI failure capture](images/part-iii/actions-compare-failed.png) · [CLI Block evidence](images/part-iii/cli-policy-block.png) · [CLI Warn evidence](images/part-iii/cli-policy-warn.png)
+
+### Optional challenge · Explain an error in a passing job
+
+Use this as Courtney’s customer question during the demo. In **Socket Security CI → socket-security → Run Socket Security Scan**, search the job log for `APIAccessDenied`. If your run doesn’t show it, use the [saved successful job](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628/job/135696762163) or check lines 32–33 in its [log capture](images/part-iii/actions-compare-success.png).
+
+> Did you see the permission error? What operation was denied, how did Socket continue, and what evidence tells you whether the job passed?
+
+<details>
+<summary>Reveal the challenge answer key</summary>
+
+- Socket attempted the native diff-scan comparison and received `APIAccessDenied(Insufficient permissions)`. That message identifies the denied operation. The log alone doesn’t identify a specific missing token scope.
+- The next line shows `requested=diff-scan effective=streaming`. Socket completed the comparison using streaming, reported `No issues found`, and GitHub marked the job successful.
+- In the saved HTTP 401 example, authentication failed before dependency analysis completed and the job failed. Check both the scan output and the final job result before deciding what action to take.
+
+</details>
