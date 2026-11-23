@@ -31,6 +31,8 @@ Give a 30-second first take before opening the saved results. Ask Courtney where
 
 Use Bash, zsh, or Git Bash on Windows. Use the same terminal for all the blocks below so the path variables stay set. Make sure Git can commit with your configured name and email and push to both private training repos.
 
+To check the Actions secret and open the PRs from the terminal, use [GitHub CLI](https://cli.github.com/) and run `gh auth status` to confirm you’re signed in to the account that has access to both repos. Run `gh auth login` if you need to sign in. You can also use the GitHub browser steps below.
+
 Set these four paths first. Change the example folder names to match your local clones. If you saved a download somewhere else or your browser renamed it, update that file’s path too.
 
 ~~~sh
@@ -55,7 +57,26 @@ lab_repo="$lab_ci_repo"
 
 ### A · GitHub Actions
 
-In the **CI repo** on GitHub, confirm that **Settings → Secrets and variables → Actions** lists `SOCKET_SECURITY_API_KEY`. Ask the facilitator to provision it if it’s missing. Keep this repo outside the Socket GitHub App’s repository selection. The downloaded starter already defines the `pull_request` trigger, an `actions/checkout` step, and the secret reference. Copy the starter into the CI clone and stage it with the three changed app files. [Socket for GitHub Actions](https://docs.socket.dev/docs/socket-for-github-actions)
+Keep the **CI repo** outside the Socket GitHub App’s repository selection. Before opening the CI PR, confirm that the CI repo has the `SOCKET_SECURITY_API_KEY` Actions secret. The block below checks for the secret. If it’s missing and you’re authorized to set it, paste the training token into GitHub CLI’s hidden prompt. If you don’t have the token or permission, ask the facilitator to complete this step. In the browser, check **Settings → Secrets and variables → Actions** in the CI repo. [GitHub CLI secret setup](https://cli.github.com/manual/gh_secret_set)
+
+~~~sh
+(
+  set -e
+  cd "$lab_ci_repo"
+  lab_origin=$(git remote get-url origin)
+  lab_ci_slug=$(gh repo view "$lab_origin" --json nameWithOwner --jq '.nameWithOwner')
+  lab_secret_present=$(gh secret list --repo "$lab_ci_slug" --app actions --json name \
+    --jq 'any(.[]; .name == "SOCKET_SECURITY_API_KEY")')
+  if [ "$lab_secret_present" = true ]; then
+    printf 'Actions secret already configured in %s\n' "$lab_ci_slug"
+  else
+    printf 'Set the training Actions secret for %s\n' "$lab_ci_slug"
+    gh secret set SOCKET_SECURITY_API_KEY --repo "$lab_ci_slug" --app actions
+  fi
+)
+~~~
+
+The downloaded starter already defines the `pull_request` trigger, an `actions/checkout` step, and the secret reference. Copy the starter into the CI clone and stage it with the three changed app files. If you’ve already committed and pushed the starter and app changes, skip this block. [Socket for GitHub Actions](https://docs.socket.dev/docs/socket-for-github-actions)
 
 ~~~sh
 (
@@ -73,7 +94,9 @@ In the **CI repo** on GitHub, confirm that **Settings → Secrets and variables 
 
 ### B · Socket GitHub App
 
-In the existing Socket GitHub App installation, add or confirm access for the **App repo**. Keep other authorized repositories selected. This clone gets just the three changed app files. [GitHub App repository access](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#modifying-repository-access)
+Open the installed Apps list in GitHub. For a personal repo, use **Settings → Applications → Installed GitHub Apps**. For an organization repo, use the organization’s **Settings → Third-party Access → GitHub Apps**. Choose **Configure** next to Socket and confirm that **Only select repositories** includes the **App repo** and excludes the CI repo. If you’re authorized to add the App repo, keep the other authorized repositories selected and save. Ask the facilitator if the installation uses **All repositories** or you can’t manage its settings. [GitHub App repository access](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#modifying-repository-access)
+
+This clone gets just the three changed app files. Skip the block if you’ve already committed and pushed them.
 
 ~~~sh
 (
@@ -89,7 +112,32 @@ In the existing Socket GitHub App installation, add or confirm access for the **
 
 ### Open one PR in each training repo
 
-On GitHub, open a pull request **in each repo** with that repo’s default branch as the **base** (normally `main`) and `demo/add-picocolors` as the **compare** branch. Confirm that both PRs add `picocolors@1.1.1` and record their URLs. On the CI PR, follow the check into the **Socket Security CI** Actions run. On the App PR, look for the **Socket Security** check and dependency feedback in the PR. If either path stalls, switch to saved evidence and note what didn’t run.
+After you’ve checked the CI secret and App access and pushed both branches, run this block. It finds each clone’s GitHub repo and default branch, then prints the URL of its open PR or creates one. [GitHub CLI pull request creation](https://cli.github.com/manual/gh_pr_create)
+
+~~~sh
+(
+  set -e
+  lab_head=demo/add-picocolors
+  for lab_repo in "$lab_ci_repo" "$lab_app_repo"; do
+    cd "$lab_repo"
+    lab_origin=$(git remote get-url origin)
+    lab_slug=$(gh repo view "$lab_origin" --json nameWithOwner --jq '.nameWithOwner')
+    lab_base=$(gh repo view "$lab_origin" --json defaultBranchRef --jq '.defaultBranchRef.name')
+    lab_pr=$(gh pr list --repo "$lab_slug" --base "$lab_base" --head "$lab_head" \
+      --state open --limit 1 --json url --jq '.[0].url // empty')
+    printf '%s\n' "$lab_slug"
+    if [ -n "$lab_pr" ]; then
+      printf '%s\n' "$lab_pr"
+    else
+      gh pr create --repo "$lab_slug" --base "$lab_base" --head "$lab_head" \
+        --title 'Demo dependency change with picocolors' \
+        --body 'Add picocolors to ActivityPulse for the Widgets Mfg Socket demo.'
+    fi
+  done
+)
+~~~
+
+In the browser, you can instead open a PR **in each repo** with that repo’s default branch as the **base** and `demo/add-picocolors` as the **compare** branch. Confirm that both PRs add `picocolors@1.1.1` and record their URLs. On the CI PR, follow the check into the **Socket Security CI** Actions run. On the App PR, look for the **Socket Security** check and dependency feedback in the PR. If either path stalls, switch to saved evidence and note what didn’t run.
 
 ## 10–18 minutes · Verify the engineer’s view
 
