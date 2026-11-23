@@ -16,8 +16,8 @@ Widgets Mfg and Courtney are fictional. The ActivityPulse dependency change come
 
 ## Before the clock starts
 
-- From the [ActivityPulse GitHub template](https://github.com/mlddragon/activitypulse-demo-template), choose **Use this template → Create a new repository** twice, or use the two repositories your facilitator prepared. Use only the template’s default branch. Name the repos so you can distinguish CI from App, then clone both. Use private repos for training.
-- Download [picocolors.patch](lab-assets/picocolors.patch) and [socket-ci.yml](lab-assets/socket-ci.yml). In GitHub’s file view, use **Download raw file**. Keep both files outside the clones until the steps call for them.
+- From the [ActivityPulse GitHub template](https://github.com/mlddragon/activitypulse-demo-template), choose **Use this template → Create a new repository** twice, or use the two repositories your facilitator prepared. Use only the template’s default branch. Use private repos for training. The commands below use `widgets-ci` and `widgets-app` as example clone names. Clone both under `$HOME/github`, or use your existing clone locations.
+- Download [picocolors.patch](lab-assets/picocolors.patch) and [socket-ci.yml](lab-assets/socket-ci.yml). In GitHub’s file view, use **Download raw file**. Save both files in `$HOME/Downloads` with their original names. Keep them outside the clones until the steps call for them.
 - The facilitator grants the learner access to the training organization and repos. They pre-stage the training Socket API token under the Actions secret name `SOCKET_SECURITY_API_KEY` in the **CI repo only** and confirm the learner or facilitator can select the App repo in the Socket GitHub App installation. Use the learner’s training repos and keep credential values off screen.
 - Open the [saved CI workflow result](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628/job/135696762163), [saved CI success screenshot](images/part-iii/actions-compare-success.png), and [original comparison PR](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1) as fallbacks. If approvals, Actions, or App processing would exceed the activity window, switch to saved evidence and record where the live path stopped.
 
@@ -27,18 +27,69 @@ Give a 30-second first take before opening the saved results. Ask Courtney where
 
 ## 3–10 minutes · Prepare and trigger both versions
 
-In each training clone, start from its default branch. Open a terminal at the repo root. Replace the patch path below with the location of your download.
+### Set the paths and apply the patch
+
+Use Bash, zsh, or Git Bash on Windows. Use the same terminal for all the blocks below so the path variables stay set. Make sure Git can commit with your configured name and email and push to both private training repos.
+
+Set these four paths first. Change the example folder names to match your local clones. If you saved a download somewhere else or your browser renamed it, update that file’s path too.
 
 ~~~sh
-git switch -c demo/add-picocolors
-git apply --check /path/to/picocolors.patch
-git apply /path/to/picocolors.patch
-git diff --stat
+lab_ci_repo="$HOME/github/widgets-ci"
+lab_app_repo="$HOME/github/widgets-app"
+lab_patch="$HOME/Downloads/picocolors.patch"
+lab_actions_starter="$HOME/Downloads/socket-ci.yml"
 ~~~
 
-- **A — GitHub Actions.** Add the workflow starter to this branch as `.github/workflows/socket.yml`. Check the pull-request trigger, checkout, and secret reference. Keep the App out of the CI demo repo. Stage the three changed ActivityPulse files and the workflow, commit, push, and open a PR into the default branch of **this repo**. Find the Actions run for that PR.
-- **B — GitHub App.** In the Socket GitHub App installation, select or confirm access for the App demo repo. Keep the Actions starter out of this repo. Stage the same three changed ActivityPulse files, commit, push, and open a PR into the default branch of **this repo**. Find the App’s check and dependency feedback.
-- Confirm that both PRs add `picocolors@1.1.1` to the application. Record the PR URLs and the evidence you intend to show. [Socket for GitHub Actions](https://docs.socket.dev/docs/socket-for-github-actions) · [GitHub App repository access](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps)
+Start with a clean checkout of each repo’s default branch. Apply the same dependency change to both. Run the block once for the CI repo, then change the first line to `lab_repo="$lab_app_repo"` and run it for the App repo. Skip a repo if you’ve already applied the patch there on `demo/add-picocolors`. Expect changes to `prod/cli.js`, `prod/package.json`, and `prod/package-lock.json`.
+
+~~~sh
+lab_repo="$lab_ci_repo"
+(
+  set -e
+  git -C "$lab_repo" apply --check "$lab_patch"
+  git -C "$lab_repo" switch -c demo/add-picocolors
+  git -C "$lab_repo" apply "$lab_patch"
+  git -C "$lab_repo" diff --stat
+)
+~~~
+
+### A · GitHub Actions
+
+In the **CI repo** on GitHub, confirm that **Settings → Secrets and variables → Actions** lists `SOCKET_SECURITY_API_KEY`. Ask the facilitator to provision it if it’s missing. Keep this repo outside the Socket GitHub App’s repository selection. The downloaded starter already defines the `pull_request` trigger, an `actions/checkout` step, and the secret reference. Copy the starter into the CI clone and stage it with the three changed app files. [Socket for GitHub Actions](https://docs.socket.dev/docs/socket-for-github-actions)
+
+~~~sh
+(
+  set -e
+  cd "$lab_ci_repo"
+  test "$(git branch --show-current)" = demo/add-picocolors
+  mkdir -p .github/workflows
+  cp "$lab_actions_starter" .github/workflows/socket.yml
+  git add prod/cli.js prod/package.json prod/package-lock.json .github/workflows/socket.yml
+  git diff --cached --name-only
+  git commit -m "Demo dependency change with Socket Actions"
+  git push -u origin demo/add-picocolors
+)
+~~~
+
+### B · Socket GitHub App
+
+In the existing Socket GitHub App installation, add or confirm access for the **App repo**. Keep other authorized repositories selected. This clone gets just the three changed app files. [GitHub App repository access](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#modifying-repository-access)
+
+~~~sh
+(
+  set -e
+  cd "$lab_app_repo"
+  test "$(git branch --show-current)" = demo/add-picocolors
+  git add prod/cli.js prod/package.json prod/package-lock.json
+  git diff --cached --name-only
+  git commit -m "Demo dependency change with the Socket GitHub App"
+  git push -u origin demo/add-picocolors
+)
+~~~
+
+### Open one PR in each training repo
+
+On GitHub, open a pull request **in each repo** with that repo’s default branch as the **base** (normally `main`) and `demo/add-picocolors` as the **compare** branch. Confirm that both PRs add `picocolors@1.1.1` and record their URLs. On the CI PR, follow the check into the **Socket Security CI** Actions run. On the App PR, look for the **Socket Security** check and dependency feedback in the PR. If either path stalls, switch to saved evidence and note what didn’t run.
 
 ## 10–18 minutes · Verify the engineer’s view
 
