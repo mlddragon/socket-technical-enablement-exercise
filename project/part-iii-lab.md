@@ -27,6 +27,13 @@ Give a 30-second first take before opening the saved results. Ask Courtney where
 
 ## 3–10 minutes · Prepare and trigger both versions
 
+Run these steps in order. This section is complete when you have two PR URLs.
+
+1. [Set the paths and apply the patch](#set-the-paths-and-apply-the-patch) to both clones.
+2. [Prepare and push the GitHub Actions branch](#a--github-actions). If the facilitator already added the secret, start with the workflow copy, commit, and push block.
+3. [Confirm App access, then commit and push the App branch](#b--socket-github-app).
+4. [Open one PR in each training repo](#open-one-pr-in-each-training-repo).
+
 ### Set the paths and apply the patch
 
 Use Bash, zsh, or Git Bash on Windows. Use the same terminal for all the blocks below so the path variables stay set. Make sure Git can commit with your configured name and email and push to both private training repos.
@@ -42,18 +49,30 @@ lab_patch="$HOME/Downloads/picocolors.patch"
 lab_actions_starter="$HOME/Downloads/socket-ci.yml"
 ~~~
 
-Start with a clean checkout of each repo’s default branch. Apply the same dependency change to both. Run the block once for the CI repo, then change the first line to `lab_repo="$lab_app_repo"` and run it for the App repo. Skip a repo if you’ve already applied the patch there on `demo/add-picocolors`. Expect changes to `prod/cli.js`, `prod/package.json`, and `prod/package-lock.json`.
+Start with a clean checkout of each repo’s default branch. Run this block once to apply the same dependency change to both clones. If you’re resuming on `demo/add-picocolors` and the patch is already present in either clone, the block picks up where you left off. Expect changes to `prod/cli.js`, `prod/package.json`, and `prod/package-lock.json` in each clone.
 
 ~~~sh
-lab_repo="$lab_ci_repo"
 (
   set -e
-  : "${lab_repo:?Set the clone paths using the path block above.}"
+  : "${lab_ci_repo:?Set lab_ci_repo using the path block above.}"
+  : "${lab_app_repo:?Set lab_app_repo using the path block above.}"
   : "${lab_patch:?Set lab_patch using the path block above.}"
-  git -C "$lab_repo" apply --check "$lab_patch"
-  git -C "$lab_repo" switch -c demo/add-picocolors
-  git -C "$lab_repo" apply "$lab_patch"
-  git -C "$lab_repo" diff --stat
+  for lab_repo in "$lab_ci_repo" "$lab_app_repo"; do
+    printf '\n%s\n' "$lab_repo"
+    lab_branch=$(git -C "$lab_repo" branch --show-current)
+    if [ "$lab_branch" = demo/add-picocolors ] &&
+      git -C "$lab_repo" apply --reverse --check "$lab_patch" 2>/dev/null; then
+      printf 'Patch already applied.\n'
+    else
+      git -C "$lab_repo" apply --check "$lab_patch"
+      if [ "$lab_branch" != demo/add-picocolors ]; then
+        git -C "$lab_repo" switch -c demo/add-picocolors
+      fi
+      git -C "$lab_repo" apply "$lab_patch"
+    fi
+    git -C "$lab_repo" diff --stat
+  done
+  printf '\nBoth clones are patched. Next: A · GitHub Actions.\n'
 )
 ~~~
 
@@ -98,6 +117,7 @@ The downloaded starter already defines the `pull_request` trigger, an `actions/c
   git diff --cached --name-only
   git commit -m "Demo dependency change with Socket Actions"
   git push -u origin demo/add-picocolors
+  printf '\nCI branch pushed. Next: B · Socket GitHub App.\n'
 )
 ~~~
 
@@ -117,6 +137,7 @@ This clone gets just the three changed app files. Skip the block if you’ve alr
   git diff --cached --name-only
   git commit -m "Demo dependency change with the Socket GitHub App"
   git push -u origin demo/add-picocolors
+  printf '\nApp branch pushed. Next: Open one PR in each training repo.\n'
 )
 ~~~
 
@@ -146,6 +167,7 @@ After you’ve checked the CI secret and App access and pushed both branches, ru
         --body 'Add picocolors to ActivityPulse for the Widgets Mfg Socket demo.'
     fi
   done
+  printf '\nBoth PRs are open. Next: 10–18 minutes · Verify the engineer’s view.\n'
 )
 ~~~
 
