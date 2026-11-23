@@ -33,7 +33,7 @@ Use Bash, zsh, or Git Bash on Windows. Use the same terminal for all the blocks 
 
 To check the Actions secret and open the PRs from the terminal, use [GitHub CLI](https://cli.github.com/) and run `gh auth status` to confirm you’re signed in to the account that has access to both repos. Run `gh auth login` if you need to sign in. You can also use the GitHub browser steps below.
 
-Set these four paths first. Change the example folder names to match your local clones. If you saved a download somewhere else or your browser renamed it, update that file’s path too.
+Set these four paths first. Change the example folder names to match your local clones. If you saved a download somewhere else or your browser renamed it, update that file’s path too. If you open a new terminal or tab, run this path block again before resuming. If both demo branches are already pushed, continue with the CI secret and App access checks, then open the PRs.
 
 ~~~sh
 lab_ci_repo="$HOME/github/widgets-ci"
@@ -48,6 +48,8 @@ Start with a clean checkout of each repo’s default branch. Apply the same depe
 lab_repo="$lab_ci_repo"
 (
   set -e
+  : "${lab_repo:?Set the clone paths using the path block above.}"
+  : "${lab_patch:?Set lab_patch using the path block above.}"
   git -C "$lab_repo" apply --check "$lab_patch"
   git -C "$lab_repo" switch -c demo/add-picocolors
   git -C "$lab_repo" apply "$lab_patch"
@@ -62,6 +64,7 @@ Keep the **CI repo** outside the Socket GitHub App’s repository selection. Bef
 ~~~sh
 (
   set -e
+  : "${lab_ci_repo:?Set lab_ci_repo using the path block above.}"
   cd "$lab_ci_repo"
   lab_origin=$(git remote get-url origin)
   lab_ci_slug=$(gh repo view "$lab_origin" --json nameWithOwner --jq '.nameWithOwner')
@@ -81,6 +84,12 @@ The downloaded starter already defines the `pull_request` trigger, an `actions/c
 ~~~sh
 (
   set -e
+  : "${lab_ci_repo:?Set lab_ci_repo using the path block above.}"
+  : "${lab_actions_starter:?Set lab_actions_starter using the path block above.}"
+  if [ ! -f "$lab_actions_starter" ]; then
+    printf 'Workflow starter not found at %s\n' "$lab_actions_starter" >&2
+    exit 1
+  fi
   cd "$lab_ci_repo"
   test "$(git branch --show-current)" = demo/add-picocolors
   mkdir -p .github/workflows
@@ -101,6 +110,7 @@ This clone gets just the three changed app files. Skip the block if you’ve alr
 ~~~sh
 (
   set -e
+  : "${lab_app_repo:?Set lab_app_repo using the path block above.}"
   cd "$lab_app_repo"
   test "$(git branch --show-current)" = demo/add-picocolors
   git add prod/cli.js prod/package.json prod/package-lock.json
@@ -117,6 +127,8 @@ After you’ve checked the CI secret and App access and pushed both branches, ru
 ~~~sh
 (
   set -e
+  : "${lab_ci_repo:?Set lab_ci_repo using the path block above.}"
+  : "${lab_app_repo:?Set lab_app_repo using the path block above.}"
   lab_head=demo/add-picocolors
   for lab_repo in "$lab_ci_repo" "$lab_app_repo"; do
     cd "$lab_repo"
