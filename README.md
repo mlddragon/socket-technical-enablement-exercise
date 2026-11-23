@@ -9,9 +9,9 @@ Use this index alongside Socket’s **Technical Enablement Lead Peer Interview**
 | **Friction log** | Parts I and II recorded | [Friction log](project/friction-log.md) · [Proposed public docs changes](project/part-i-briefing.md#6-friction-documentation-improvements-and-first-week-teaching) |
 | **Part I · Getting familiar with Socket** | Complete | [Part I evidence by assignment section](#part-i--getting-familiar-with-socket) |
 | **Part II · Socket Firewall** | Registry-mode enforcement verified | [Demo results and evidence](project/part-ii-firewall-results.md) · [Runbook](project/part-ii-firewall-workplan.md) |
-| **Part III · Short hands-on lab** (30 minutes or less) | Complete · 25 minutes | [Hands-on lab](project/part-iii-lab.md) |
+| **Part III · Short hands-on lab** (30 minutes or less) | Packaged · 30 minutes | [Hands-on lab](project/part-iii-lab.md) |
 | **Part III · One-page talk track** | One-page layout verified | [One-page PDF](project/part-iii-talk-track.pdf) · [Text version](project/part-iii-talk-track.md) |
-| **Part III · Practical readiness check** | Ready to run | [Practical readiness check](project/part-iii-readiness-check.md) · [What “not ready” looks like](project/part-iii-readiness-check.md#decision) |
+| **Part III · Practical readiness check** | Ready to run | [Practical readiness check](project/part-iii-readiness-check.md) |
 | **AI use log** | Recorded | [AI use, corrections, and verification](project/ai-use-and-verification.md) |
 | **Appendix** | Supplemental | [Additional work and supporting research](#additional-work-and-supporting-research) |
 
@@ -46,7 +46,7 @@ The [Part I briefing](project/part-i-briefing.md) is the short overview. Each ro
 
 **ActivityPulse** is the demo repository’s CLI. [Node.js](prod/cli.js) invokes a [Python reporter](prod/report.py), reads its JSON summary, and prints activity counts. The reporter reads the bundled [117-record sample CSV](prod/data/activitypulse-activities.csv) or a YAML file. PyYAML provides the dependency used in the policy demonstration.
 
-The Part III lab uses original CLI and GitHub Actions evidence to teach when to review a blocked dependency, when to follow up on a warning, and when to hand an authentication failure to the CI owner. It includes screenshots and log excerpts for readers without Socket organization access.
+The Part III lab asks a Solutions Engineer to prepare both Socket integration paths and demo the same dependency change for a fictional engineering leader. It includes a reusable GitHub template, starter files, and authentic evidence for rehearsal. See the [three-part teaching package](project/teaching-package.md).
 
 ## Run ActivityPulse
 

@@ -1,25 +1,27 @@
-# Did Socket block the dependency, or did the scan fail?
+# Show Courtney both Socket integration paths
 
-**Customer talk track · Developer leads, DevSecOps, and customer engineers**
+**Widgets Mfg · Late-stage evaluation · Engineering leadership**
 
-Start with the job stage and the evidence. “Did the scanner return a policy decision for a package, or did the integration stop before it could evaluate one?”
+## Open with the workflow decision
 
-## Read the result
+“Courtney, I’ll use the same dependency change in both views. As we go, tell me where your engineers should get feedback and whether your existing pipeline needs to enforce the decision.”
 
-- **Policy Block.** In our PyYAML 6.0.2 example, `potentialVulnerability` had `policy: error`, the scan was unhealthy, and the command exited 1. Review the exact dependency and the alert with the dependency owner and security team before considering changes.
-- **Policy Warn.** The same finding had `policy: warn`. The scan was healthy and exited 0. A warning can remain actionable even when the build passes. Use `--report-level=warn` on the compatible report command to see it.
-- **Authentication failure.** GitHub Actions returned HTTP 401 and the Python CLI exited 3 before a scan result was available. Ask the CI owner to validate the secret reference and actual credential in the intended organization. Keep the value out of logs.
+## Show the same change twice
 
-## Handle common objections
+**A — GitHub Actions.** Open the pull request’s checks and follow the Socket job into Actions. Show where the engineer sees whether the scan completed and where they would investigate a failure. If the CI workflow posts a dependency comment, point to it in the PR.
 
-**“The build is red. Is the package malicious?”** A red result tells us where to investigate. Look for the package, finding, and policy action, or for an infrastructure error. Use the surrounding log to interpret exercise exit codes.
+**B — GitHub App.** Stay in the pull request. Show the App’s dependency overview and check. Point out the package and version, then show where the engineer would go for more context.
 
-**“Can we switch Block to Warn to ship?”** That changes enforcement. Confirm the finding’s relevance and exposure, identify the risk owner, and use the agreed review process for any exception or policy change.
+## Answer the likely objections
 
-**“The token was present. Why did it still fail?”** A masked value shows the workflow received something. Our successful rerun followed correction of the stored value to the actual Socket API token. Separately, a diff-scan permission denial triggered a streaming fallback and the job passed. Check which operation failed and whether the scan eventually completed.
+**“Do we need both?”** Choose one primary feedback path for this repo. The App is a practical starting point for teams that want feedback in their existing GitHub review. Use CI when a specific pipeline control or workflow step matters. Running both in our comparison produced two dependency comments on one PR.
 
-## Agree on the next owner
+**“Would a failed check stop the merge?”** Verify which check is required in the repository’s merge settings. Agree with the security and engineering owners on which findings should warn and which should block.
 
-Ask for the scan or run link, failed stage, package and version if present, and the policy action or HTTP error. Send policy findings to the dependency and security owners. Send authentication failures to the CI owner. If the evidence is incomplete, say what you observed and which log or report you’ll check next.
+**“What does my developer do when the job goes red?”** Open the job and find the first meaningful error. A completed scan with an explicit policy action goes to the dependency and security owners. A 401 before analysis goes to the CI owner to check the integration credential. Keep its value out of shared logs.
 
-**Exercise evidence** · [CLI Block and Warn](part-i-briefing.md#3-security-policy-experiment-ignore--block--warn--inherit) · [GitHub Actions run](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628)
+## Close with a pilot decision
+
+“Given your workflow, I’d pilot one path on one repo. We’ll look for one actionable feedback stream, confirm who owns exceptions, and check whether your normal dependency updates require any extra developer steps.”
+
+[GitHub App feedback](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1#issuecomment-7012611620) · [GitHub Actions result](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628/job/135696762163)

@@ -1,0 +1,55 @@
+diff --git a/prod/cli.js b/prod/cli.js
+index f92e1bc..c934553 100644
+--- a/prod/cli.js
++++ b/prod/cli.js
+@@ -2,6 +2,7 @@
+ 
+ const { spawnSync } = require('node:child_process');
+ const path = require('node:path');
++const pc = require('picocolors');
+ 
+ console.log('Hello World!');
+ console.log('I am ActivityPulse v0.1');
+@@ -26,7 +27,7 @@ if (result.status !== 0) {
+ 
+ const summary = JSON.parse(result.stdout);
+ 
+-console.log('\nActivity Summary');
++console.log(pc.bold(pc.cyan('\nActivity Summary')));
+ console.log(`Total records: ${summary.total_records}`);
+ 
+ for (const [type, count] of Object.entries(summary.by_activity_type)) {
+diff --git a/prod/package-lock.json b/prod/package-lock.json
+index 18d8323..46ecea8 100644
+--- a/prod/package-lock.json
++++ b/prod/package-lock.json
+@@ -7,6 +7,15 @@
+     "": {
+       "name": "activitypulse",
+       "version": "1.0.0",
++      "license": "ISC",
++      "dependencies": {
++        "picocolors": "^1.1.1"
++      }
++    },
++    "node_modules/picocolors": {
++      "version": "1.1.1",
++      "resolved": "https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz",
++      "integrity": "sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==",
+       "license": "ISC"
+     }
+   }
+diff --git a/prod/package.json b/prod/package.json
+index 161c232..d9b417f 100644
+--- a/prod/package.json
++++ b/prod/package.json
+@@ -9,5 +9,8 @@
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+-  "type": "commonjs"
++  "type": "commonjs",
++  "dependencies": {
++    "picocolors": "^1.1.1"
++  }
+ }

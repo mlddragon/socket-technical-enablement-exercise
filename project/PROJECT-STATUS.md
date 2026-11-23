@@ -1,6 +1,6 @@
 # Socket Technical Enablement Exercise — Current Project Status
 
-**Reviewed:** November 19, 2026. Part II updated November 22 against the hands-on demo output and capture inventory.
+**Reviewed:** November 23, 2026. Part III updated for the Widgets Mfg demo lab. Part II evidence was recorded November 22.
 
 **Panel:** **Tuesday, November 24, 2026 at 1:00 PM Eastern** (confirmed by recruiting).
 
@@ -15,9 +15,9 @@
 | **Part I: Block vs Warn enforcement** | **Complete / verified** | PyYAML potentialVulnerability Block scan unhealthy / combined command exit 1; Warn healthy / exit 0. Policy returned to Inherit per user confirmation. |
 | **Part I: Explain decisions, friction and evidence** | **Complete / documented** | [Briefing](part-i-briefing.md), [friction log](friction-log.md), [AI-use log](ai-use-and-verification.md). Interview rehearsal remains. In Attempt 4, the preferred diff scan fell back to streaming after a permission denial. The job succeeded. |
 | **Part II: Socket Firewall registry mode** | **Enforcement verified** | Firewall served isolated npm clients. An allowed install and policy-driven tarball 403 were recorded. [Results and live-demo checklist](part-ii-firewall-results.md). |
-| **Part III: Hands-on lab ≤30 min** | **Complete for this milestone** | [25-minute Courtney-led lab](part-iii-lab.md), original Block/Warn terminal PNGs, four GitHub Actions PNGs, original side-by-side comparison, self-check and collapsible answer key. Mason reported a successful walkthrough and accepted this version. GitHub rendering was verified. |
-| **Part III: One-page customer talk track** | **One-page layout verified** | [PDF](part-iii-talk-track.pdf) · [Text version](part-iii-talk-track.md). Uses the lab’s Block, Warn, and 401 cases. |
-| **Part III: Practical readiness check** | **Ready to run; learner trial pending** | [Readiness rubric](part-iii-readiness-check.md) has two scenarios, a Warn follow-up, five-minute facilitator sequence, and explicit scoring and remediation. |
+| **Part III: Hands-on lab ≤30 min** | **Packaged** | [Widgets Mfg demo lab](part-iii-lab.md), GitHub template, shared dependency patch, CI workflow starter, and saved comparison results. |
+| **Part III: One-page customer talk track** | **One-page layout verified** | [PDF](part-iii-talk-track.pdf) · [Text version](part-iii-talk-track.md). Covers both engineer workflows and customer objections. |
+| **Part III: Practical readiness check** | **Ready to run; learner trial pending** | [Five-minute rubric](part-iii-readiness-check.md) assesses the demo, customer follow-up, and recommendation. |
 | **Extra: Socket CLI Permissions Explorer** | **Working reference** | [Socket CLI Permissions Explorer](https://docs.google.com/spreadsheets/d/1iQLzZkCqyz8XxqFjk2UQPY5TDkvVa1a49uHQ3eLOBPY/edit?usp=sharing) covers documented CLI scopes and suggests mappings by role, persona, and use case. Untested API paths still require validation. |
 | **Extra: Package Scores documentation rewrite** | **Draft / pending human review** | [Repository draft](package-scores-rewrite.md). Additional enablement work outside the required Part III package. |
 
@@ -55,25 +55,11 @@ The [Part II results](part-ii-firewall-results.md) preserve the sanitized observ
 
 ## Part III artifact inventory and content assessment
 
-### Lab: [part-iii-lab.md](part-iii-lab.md)
-- [x] Courtney is ActivityPulse's lead engineer/player-coach; third-person intro/outro and learner second-person instructional sections.
-- [x] Four learner activities, each using **what / why / steps / expected result** format.
-- [x] Actual saved scans and commands for Block vs Warn; screenshots uploaded to `project/images/part-iii/cli-policy-block.png` and `cli-policy-warn.png`.
-- [x] Side-by-side original screenshot comparison embedded in Activity 2; table explicitly compares `healthy:false` / `policy:error` with `healthy:true` / `policy:warn`.
-- [x] Activity 3 uses original GitHub Actions screenshots (attempt 1, 401 search, failed-vs-success comparisons) and accessible historical logs plus sanitized excerpts.
-- [x] Activity 4 includes worksheet, self-check and expandable answer key.
-- [x] Self-contained learner materials; no requirement to consult Part I planning records.
-- [x] Mason reported a successful walkthrough and accepted the 25-minute lab as complete for this milestone. The GitHub page was checked for embedded screenshots, comparisons, and the collapsed answer key.
-- The practical readiness check is a separate activity. Its draft duration is 5–7 minutes.
+### Widgets Mfg demo lab
 
-### One-page talk track: [part-iii-talk-track.md](part-iii-talk-track.md)
-- [x] Customer explanation of Block, Warn, and 401 aligned with the lab. [PDF](part-iii-talk-track.pdf) verified as one page with working evidence links.
-- [ ] Rehearse the spoken delivery.
-
-### Readiness check: [part-iii-readiness-check.md](part-iii-readiness-check.md)
-- [x] Evidence-based classification, safety critical errors, specific ready/not-ready criteria, remediation.
-- [x] Added a five-minute facilitator sequence aligned with the lab’s cases.
-- [ ] Run and time the assessment with a learner.
+- The [30-minute lab](part-iii-lab.md) starts with a buyer’s workflow question and ends with a two-view demo and recommendation.
+- The [public template](https://github.com/mlddragon/activitypulse-demo-template) generated two private training repos. The shared patch applied cleanly and the patched app ran locally. The saved Part I results support an evidence-based rehearsal.
+- The [one-page talk track](part-iii-talk-track.pdf) and [five-minute readiness check](part-iii-readiness-check.md) use the same buyer scenario. Timing with a new learner remains to be measured.
 
 ### Extra documentation improvement
 - [x] [Package Scores rewrite draft](package-scores-rewrite.md) added, linked to Google Doc. Provenance clearly marks it AI-assisted and awaiting editorial review.

@@ -1,220 +1,64 @@
-# Part III — Guided Hands-on Lab: A Red Build Is Not Always a Security Block
+# Prepare a Socket demo for Widgets Mfg
 
-**Duration:** 25 minutes (maximum 30)  
-**Audience:** New Socket SE, TAM, or Support engineer  
-**Project:** [ActivityPulse](https://github.com/mlddragon/socket-technical-enablement-exercise), a Node.js + Python activity-reporting CLI  
-**Outcome:** Diagnose a policy-enforced Block, a non-blocking Warn, and an authentication failure; give a defensible, safe customer response.
+**Audience:** New Socket Solutions Engineers
 
-## The story — Courtney's release decision (0–3 minutes)
+**Duration:** 30 minutes, including the customer rehearsal
 
-Courtney is the **lead software engineer** for ActivityPulse. They build features alongside their team and coach less-experienced engineers through reviews, releases, and production issues. Their team has recently added Socket to the software supply-chain review process.
+## Your next customer call
 
-ActivityPulse imports activity records using Python's PyYAML library and presents results through a Node.js CLI. Courtney's team is preparing a release when two apparently contradictory reports arrive. One Socket CLI scan says **unhealthy** and blocks the dependency under policy. A GitHub Actions job also turns red, but its log shows **401 Unauthorized**, not a package alert. Meanwhile, another scan of the same PyYAML dependency reports only a warning.
+You’re the Solutions Engineer supporting Widgets Mfg, which is in the later stages of evaluating Socket. Courtney, a senior manager of engineering, wants to understand what adopting Socket would change for their engineers day to day.
 
-Courtney must decide whether a dependency needs security review, the CI configuration needs repair, or both. They cannot responsibly tell the team to bypass controls just because a build is red. Courtney asks a new team member to investigate the conflicting results and recommend what the team should do next.
+> Take me through an engineer’s pull request. If we put Socket in CI, what will they see? If we use the GitHub App, what will they see? In each case, when would they need to do something, and what would they do next?
 
-### Before you begin
+Prepare two demos that use the same dependency change. Show where engineers see feedback, what happens on a routine change, and what they do if a result needs attention. Close with a recommendation tied to Widgets Mfg’s workflow.
 
-**What you will do:** Inspect saved Socket scan evidence and GitHub Actions logs; classify each result; communicate a safe next step. No changes to code, tokens, or policy are required.
+Widgets Mfg and Courtney are fictional. The ActivityPulse dependency change comes from the original exercise. The template uses fictional activity data. [Original dependency PR](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1)
 
-**Why:** The saved reports let you inspect the policy decisions from the original experiment. The original policy was restored to Balanced / Inherit after the experiment, so re-running a new scan today is **not** expected to reproduce the same Block.
+## Before the clock starts
 
-**Have ready:** A terminal and a notes area; to retrieve saved scans directly, use an already-authorized Socket CLI v1.15.x. To inspect the GitHub Actions example, use the direct workflow link in Activity 3. The lab contains all case evidence needed to complete the exercises, even when you lack access to the original organization's scans. To fetch historical reports, the token needs `full-scans:list` and `security-policy:read`. Do not request or paste token values.
+- From the [ActivityPulse GitHub template](https://github.com/mlddragon/activitypulse-demo-template), choose **Use this template → Create a new repository** twice, or use the two repositories your facilitator prepared. Use only the template’s default branch. Name the repos so you can distinguish CI from App, then clone both. Use private repos for training.
+- Download [picocolors.patch](lab-assets/picocolors.patch) and [socket-ci.yml](lab-assets/socket-ci.yml). In GitHub’s file view, use **Download raw file**. Keep both files outside the clones until the steps call for them.
+- The facilitator grants the learner access to the training organization and repos. They pre-stage the training Socket API token under the Actions secret name `SOCKET_SECURITY_API_KEY` in the **CI repo only** and confirm the learner or facilitator can select the App repo in the Socket GitHub App installation. Use the learner’s training repos and keep credential values off screen.
+- Open the [saved CI workflow result](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628/job/135696762163), [saved CI success screenshot](images/part-iii/actions-compare-success.png), and [original comparison PR](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1) as fallbacks. If approvals, Actions, or App processing would exceed the activity window, switch to saved evidence and record where the live path stopped.
 
-**If you lack Socket org access:** Use the screenshots and log excerpts in the **Expected result** sections. Complete the classification and handoff anyway. Do not create an account, modify permissions, or change organization policy just to run this lab.
+## 0–3 minutes · Plan the demo
 
-**Safety:** Do not disclose credentials, install unknown packages, run malicious code, or change organization-wide policy. The lab analyzes past results rather than forcing a fresh Block.
+Give a 30-second first take before opening the saved results. Ask Courtney where engineers should get the feedback and whether an existing pipeline needs to carry a required check. Write down the engineer’s first screen, the normal outcome, and one issue you’d be ready to explain for each path.
 
----
+## 3–10 minutes · Prepare and trigger both versions
 
-## Activity 1 — Find the policy block (3–10 minutes)
+In each training clone, start from its default branch. Open a terminal at the repo root. Replace the patch path below with the location of your download.
 
-### What you are going to do
-You will inspect the historical **Block** scan for PyYAML and identify the exact evidence that makes it a security-policy decision rather than an infrastructure error.
+~~~sh
+git switch -c demo/add-picocolors
+git apply --check /path/to/picocolors.patch
+git apply /path/to/picocolors.patch
+git diff --stat
+~~~
 
-### Why you are doing it
-A red CI indicator alone does not say *why* something failed. You need the package, finding, effective policy, scan health, and observed command outcome before advising a customer or release team.
+- **A — GitHub Actions.** Add the workflow starter to this branch as `.github/workflows/socket.yml`. Check the pull-request trigger, checkout, and secret reference. Keep the App out of the CI demo repo. Stage the three changed ActivityPulse files and the workflow, commit, push, and open a PR into the default branch of **this repo**. Find the Actions run for that PR.
+- **B — GitHub App.** In the Socket GitHub App installation, select or confirm access for the App demo repo. Keep the Actions starter out of this repo. Stage the same three changed ActivityPulse files, commit, push, and open a PR into the default branch of **this repo**. Find the App’s check and dependency feedback.
+- Confirm that both PRs add `picocolors@1.1.1` to the application. Record the PR URLs and the evidence you intend to show. [Socket for GitHub Actions](https://docs.socket.dev/docs/socket-for-github-actions) · [GitHub App repository access](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps)
 
-### Steps to complete
+## 10–18 minutes · Verify the engineer’s view
 
-1. Open your notes and locate the worksheet in Activity 4. If you lack authorized Socket CLI access, skip the command and use the screenshot under **Expected result**.
-2. **If you have authorized Socket CLI access**, run this read-only command:
-
-   ~~~bash
-   socket scan report 1a1190d3-8b85-4692-9f01-310c3cc406bf --json --fold=version --no-banner
-   ~~~
-
-   If it fails because you lack organizational access, stop that path and use the provided historical evidence below. Do not regenerate the token or change policy.
-3. Find the package and version, alert type, policy action, and `healthy` value in the report or screenshot.
-4. Record your findings in **Case A** of the worksheet at the end. In the **Safe next action** cell, describe what you would ask the dependency owner or security reviewer to assess before the release proceeds. For context, ActivityPulse loads YAML with `yaml.safe_load`. Ask whether the finding applies to that code path and what remediation the owner recommends.
-
-### Expected result — what it should look like
-
-![Original Block terminal report showing ok: true, healthy: false, and policy: error for the PyYAML 6.0.2 potentialVulnerability finding](images/part-iii/cli-policy-block.png)
-
-Find `data.healthy: false` near the top and `policy: error` under the PyYAML 6.0.2 `potentialVulnerability` finding. The report was generated successfully (`ok: true`) and describes an unhealthy scan. The original combined `scan create --report` command exited **1** under Block. The screenshot shows a later read-only `scan report` retrieval.
-
-**Checkpoint:** You should be able to say, “This result was blocked by policy because Socket evaluated a specific PyYAML finding.” You should **not** conclude that PyYAML is malware, or advise disabling the policy to ship.
-
----
-
-## Activity 2 — Find a warning that did not block (10–15 minutes)
-
-### What you are going to do
-You will examine a historical **Warn** scan of the same package and compare its action, health status, and report visibility with Activity 1.
-
-### Why you are doing it
-Security detection, visibility thresholds, and enforcement are separate concepts. A warning can be present even when the process succeeds and an Error-only report appears empty.
-
-### Steps to complete
-
-1. Open your notes to **Case B**. If you lack authorized Socket CLI access, skip the command and use the screenshot under **Expected result**.
-2. **If you have authorized Socket CLI access**, run this read-only command:
-
-   ~~~bash
-   socket scan report 46093b05-bcd0-438a-9592-4e2a8f045ef3 --json --fold=version --report-level=warn --no-banner
-   ~~~
-
-   If you are working from case evidence, read the expected result below instead.
-3. Find PyYAML 6.0.2 and its `potentialVulnerability` alert in the report or screenshot under **Expected result**.
-4. **Compare the two reports side by side** using the table under **Expected result**. Find **`healthy`** near the top of each report and **`policy`** under the PyYAML alert. Confirm that the package/version and finding type are the same. Record the differences in **Case B** of the worksheet, and answer: **Which CLI option makes the warning visible?**
-
-### Expected result — what it should look like
-
-![Original Warn terminal report showing healthy: true and policy: warn for the PyYAML 6.0.2 potentialVulnerability finding](images/part-iii/cli-policy-warn.png)
-
-Look for `healthy: true` and `policy: warn`. The original combined `scan create --report` command exited **0**. The read-only command above uses `--report-level=warn` to show warnings that an Error-only report can omit.
-
-#### Side-by-side comparison for Step 4
-
-| Field | Block | Warn |
+| Demo | Where to start | What to verify |
 |---|---|---|
-| Original terminal report | [![Block terminal report](images/part-iii/cli-policy-block.png)](images/part-iii/cli-policy-block.png) | [![Warn terminal report](images/part-iii/cli-policy-warn.png)](images/part-iii/cli-policy-warn.png) |
-| **`healthy`** | **`false`** | **`true`** |
-| **`policy`** | **`error`** | **`warn`** |
+| **A — CI** | Start on the PR checks, then open the Socket job in Actions. Show the CI dependency comment if it posted. | The run evaluated this PR’s change. Identify the completed scan and job result. Explain where an engineer would investigate a failed run. |
+| **B — App** | Start on the PR conversation and checks. Open the App’s dependency overview. | The App identifies the added package and version. Explain where an engineer would go to review a finding or get more detail. |
 
-Select either screenshot to open it at full size. Look under `data` for `healthy` and under `alerts → pypi → pyyaml → 6.0.2` for the alert's `policy`.
+If you use saved evidence, identify who posted each original PR comment. The original experiment intentionally ran both integrations on one PR, which produced duplicate feedback. Its successful Actions job completed via streaming comparison after the preferred diff scan was denied. That run shows a passing job. A claim that a failed check prevents merging requires verified merge settings. [Actions comment](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1#issuecomment-7014418426) · [App comment](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/1#issuecomment-7012611620) · [Socket CI/CD guidance](https://docs.socket.dev/docs/sca-ci)
 
-**Checkpoint:** You should be able to say, “Socket detected a finding, but the selected action warned rather than failing the scan.” Do not change the organization's current policy to try to reproduce this older result.
+## 18–25 minutes · Rehearse the recommendation
 
----
+Arrange the PRs, check, run, and backup evidence in demo order. Show the same change in both paths. Explain where the engineer sees the outcome, what they do next, and who owns setup and troubleshooting.
 
-## Activity 3 — Investigate the failed GitHub Actions job (15–21 minutes)
+Prepare for Courtney to ask whether engineers need both. Recommend the App when the priority is feedback inside existing GitHub review. Explain the CI option when the team needs an explicit workflow step or pipeline control. Use the original duplicate comments to show the cost of making both paths post routine feedback. [Observed integration tradeoffs](integration-comparison.md)
 
-### What you are going to do
-You will inspect a real failed CI attempt, locate the **first meaningful error**, and compare it with the later successful scan.
+## 25–30 minutes · Demo to Courtney
 
-### Why you are doing it
-Courtney's team needs to know whether to assign this issue to a dependency/security owner or to the CI/credential owner. Different causes require different fixes.
+Give the two-view demo in three minutes. Take one unannounced customer question, then recommend which option to pilot and state what would change your recommendation. The facilitator scores the performance using the [readiness check](part-iii-readiness-check.md).
 
-### Steps to complete
+### Backup for customer questions
 
-1. Open the [Attempt 1 summary](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628/attempts/1) and select **socket-security** under **All jobs**. You can also open the [Attempt 1 job directly](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628/job/135678730253) or pick Attempt 1 from the [workflow run](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628). If you can't open either job's logs within a minute, use the screenshots and excerpts here.
-
-   ![Attempt 1 summary for Add colored ActivityPulse CLI output with picocolors, showing the failed socket-security job under All jobs](images/part-iii/actions-attempt-1.png)
-
-2. In the **socket-security** job, confirm that checkout, Python setup, and CLI installation succeeded. Expand **Run Socket Security Scan**, then enter `401` in the job's **Search logs** box. Read the first highlighted match. It names `/v0/python-cli-runs` and says **Unauthorized**. Clear the search to read the surrounding trace and find `/v0/organizations` and exit code **3**.
-
-   ![Job log search with 401 entered and the matching API request failed line outlined](images/part-iii/actions-search-401.png)
-
-3. Open the [Attempt 4 job](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628/job/135696762163) and expand **Run Socket Security Scan**. Compare the two jobs below. In Attempt 4, find organization initialization, the streaming comparison fallback, and the successful job status. Then find **No issues found** later in the log or in the excerpt under **Expected result**. Both attempts logged “CLI run registration completed,” so check what happened after that message.
-
-   | Attempt 1 — Failed | Attempt 4 — Succeeded |
-   |---|---|
-   | [![Attempt 1 failed status and HTTP 401 Unauthorized log line outlined](images/part-iii/actions-compare-failed.png)](images/part-iii/actions-compare-failed.png) | [![Attempt 4 succeeded status, registration and organization initialization, and streaming fallback outlined](images/part-iii/actions-compare-success.png)](images/part-iii/actions-compare-success.png) |
-   | **HTTP 401** before dependency analysis completed | **Organization initialized** and the job passed after switching to **streaming comparison** |
-
-   Select either screenshot to open it at full size.
-
-4. Record Attempt 1 in **Case C**. In your notes below the worksheet, explain whether Attempt 4's fallback caused the job to fail and name one credential check the CI owner can perform without revealing the secret.
-
-### Expected result — what it should look like
-
-**Attempt 1 — failed authentication (selected log lines, timestamps removed):**
-
-~~~text
-Starting Socket Security CLI version 2.12.2
-API request failed: 401 Client Error: Unauthorized for url: https://api.socket.dev/v0/python-cli-runs: Unauthorized
-CLI run registration completed in 0.14s
-Path: https://api.socket.dev/v0/organizations
-Process completed with exit code 3.
-~~~
-
-**Attempt 4 — successful scan (selected log lines, timestamps removed):**
-
-~~~text
-CLI run registration completed in 0.12s
-Organization initialization completed in 0.09s
-Diff scan comparison failed with APIAccessDenied(Insufficient permissions), falling back to the streaming scan comparison
-Diff comparison mode: requested=diff-scan effective=streaming reason=APIAccessDenied
-No issues found
-~~~
-
-GitHub Actions marked Attempt 4 **successful**. In Attempt 1, checkout, Python setup, and CLI installation passed before the scan step failed.
-
-The CI owner corrected the repository secret to use the actual Socket API token. Other attempts also changed scopes, so the evidence does not establish that wider scopes fixed authentication. For your handoff, ask the CI owner to verify that the workflow references the intended repository secret and that it contains an authorized token. Keep the value out of logs, notes, and messages.
-
-**Checkpoint:** Identify Attempt 1 as authentication failure before dependency analysis completed. Confirm that Attempt 4 completed with a successful job after falling back to streaming comparison.
-
----
-
-## Activity 4 — Advise Courtney's team (21–25 minutes)
-
-### What you are going to do
-You will complete a short diagnosis worksheet and prepare customer-ready explanations for all three cases.
-
-### Why you are doing it
-Courtney must turn raw scan details into a safe engineering decision. The team needs the issue owner, supporting evidence, and the next action—not just “the build is red.”
-
-### Steps to complete
-
-1. Complete the three worksheet rows below. If you already recorded evidence during Activities 1–3, reuse your notes. Pair each original exit code you cite with the finding or HTTP error that explains it.
-2. Under the table, write **two sentences for each case**. Sentence 1 must state the actual evidence and the outcome. Sentence 2 must identify the next safe step and its owner (security/dependency review or CI/credentials). For example, a useful opening is, “The report identified PyYAML 6.0.2 and applied the Block policy; the scan was unhealthy.” Write your own next-action sentence.
-3. Read your three updates aloud as though you're briefing Courtney and their engineering team. Keep each explanation under 20 seconds.
-4. Use the **Self-check** below to review your updates. Then open **Reveal the answer key** to compare your worksheet.
-
-### Expected result — what it should look like
-
-| Case | Scan analysis completed? | Evidence to cite | Classification | Safe next action |
-|---|---|---|---|---|
-| A — Block | Your answer | Your answer | Your answer | Your answer |
-| B — Warn | Your answer | Your answer | Your answer | Your answer |
-| C — 401 | Your answer | Your answer | Your answer | Your answer |
-
-**Self-check**
-
-- Cite the evidence behind each diagnosis, such as the alert and policy action or the HTTP error.
-- Distinguish a policy Block, a non-blocking Warn, and an authentication failure.
-- Name the follow-up owner and give them one safe next action.
-- Treat the finding as a potential vulnerability. Keep credentials private and leave policy controls in place.
-- Verify whether the streaming fallback affected Attempt 4's final job status.
-
-<details>
-<summary>Reveal the answer key</summary>
-
-| Case | Scan analysis completed? | Evidence to cite | Classification | Safe next action |
-|---|---|---|---|---|
-| A — Block | Yes | PyYAML 6.0.2, `potentialVulnerability`, `policy: error`, `healthy: false`. The original scan-create/report command exited `1`. | Policy Block | Ask the dependency owner and security reviewer to assess whether the finding applies to ActivityPulse's YAML loading path and recommend remediation before release. |
-| B — Warn | Yes | Same PyYAML finding, `policy: warn`, `healthy: true`. The original scan-create/report command exited `0`. | Non-blocking warning | Ask the dependency owner to review the finding and document the release decision. Use `--report-level=warn` to keep the warning visible. |
-| C — 401 | No | Attempt 1 returned HTTP `401 Unauthorized` during Socket API calls. The Python CLI exited `3` before dependency analysis completed. | Authentication failure | Ask the CI owner to verify that the workflow references the intended repository secret and that it contains an authorized Socket API token. Keep the value out of logs and messages. |
-
-**Attempt 4 follow-up:** The job passed after the preferred diff scan fell back to streaming comparison. The fallback did not cause a job failure.
-
-</details>
-
-## The story concludes — Courtney makes the call
-
-Courtney now has three different engineering outcomes instead of one vague category called “Socket failed.” Their original PyYAML Block reached policy evaluation and requires an accountable security decision. The Warn result surfaces the same type of finding without stopping the scan. The GitHub Actions failure happened earlier, during authentication, and was repaired by correcting the credential stored in the CI secret; the later scan passed even though it fell back to a different comparison mode.
-
-With the evidence separated, Courtney can send the dependency finding to the appropriate security reviewer and the credential issue to the CI owner. Their team does not need to bypass policy to fix authentication, and it does not need to troubleshoot credentials when a finding has actually been blocked. The important lesson is now part of Courtney's release process: **first identify where the operation failed, then decide who should act and why.**
-
----
-
-## Facilitator notes (not learner steps)
-
-- **Facilitator answer key:** Expand **Reveal the answer key** under Activity 4.
-- **If learner lacks org access:** Use the supplied screenshots and log excerpts without asking for credentials. GitHub job logs remain the main clickable exercise; if the attempt selector is unavailable, provide sanitized excerpts rather than fabricating live access. Do not score an access constraint as learner incompetence.
-- **Timing:** Narrative/orientation 3 min; Block 7; Warn 5; auth failure/success comparison 6; customer handoff 4 = **25 min**.
-- **Do not conflate:** A CLI `scan report` inspection with the original `scan create --report` exit code; GitHub App PR comments with Python CI job status; a diff-scan fallback with total scan failure; detected indicators with confirmed maliciousness.
-- **Assessment:** Use the separately authored [practical readiness check](part-iii-readiness-check.md). Learner meets readiness only after they can diagnose from evidence, communicate safely, and choose appropriate next actions. A 5–7-minute post-lab readiness assessment is separate from the 25-minute lab; if the full teaching session must stay within 30 minutes, use its condensed 5-minute scenario check.
-- **References:** [Part I briefing](part-i-briefing.md), [detailed execution log](part-i-walkthrough.md), [GitHub Actions run](https://github.com/mlddragon/socket-technical-enablement-exercise/actions/runs/44557864628).
+If Courtney asks about a red job, start with the first meaningful error. The saved Actions 401 shows a job that failed before dependency analysis completed. The saved local CLI reports show a different event, where Socket evaluated a finding and applied Block or Warn. The CLI examples illustrate policy behavior in that experiment. They are separate from the outcome of either demo PR. [CI failure capture](images/part-iii/actions-compare-failed.png) · [CLI Block evidence](images/part-iii/cli-policy-block.png) · [CLI Warn evidence](images/part-iii/cli-policy-warn.png)
