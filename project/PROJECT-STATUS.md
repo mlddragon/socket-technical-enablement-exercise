@@ -4,7 +4,7 @@
 
 **Panel:** **Tuesday, November 24, 2026 at 1:00 PM Eastern** (confirmed by recruiting).
 
-**Submission target:** **Monday, November 23 by 1:00 PM Eastern** as the working target based on the original 24-hour instruction. Recruiting has not separately confirmed the revised submission time.
+**Submission:** Mason reports emailing recruiting about the completed teaching package on November 23.
 
 ## Executive status
 
@@ -15,7 +15,7 @@
 | **Part I: Block vs Warn enforcement** | **Complete / verified** | PyYAML potentialVulnerability Block scan unhealthy / combined command exit 1; Warn healthy / exit 0. Policy returned to Inherit per user confirmation. |
 | **Part I: Explain decisions, friction and evidence** | **Complete / documented** | [Briefing](part-i-briefing.md), [friction log](friction-log.md), [AI-use log](ai-use-and-verification.md). Interview rehearsal remains. In Attempt 4, the preferred diff scan fell back to streaming after a permission denial. The job succeeded. |
 | **Part II: Socket Firewall registry mode** | **Enforcement verified** | Firewall served isolated npm clients. An allowed install and policy-driven tarball 403 were recorded. [Results and live-demo checklist](part-ii-firewall-results.md). |
-| **Part III: Hands-on lab ≤30 min** | **Packaged** | [Widgets Mfg demo lab](part-iii-lab.md), GitHub template, shared dependency patch, CI workflow starter, and saved comparison results. |
+| **Part III: Hands-on lab ≤30 min** | **Complete / live paths verified** | [Widgets Mfg demo lab](part-iii-lab.md), GitHub template, shared dependency patch, CI workflow starter, and saved comparison results. Both paths ran on separate private training repos. |
 | **Part III: One-page customer talk track** | **One-page layout verified** | [PDF](part-iii-talk-track.pdf) · [Text version](part-iii-talk-track.md). Covers both engineer workflows and customer objections. |
 | **Part III: Practical readiness check** | **Five-minute check ready to run** | [In-lab check](part-iii-readiness-check.md) with explicit criteria for coaching and reassessment. A timed learner trial remains pending. |
 
@@ -56,7 +56,7 @@ The [Part II results](part-ii-firewall-results.md) preserve the sanitized observ
 ### Widgets Mfg demo lab
 
 - The [30-minute lab](part-iii-lab.md) starts with a buyer’s workflow question and ends with a two-view demo and recommendation.
-- The [public template](https://github.com/mlddragon/activitypulse-demo-template) generated two private training repos. The shared patch applied cleanly and the patched app ran locally. A fresh [verification PR](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/2) produced successful CI and App results on the pre-authorized exercise repo. The shared starter is verified there. A live run with two isolated integrations depends on access for those training repos.
+- The [public template](https://github.com/mlddragon/activitypulse-demo-template) generated separate private training repos. In the November 23 walkthrough, the Actions job and the App checks passed on their respective PRs, and both integrations posted dependency feedback for `picocolors@1.1.1`. [Verification PR #2](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/2) preserves public evidence from the earlier single-repo verification.
 - The [one-page talk track](part-iii-talk-track.pdf) and [five-minute in-lab readiness check](part-iii-readiness-check.md) use the same buyer scenario. Timing with a new learner remains to be measured.
 
 ### Additional work
@@ -66,8 +66,7 @@ See the [appendix index](appendix/README.md) for the proposed field assessment, 
 ## Prioritized next actions
 
 1. Review the three [Part III teaching materials](teaching-package.md) and rehearse the five-minute assessment.
-2. Prepare the formal Part III submission separately. Use **Monday, November 23 at 1:00 PM Eastern** as the working target unless recruiting confirms a different deadline.
-3. Rehearse the Part I walkthrough using saved reports and PR #1.
-4. Recheck Firewall health before the panel and open the local Part II evidence as a fallback.
+2. Rehearse the Part I walkthrough using saved reports and PR #1.
+3. Recheck Firewall health before the panel and open the local Part II evidence as a fallback.
 
-The [root README](../README.md) is the reviewer entry point. The [project index](README.md) separates current deliverables from historical planning. This repository is available for progress review. The formal submission is still pending.
+The [root README](../README.md) is the reviewer entry point. The [project index](README.md) separates current deliverables from historical planning.
