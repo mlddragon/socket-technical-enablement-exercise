@@ -58,7 +58,7 @@ The [Part II results](part-ii-firewall-results.md) preserve the sanitized observ
 ### Widgets Mfg demo lab
 
 - The [30-minute lab](part-iii-lab.md) starts with a buyer’s workflow question and ends with a two-view demo and recommendation.
-- The [public template](https://github.com/mlddragon/activitypulse-demo-template) generated two private training repos. The shared patch applied cleanly and the patched app ran locally. The saved Part I results support an evidence-based rehearsal.
+- The [public template](https://github.com/mlddragon/activitypulse-demo-template) generated two private training repos. The shared patch applied cleanly and the patched app ran locally. A fresh [verification PR](https://github.com/mlddragon/socket-technical-enablement-exercise/pull/2) produced successful CI and App results on the pre-authorized exercise repo. The shared starter is verified there. A live run with two isolated integrations depends on access for those training repos.
 - The [one-page talk track](part-iii-talk-track.pdf) and [five-minute readiness check](part-iii-readiness-check.md) use the same buyer scenario. Timing with a new learner remains to be measured.
 
 ### Extra documentation improvement

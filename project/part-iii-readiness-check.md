@@ -4,7 +4,7 @@
 
 **Duration:** Five minutes, included in the 30-minute lab
 
-Ask the learner for a 30-second first take at the beginning of the lab. Record which path they would show, why, and one action they expect a developer to take. Give no coaching. Use the same criteria again at the end and record how many prompts the learner needed.
+Ask the learner for a 30-second first take at the beginning of the lab. Record which path they would show, why, and one action they expect a developer to take. Give no coaching. Score the recommendation and developer’s next action again at the end. Record demo navigation and prompting separately.
 
 ## Run the check
 
