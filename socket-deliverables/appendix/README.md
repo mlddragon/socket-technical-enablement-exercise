@@ -4,6 +4,7 @@ These materials support the exercise. Start with the [three Part III deliverable
 
 | Extra | Open | What it shows |
 |---|---|---|
+| **Socket Interview Navigator** | [Download the final Layout ZIP (70 MB)](presentations/socket-interview-navigator-layout.zip) | Local HTML interview deck with separate presenter and audience views, command reference, and bundled evidence. Unzip and open `index.html` in Chrome. |
 | **Proposed field readiness assessment** | [Assessment, scoring, and panel walkthrough](field-readiness-assessment.md) | A 50–60-minute supervised-POC assessment extending the five-minute demo check. Learner trials and field validation remain pending. |
 | **Socket CLI Permissions Explorer** | [Live Google Sheet](https://docs.google.com/spreadsheets/d/1iQLzZkCqyz8XxqFjk2UQPY5TDkvVa1a49uHQ3eLOBPY/edit?usp=sharing) · [Design brief](../../research/planning/cli-permissions-worksheet-handoff.md) | Filter 68 documented commands and variants by role, persona, or use case. Make an editable copy to use the dropdowns and **Scopes to tick** list. Untested API paths still require verification. |
 | **Package Scores rewrite** | [Repository draft](package-scores-rewrite.md) · [Google Doc review copy](https://docs.google.com/document/d/1bm8TfSpiRpJJDsCublt_rcPcJtmmN5wza23yOrIHb8Q/edit) | AI-assisted rewrite for people interpreting scores in daily work. Human review is pending. |
